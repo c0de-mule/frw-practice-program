@@ -13,6 +13,15 @@ David Feinstein's "Finding the Right Words" Practice Program, wrapped with:
 - **Database:** Supabase project **"Tapping Program"** — gate + progress verified working end-to-end.
 - Purchasers are rows in `frw_entitlements`. Add one to grant access (see SUPABASE-SETUP.md).
 
+## Results dashboard (internal)
+- **URL:** https://finding-the-right-words.vercel.app/admin.html
+- Soft-gated to team admin emails (currently Everett + Amber). Shows each tester's
+  tier progress, accuracy, their individual picks (✓/✗) and any own-written phrases,
+  plus a **By item** view aggregating how all testers answered each vignette.
+- **Access is soft:** it's a client-side email check using the same publishable key,
+  so anyone with the link + key could read the data. Treat the link as internal.
+  Real lockdown = restrict `frw_progress` RLS + Supabase Auth (see SUPABASE-SETUP.md).
+
 ## Run it locally
 ```bash
 python3 -m http.server 8777

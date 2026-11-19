@@ -254,7 +254,7 @@ function renderItems(){
     if(!items.length) return;
     anyData=true;
     h+='<h3 style="font-family:var(--serif);font-weight:500;color:var(--navy);margin:1.4rem 0 .2rem">Tier '+t.n+' · '+t.label+'</h3>';
-    h+='<div class="legend">Each bar = how testers answered that item. <b>Green/orange/teal</b> = option A/B/C chosen. Right column = share who got it right.</div>';
+    h+='<div class="legend">Each bar shows how testers split across the options — the letter marks each choice (<b>A / B / C</b>). Right column = share who answered correctly, and how many have answered.</div>';
     items.forEach(ix=>{
       const a=agg[ix], segs=Object.keys(a.opts).map(Number).sort((x,y)=>x-y);
       const bar=segs.map(o=>{
