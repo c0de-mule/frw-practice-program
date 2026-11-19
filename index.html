@@ -222,6 +222,17 @@ a{color:var(--attune)}
 .ownset b{color:var(--ink)}
 .card.own-pending .opts,.card.own-pending .takeaway{display:none!important}
 .ownbox{margin:.4rem 0 .2rem}
+.ownswitch{display:flex;align-items:center;justify-content:flex-end;gap:.55rem;margin:0 0 .55rem;font-family:var(--ui);font-size:.82rem;color:var(--ink-soft)}
+.ownbox .ownswitch{margin:0 0 .5rem}
+.osw{display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid var(--line);border-radius:999px;padding:.18rem .55rem .18rem .25rem;cursor:pointer;font:inherit;font-weight:600;color:var(--ink-soft)}
+.osw:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.osw-t{position:relative;width:28px;height:16px;border-radius:999px;background:#D5D9DE;transition:background .15s}
+.osw-t::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#fff;transition:transform .15s}
+.osw.on{border-color:var(--attune);color:var(--attune)}
+.osw.on .osw-t{background:var(--attune)}
+.osw.on .osw-t::after{transform:translateX(12px)}
+@media (prefers-reduced-motion:reduce){.osw-t,.osw-t::after{transition:none}}
+@media print{.ownswitch{display:none}}
 .ownbox label{display:block;font-size:.9rem;color:var(--ink-soft);margin-bottom:.4rem}
 .ownbox textarea{width:100%;padding:.65rem .75rem;border:1px solid var(--line);border-radius:8px;font:inherit;font-family:var(--serif);font-size:1rem;line-height:1.45;background:#FBFAF7;color:var(--ink);resize:vertical}
 .ownbox textarea:focus{outline:2px solid rgba(23,108,155,.25);border-color:var(--attune)}
@@ -256,6 +267,7 @@ a{color:var(--attune)}
 #record{display:none;padding:1.6rem 0 3rem}
 #r-refl{margin-bottom:1.2rem}
 .rec-head{text-align:center;margin-bottom:1.3rem}
+.rec-top-print{text-align:center;margin:-.2rem 0 1.4rem}
 .rec-head h1{font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--navy);margin:.2rem 0 .3rem}
 .rec-head .eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin:0}
 .rec-name{display:flex;justify-content:center;align-items:center;gap:.5rem;margin:.6rem 0 .2rem;font-size:.9rem;color:var(--ink-soft)}
@@ -1580,7 +1592,7 @@ const ITEMS = [
    {
     "t": "Attune",
     "ok": false,
-    "why": "He has laid the ledger on the table himself. Reflecting the tiredness alone reads only one column."
+    "why": "He has laid out both sides himself, the costs and the payoffs. Reflecting the tiredness alone picks up only one side."
    },
    {
     "t": "Explore",
@@ -1593,7 +1605,7 @@ const ITEMS = [
     "why": "A resignation plan made before the trade-offs are truly felt is the kind that gets reversed by Monday."
    }
   ],
-  "takeaway": "When the client opens the ledger themselves, explore both columns before proposing a change."
+  "takeaway": "When the client lays out both the costs and the payoffs, explore both sides before proposing a change."
  },
  {
   "id": "s1-012",
@@ -1935,7 +1947,7 @@ const ITEMS = [
    {
     "t": "Whose approval was I polishing for, originally? Someone taught me this.",
     "ok": false,
-    "why": "<b>Connecting Past and Present — wrong beat.</b> A worthy thread, but it exits the ledger she just laid out. Weigh first, excavate after."
+    "why": "<b>Connecting Past and Present — wrong beat.</b> A worthy thread, but it leaves the costs and benefits she just laid out. Weigh first, excavate after."
    }
   ],
   "takeaway": "Join the client’s own two clauses. Benefit and cost in one frame is what lets the trade-off finally be felt."
@@ -2305,7 +2317,7 @@ const ITEMS = [
    {
     "t": "If I stopped pleasing everyone, I’d find out who actually likes me, and that terrifies me.",
     "ok": false,
-    "why": "<b>Investigating Secondary Gains — a level deeper than the moment.</b> Powerful, and premature. He offered the visible ledger, not the hidden fear beneath it. Weigh what’s on the table first."
+    "why": "<b>Investigating Secondary Gains — a level deeper than the moment.</b> Powerful, and premature. He offered the visible costs and benefits, not the hidden fear beneath them. Weigh what’s on the table first."
    },
    {
     "t": "Saying yes keeps everyone happy with me, and it’s costing me my weekends and my happiness.",
@@ -2315,7 +2327,7 @@ const ITEMS = [
    {
     "t": "Being generous with my time is simply who I am.",
     "ok": false,
-    "why": "<b>Reframing as identity</b>. It retires the ledger he just opened and renames the cost a virtue."
+    "why": "<b>Reframing as identity</b>. It shuts down the weighing he just began and renames the cost a virtue."
    },
    {
     "t": "Starting this week, my answer is no.",
@@ -2323,7 +2335,7 @@ const ITEMS = [
     "why": "<b>Leading too early.</b> A blanket no, installed before the yes’s logic is understood, tends to last until someone looks disappointed."
    }
   ],
-  "takeaway": "Weigh the ledger the client opened. Both columns in one sentence, no verdict attached."
+  "takeaway": "Weigh the costs and benefits the client has laid out. Both sides in one sentence, no verdict attached."
  },
  {
   "id": "s2-007",
@@ -3405,7 +3417,7 @@ const ITEMS = [
    {
     "t": "The job pays more, but mothers are priceless. That settles it.",
     "ok": false,
-    "why": "<b>Premature cost-benefit ledger</b>, and a guilt-loaded one. Weighing comes later. Right now both feelings just need standing."
+    "why": "<b>Weighing costs and benefits too soon</b>, and with guilt loaded in. Weighing comes later. Right now both feelings just need standing."
    }
   ],
   "takeaway": "Conflicting feelings sit side by side. Hold both without ranking them, resolving them, or putting one beneath the other."
@@ -3675,7 +3687,7 @@ const ITEMS = [
    {
     "t": "Maybe the long hours aren’t only about the mortgage. Maybe the office is where I go to escape the silence at home. True or false?",
     "ok": false,
-    "why": "<b>Investigating Secondary Gains — a level too deep.</b> A powerful hypothesis he hasn’t hinted at. Digging beneath a ledger the client just opened skips the honest weighing he actually offered."
+    "why": "<b>Investigating Secondary Gains — a level too deep.</b> A powerful hypothesis he hasn’t hinted at. Digging beneath the trade-offs he just laid out skips the honest weighing he actually offered."
    },
    {
     "t": "I’m an absent husband, full stop.",
@@ -3688,7 +3700,7 @@ const ITEMS = [
     "why": "<b>Leading before the trade-off is felt</b>. Resolutions made ahead of the reckoning rarely survive the next paycheck."
    }
   ],
-  "takeaway": "Weigh the ledger the client opened before digging beneath it. Visible trade-offs first, hidden payoffs later."
+  "takeaway": "Weigh the costs and benefits the client has laid out before digging beneath them. Visible trade-offs first, hidden payoffs later."
  },
  {
   "id": "s3-049",
@@ -4056,7 +4068,7 @@ const ITEMS = [
    {
     "t": "As long as I’m the settle-for option, I never risk being fully chosen and still losing. True or false?",
     "ok": true,
-    "why": "<b>Explore — Investigating Secondary Gains.</b> A belief calmly recited is doing work. Cross-examining the evidence is what the moment looks like it needs — but he’s kept his own ledger for years, and it will confirm the label. What opens this belief is naming what “settle-for” spares him: the specific vulnerability of being fully chosen and then losing anyway."
+    "why": "<b>Explore — Investigating Secondary Gains.</b> A belief calmly recited is doing work. Cross-examining the evidence is what the moment looks like it needs — but he has been tallying the evidence for years, and it will confirm the label. What opens this belief is naming what “settle-for” spares him: the specific vulnerability of being fully chosen and then losing anyway."
    },
    {
     "t": "From now on I’m choosing to believe I’m someone worth choosing first. True or false?",
@@ -4756,7 +4768,7 @@ const ITEMS = [
    {
     "t": "The anger protects me and it isolates me. Both at once. True or false?",
     "ok": false,
-    "why": "<b>Costs and Benefits — already his.</b> Those are literally his own words from weeks ago. Repeating a ledger already mapped is exactly why he’s stuck — the repetition isn’t moving anything."
+    "why": "<b>Costs and Benefits — already his.</b> Those are literally his own words from weeks ago. Repeating costs and benefits he has already mapped is exactly why he’s stuck — the repetition isn’t moving anything."
    },
    {
     "t": "I forgive my brother completely, as of right now, and I mean it.",
@@ -5106,12 +5118,12 @@ const ITEMS = [
    {
     "t": "As long as her boxes fill the house, I never have to finish saying goodbye. True or false?",
     "ok": true,
-    "why": "<b>Explore — Investigating Secondary Gains.</b> A stall after a thorough weighing means something unnamed is holding the pattern. Here, the boxes as a hedge against final goodbye. That’s the stuck 5 talking."
+    "why": "<b>Explore — Investigating Secondary Gains.</b> A stall after a thorough weighing means something unnamed is holding the pattern. Here, keeping the boxes lets her avoid finishing her goodbye. That’s the stuck 5 talking."
    },
    {
     "t": "The boxes still comfort me, and at the same time they’re slowly taking over the living room and the life I’m trying to live in it. True or false?",
     "ok": false,
-    "why": "<b>Costs and Benefits — exhausted.</b> Re-weighing a ledger she’s already mapped is exactly why the number is stuck. When the ledger stalls, the answer is under it, not on it."
+    "why": "<b>Costs and Benefits — exhausted.</b> Weighing again the costs and benefits she has already mapped is exactly why the number is stuck. When the weighing stalls, the answer is underneath it, not in it."
    },
    {
     "t": "This weekend: dumpster, donation run, done.",
@@ -5124,7 +5136,7 @@ const ITEMS = [
     "why": "<b>Grief-language as validation.</b> A common well-meaning response that treats the stuck SUD as more grief work. But she’s not asking for time. She’s stuck because the boxes are doing a job she hasn’t named. Comfort here delays inquiry."
    }
   ],
-  "takeaway": "A stall after thorough weighing means the ledger is done. Look for the payoff hiding under it."
+  "takeaway": "When the number stalls after a thorough weighing of costs and benefits, the weighing is done. Look for the payoff hiding underneath."
  },
  {
   "id": "s3-034",
@@ -5454,7 +5466,7 @@ function renderHome(){
   dv.innerHTML='<h4>Please stay on one device and one browser</h4><p>The Program saves your progress in the browser you\u2019re using now, on this device. It won\u2019t follow you to another computer, phone, tablet or browser, and it won\u2019t last in a private window. Clearing your browser\u2019s history can also erase it.</p>';
   el.appendChild(dv);
   const ow=document.createElement('label'); ow.className='ownset';
-  ow.innerHTML='<input type="checkbox" id="own-first"'+(ownFirst()?' checked':'')+'><span><b>Try your own phrase first.</b> Before the options appear, write what you would say. Your phrase isn\u2019t scored. After you answer, you compare it with the best answer, and the phrases you write are kept in your Practice Record. It adds about a minute an item, so use it for as much or as little as you like.</span>';
+  ow.innerHTML='<input type="checkbox" id="own-first"'+(ownFirst()?' checked':'')+'><span><b>Try your own phrase first.</b> Before the options appear, write what you would say. Your phrase isn\u2019t scored. After you answer, you compare it with the best answer, and the phrases you write are kept in your Practice Record. It adds about a minute an item, so use it for as much or as little as you like.<br><br><i>A good way to use this:</i> go through the tiers the first time with the options showing. Then, a few weeks or a month later, save your Practice Record, choose Start fresh at the bottom of this page, and go through again with this box checked. The second time, you\u2019ll be formulating the phrases yourself. The language patterns you absorbed the first time through will guide you, as they are already doing in your sessions with clients.</span>';
   ow.querySelector('input').addEventListener('change',e=>{ try{ localStorage.setItem(OWN_KEY,e.target.checked?'1':'0'); }catch(err){} });
   el.appendChild(ow);
   [['read',1],['phrase',2],['twin',3]].forEach(a=>el.appendChild(makeCard(byId(a[0]),a[1])));
@@ -5500,12 +5512,12 @@ function renderFresh(confirming){
   const started=Object.keys(store).length>0;
   if(!started){ box.innerHTML=''; return; }   // nothing saved yet, so nothing to offer
   if(!confirming){
-    box.innerHTML='<span class="lead-in">Returning after a while? </span>'+
+    box.innerHTML='<span class="lead-in">Ready for a second round? Save your Practice Record first. </span>'+
       '<button class="freshbtn" id="freshgo" type="button">Start fresh</button>';
     document.getElementById('freshgo').addEventListener('click',function(){ renderFresh(true); });
   } else {
     box.innerHTML='<div class="freshconfirm" role="alertdialog" aria-labelledby="freshwarn">'+
-      '<span class="warn" id="freshwarn">This erases your saved progress in all four sections, including which items you missed. It cannot be undone.</span>'+
+      '<span class="warn" id="freshwarn">This erases your saved progress in all three tiers, including your scores, reflections, and which items you missed. Save your Practice Record first if you want to keep it. It cannot be undone.</span>'+
       '<button class="yes" id="freshyes" type="button">Erase and start fresh</button>'+
       '<button class="no" id="freshno" type="button">Cancel</button></div>';
     document.getElementById('freshno').addEventListener('click',function(){ renderFresh(false); });
@@ -5587,6 +5599,35 @@ function missEntry(ix,num,extra){
    afterwards is scored exactly as before, so scores stay comparable. */
 const OWN_KEY='frw_own_first';
 function ownFirst(){ try{ return localStorage.getItem(OWN_KEY)==='1'; }catch(e){ return false; } }
+function setOwnFirst(on){ try{ localStorage.setItem(OWN_KEY,on?'1':'0'); }catch(e){} }
+/* A small switch on each unanswered item, so the choice can change right here
+   instead of on the main screen. It also changes the setting for the items that follow. */
+function ownSwitch(on){
+  const w=document.createElement('div'); w.className='ownswitch';
+  w.innerHTML='<span class="osw-l" id="osw-l">Write my own phrase first</span>'
+    +'<button type="button" role="switch" aria-labelledby="osw-l" aria-checked="'+(on?'true':'false')+'" class="osw'+(on?' on':'')+'">'
+    +'<span class="osw-t" aria-hidden="true"></span><span class="osw-s">'+(on?'On':'Off')+'</span></button>';
+  w.querySelector('button').addEventListener('click',()=>{
+    const old=document.querySelector('#q-card .ownswitch');
+    if(on){
+      setOwnFirst(false);
+      if(document.getElementById('q-own')) ownReveal(false);
+      else { if(old) old.remove(); ownSwitchOff(); }
+    } else {
+      setOwnFirst(true); if(old) old.remove();
+      if(cur.revealed) delete cur.revealed[ownIx()];
+      const pin=document.querySelector('#q-card .ownpin'); if(pin) pin.remove();
+      ownSetup();
+    }
+  });
+  return w;
+}
+function ownSwitchOff(){
+  const card=document.getElementById('q-card'); if(!card||card.querySelector('.ownswitch')) return;
+  const ix=ownIx(), answered=(cur.correct||[]).includes(ix)||(cur.missed||[]).includes(ix);
+  if(answered) return;
+  const opts=card.querySelector('.opts'); if(opts) opts.parentNode.insertBefore(ownSwitch(ownFirst()),opts);
+}
 function cueOf(it){ let c=String(it.scene).replace(/<[^>]+>/g,''); if(c.length>96) c=c.slice(0,96).replace(/\s+\S*$/,'')+'\u2026'; return c; }
 function ownIx(){ return cur&&cur.order?cur.order[cur.pos]:-1; }
 function ownSetup(){
@@ -5602,12 +5643,13 @@ function ownSetup(){
     const box=document.createElement('div'); box.className='ownbox'; box.id='q-own';
     box.innerHTML='<label for="q-own-t">'+q+'</label><textarea id="q-own-t" rows="2" maxlength="2000" placeholder="The phrase you would offer the client to repeat">'+esc((cur.own[ix]&&cur.own[ix].p)||'')+'</textarea>'
       +'<div class="ownbtns"><button class="btn" type="button" id="q-own-go">Show the options</button><a id="q-own-skip">Skip writing this one</a></div>';
+    box.insertBefore(ownSwitch(true),box.firstChild);
     prompt.parentNode.insertBefore(box,prompt.nextSibling);
     document.getElementById('q-own-go').addEventListener('click',()=>ownReveal(true));
     document.getElementById('q-own-skip').addEventListener('click',()=>ownReveal(false));
     const sk=document.getElementById('q-skip'); if(sk) sk.style.display='none';
     setTimeout(()=>{ const t=document.getElementById('q-own-t'); if(t&&window.matchMedia('(min-width: 900px)').matches) t.focus(); },50);
-  } else ownPin();
+  } else { ownPin(); ownSwitchOff(); }
 }
 function ownReveal(keep){
   const ix=ownIx(), t=document.getElementById('q-own-t'), v=t?t.value.trim():'';
@@ -5616,7 +5658,7 @@ function ownReveal(keep){
   const card=document.getElementById('q-card'); card.classList.remove('own-pending');
   const box=document.getElementById('q-own'); if(box) box.remove();
   const sk=document.getElementById('q-skip'); if(sk) sk.style.display='';
-  ownPin(); persist();
+  ownPin(); ownSwitchOff(); persist();
 }
 function ownPin(){
   const ix=ownIx(), o=cur.own&&cur.own[ix]; if(!o||!o.p) return;
@@ -5627,6 +5669,7 @@ function ownPin(){
   prompt.parentNode.insertBefore(pin,prompt.nextSibling);
 }
 function ownAfterAnswer(){
+  { const sw=document.querySelector('#q-card .ownswitch'); if(sw) sw.remove(); }
   const ix=ownIx(), o=cur.own&&cur.own[ix]; if(!o||!o.p) return;
   const card=document.getElementById('q-card'); if(!card||card.querySelector('.owncheck')) return;
   const box=document.createElement('div'); box.className='owncheck';
@@ -5735,7 +5778,8 @@ function showRecord(quiet){
   let h='<div class="rec-head"><p class="eyebrow">Finding the Right Words · Practice Program</p><h1>Your Practice Record</h1>'
     +'<div class="rec-name"><span class="rec-name-label">Name</span><input id="rec-name" type="text" maxlength="80" placeholder="Your name (optional)" value="'+esc(name).replace(/"/g,'&quot;')+'"><span class="rec-name-print">'+esc(name)+'</span></div>'
     +'<p class="rec-date">'+fmtDate(new Date().toISOString())+'</p></div>'
-    +'<p class="rec-keep noprint">Your progress is saved only in this browser, on this device. Print this record or save it as a PDF to keep a copy.</p>';
+    +'<p class="rec-keep noprint">Your progress is saved only in this browser, on this device. Print this record or save it as a PDF to keep a copy.</p>'
+    +'<p class="rec-top-print noprint"><button class="btn ghost" type="button" onclick="window.print()">Print or save as PDF</button></p>';
   // the scores
   h+='<table class="rec-table"><thead><tr><th>Tier</th><th>First pass</th><th>Second pass<span class="th-sub">(on missed items)</span></th><th>Completed</th></tr></thead><tbody>';
   let got=0,tot=0,all=true;
