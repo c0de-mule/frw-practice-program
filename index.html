@@ -6215,8 +6215,13 @@ window.addEventListener('popstate',function(e){
     #frw-gate .gmsg.err{color:var(--bad)}
     #frw-gate .ghint{margin-top:1.8rem;font-size:.8rem;color:var(--ink-faint);line-height:1.5}
     #frw-gate .ghint code{background:#efe9df;padding:.12rem .4rem;border-radius:4px;font-size:.78rem}
-    #frw-switch{position:fixed;left:12px;bottom:12px;z-index:9998;font-size:.72rem;color:var(--ink-faint);
-      background:transparent;border:0;cursor:pointer;text-decoration:underline;font-family:var(--ui)}`;
+    /* The "stay on one device" warning is no longer true now that progress syncs. */
+    .devbox{display:none!important}
+    .frw-logout{text-align:center;font-size:.8rem;color:var(--ink-faint);margin:.2rem 0 2.2rem}
+    .frw-logout b{font-weight:600;color:var(--ink-soft)}
+    .frw-logout-btn{background:none;border:0;padding:0;color:var(--attune);text-decoration:underline;cursor:pointer;font:inherit}
+    .frw-logout-btn:hover{color:var(--navy)}
+    @media print{.frw-logout{display:none}}`;
     document.head.appendChild(s);
   }
   function showGate(prefill){
@@ -6264,11 +6269,29 @@ window.addEventListener('popstate',function(e){
     hideGate(); addSwitch(); renderHome(); window.scrollTo(0,0);
   }
 
+  function logOut(){
+    try { localStorage.removeItem(EMAIL_KEY); } catch(e){}
+    // Clear this browser's local progress so the next account to sign in here
+    // starts clean and never inherits the previous person's answers.
+    try { localStorage.removeItem(KEY); } catch(e){}
+    try { localStorage.removeItem(NAME_KEY); } catch(e){}
+    currentEmail='';
+    try { store = sanitizeStore(load()); } catch(e){}
+    const row=document.getElementById('frw-logout'); if(row) row.remove();
+    showGate('');
+  }
   function addSwitch(){
-    if(document.getElementById('frw-switch')) return;
-    const b=document.createElement('button'); b.id='frw-switch'; b.type='button'; b.textContent='Not you? Switch account';
-    b.addEventListener('click', ()=>{ try { localStorage.removeItem(EMAIL_KEY); } catch(e){} currentEmail=''; b.remove(); showGate(''); });
-    document.body.appendChild(b);
+    if(document.getElementById('frw-logout')) return;
+    const foot=document.querySelector('#home .foot');
+    if(!foot) return;
+    const p=document.createElement('p'); p.id='frw-logout'; p.className='frw-logout';
+    p.appendChild(document.createTextNode('Signed in as '));
+    const em=document.createElement('b'); em.textContent=currentEmail; p.appendChild(em);
+    p.appendChild(document.createTextNode(' · '));
+    const b=document.createElement('button'); b.type='button'; b.className='frw-logout-btn'; b.textContent='Log out';
+    b.addEventListener('click', logOut);
+    p.appendChild(b);
+    foot.parentNode.insertBefore(p, foot.nextSibling);
   }
 
   window.bootGated = async function(){
