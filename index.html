@@ -6197,6 +6197,11 @@ window.addEventListener('popstate',function(e){
 
   /* ---------- gate UI ---------- */
   function injectStyles(){
+    if(!document.getElementById('frw-fonts')){
+      const link=document.createElement('link'); link.id='frw-fonts'; link.rel='stylesheet';
+      link.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:wght@400;500;600&display=swap';
+      document.head.appendChild(link);
+    }
     const s=document.createElement('style');
     s.textContent = `
     #frw-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
@@ -6258,6 +6263,9 @@ window.addEventListener('popstate',function(e){
     .frw-results{background:none;border:0;color:#CBD5DF;font-family:var(--ui);font-size:.82rem;cursor:pointer;padding:0;display:none;align-items:center}
     .frw-results.show{display:inline-flex}
     .frw-results:hover{color:#fff;text-decoration:underline}
+    /* book-matched type: EB Garamond for reading, Cormorant for display headings */
+    :root{--serif:'EB Garamond',Georgia,"Times New Roman",serif}
+    .hero .prog-mark,.hero h1,.modhead h2,.profile h4,.res-hero .big,.rec-head h1,.rec-tier h3,#record .rec-tier h3,#record .rec-major,#record .cebox h4,#record .profile h4,#frw-gate h1,.frw-sheet h3{font-family:'Cormorant Garamond',Georgia,serif}
     @media print{.frw-mapbtn,.frw-pbar,.frw-scrim,.frw-results{display:none!important}}`;
     document.head.appendChild(s);
   }
