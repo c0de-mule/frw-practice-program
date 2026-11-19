@@ -169,8 +169,8 @@ function render(){
   $('pfill').style.width=((pos+1)/TOTAL*100)+'%';
   $('scene').textContent=it.scene;
   $('prompt').textContent=it.prompt;
-  const reviewing = pos < front; // looking back at a locked item
-  $('roNote').style.display = (reviewing && answered) ? 'inline' : 'none';
+  const reviewing = answered && answers[pos+1]!=null; // a later item exists -> you navigated back here
+  $('roNote').style.display = reviewing ? 'inline' : 'none';
   $('finalNote').style.display = answered ? 'none' : 'block';
   // options
   $('opts').innerHTML=it.opts.map((o,oi)=>{
