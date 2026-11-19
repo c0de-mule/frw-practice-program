@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Type preview — The Right Words</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#142433;--ink:#22303C;--ink-soft:#4A5866;--ink-faint:#7A8794;
+    --paper:#F7F5F1;--card:#FFFFFF;--line:#E3DFD8;--attune:#176C9B;--explore:#B26A22;--lead:#3C7A55;
+    --gold:#9A7B3F;--good:#2E7D4F;
+    --ui:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:#ECE8E1;color:var(--ink);font-family:var(--ui);line-height:1.5}
+  .mockbar{background:#241a10;color:#f3e7cf;font-size:.74rem;letter-spacing:.04em;text-align:center;padding:.45rem 1rem}
+  .mockbar b{color:#fff}
+  .intro{max-width:1100px;margin:0 auto;padding:1.4rem 1.2rem .4rem}
+  .intro h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.3rem;margin:0 0 .2rem}
+  .intro p{color:var(--ink-soft);font-size:.9rem;margin:0;max-width:720px}
+  .cols{max-width:1100px;margin:0 auto;padding:1rem 1.2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;align-items:start}
+  @media(max-width:760px){.cols{grid-template-columns:1fr}}
+  .col .tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink-faint);margin:0 0 .5rem;padding-left:.2rem}
+  .col.after .tag{color:var(--gold)}
+  .demo{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .demo .brand{background:var(--navy);color:#fff;padding:.7rem 1.1rem;display:flex;justify-content:space-between;font-size:.82rem}
+  .demo .pad{padding:1.2rem 1.3rem}
+
+  /* title block */
+  .ttl{text-align:center;margin:.4rem 0 1.4rem}
+  .ttl .eye{letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;color:var(--ink-faint);margin:0 0 .35rem}
+  .ttl h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:1.9rem;margin:0 0 .35rem;line-height:1.1}
+  .ttl .sub{color:var(--ink-soft);font-size:.9rem;margin:0}
+  .ttl .sub em{font-style:italic}
+  .ttl .by{color:var(--gold);font-weight:600;font-size:.78rem;margin:.5rem 0 0;letter-spacing:.02em}
+
+  /* tier card */
+  .tier{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:0 0 1rem}
+  .tier .num{flex:0 0 42px;height:42px;border-radius:50%;background:var(--attune);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem}
+  .tier h3{font-family:var(--serif);color:var(--navy);margin:0 0 .15rem;font-size:1.08rem;font-weight:600}
+  .tier p{margin:0;color:var(--ink-soft);font-size:.86rem}
+
+  /* quiz card */
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem}
+  .q .scene{font-family:var(--serif);font-size:1.02rem;line-height:1.6;color:var(--ink)}
+  .q .promptq{margin:1rem 0 .7rem;font-weight:700;color:var(--navy)}
+  .q .opts{display:grid;gap:.55rem}
+  .q .opt{background:#FBFAF7;border:1.5px solid var(--line);border-radius:10px;padding:.7rem .9rem;display:flex;gap:.65rem;align-items:center;font-size:.93rem;transition:border-color .12s,box-shadow .12s}
+  .q .opt .key{flex:0 0 22px;height:22px;border-radius:50%;border:1.5px solid var(--ink-faint);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--ink-faint)}
+  .q .opt b{font-weight:600;color:var(--ink)}
+
+  /* ===== AFTER: matched to the field guide ===== */
+  .after .demo{--serif:'Cormorant Garamond',Georgia,serif;--serif-body:'EB Garamond',Georgia,serif}
+  .after .ttl h2{font-weight:600;letter-spacing:.005em}
+  .after .ttl h2,.after .tier h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600}
+  .after .q .scene{font-family:'EB Garamond',Georgia,serif;font-size:1.08rem}
+  .after .ttl .sub,.after .tier p,.after .q .promptq{letter-spacing:.002em}
+  /* subtle craft: softer card finish + clearer option hover */
+  .after .tier,.after .q{box-shadow:0 1px 2px rgba(20,36,51,.04);border-color:#E7E1D6}
+  .after .q .opt{background:#FCFBF8}
+  .after .q .opt:hover{border-color:var(--navy);box-shadow:0 1px 3px rgba(20,36,51,.08)}
+  .after .ttl h2{font-size:2.1rem}
+
+  .note{max-width:1100px;margin:0 auto;padding:0 1.2rem 3rem}
+  .note .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem}
+  .note h4{margin:0 0 .5rem;font-size:.95rem;color:var(--navy)}
+  .note ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--ink-soft);font-size:.88rem;line-height:1.7}
+  .note b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="mockbar">PREVIEW — nothing is live. <b>Left = today. Right = matched to the field guide.</b> Only the type (and a touch of card/button finish) changes. Copy, layout and flow are untouched.</div>
+
+<div class="intro">
+  <h1>Matching the Practice Program to David&rsquo;s field guide</h1>
+  <p>Same navy, same gold, same tier colors as the book cover. The only real change is the typeface &mdash; moving from system Georgia to the book&rsquo;s elegant serif, so the program reads as a companion to the guide.</p>
+</div>
+
+<div class="cols">
+  <div class="col before"><div class="tag">Before &middot; today</div><div class="demo" id="before"></div></div>
+  <div class="col after"><div class="tag">After &middot; matched to the field guide</div><div class="demo" id="after"></div></div>
+</div>
+
+<div class="note"><div class="box">
+  <h4>What changes &mdash; and only this</h4>
+  <ul>
+    <li><b>Headings</b> &rarr; Cormorant Garamond, the elegant serif that echoes the book&rsquo;s title.</li>
+    <li><b>The vignette text</b> &rarr; EB Garamond, matching the guide&rsquo;s readable book-body serif.</li>
+    <li><b>UI text</b> (labels, buttons, counters) &rarr; unchanged.</li>
+    <li><b>A touch of finish</b> &rarr; slightly softer card shadow and a clearer option hover. Subtle.</li>
+    <li><b>Untouched:</b> every word of David&rsquo;s copy, the page structure, the tiers, and the flow.</li>
+  </ul>
+</div></div>
+
+<script>
+const blocks =
+  '<div class="brand"><span>The Right Words</span><span>Practice Program</span></div>'
+  +'<div class="pad">'
+  +'<div class="ttl"><p class="eye">Practice Program</p>'
+  +'<h2>Finding the Right Words</h2>'
+  +'<p class="sub">A Companion to the <em>Finding the Right Words</em> Field Guide</p>'
+  +'<p class="by">Created by David Feinstein, PhD</p></div>'
+  +'<div class="tier"><div class="num">1</div><div><h3>Tier 1 &middot; Sensing the Direction</h3>'
+  +'<p>A clinical vignette &mdash; you choose the direction the next phrase will move the session: Attune, Explore, or Lead.</p></div></div>'
+  +'<div class="q"><div class="scene">He is telling you about the collapse of his marriage year by year. Twice now he has jumped straight from 2018 to 2020. His SUD has not moved off 5 all session, and he is composed, almost as though he has told this before.</div>'
+  +'<div class="promptq">Where should the next phrase go?</div>'
+  +'<div class="opts">'
+  +'<div class="opt"><span class="key">A</span><b>Attune</b></div>'
+  +'<div class="opt"><span class="key">B</span><b>Explore</b></div>'
+  +'<div class="opt"><span class="key">C</span><b>Lead</b></div>'
+  +'</div></div>'
+  +'</div>';
+document.getElementById('before').innerHTML=blocks;
+document.getElementById('after').innerHTML=blocks;
+</script>
+</body>
+</html>
