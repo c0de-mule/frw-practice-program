@@ -1,27 +1,32 @@
-# FRW Practice Program — gated + synced prototype
+# FRW Practice Program — gated + synced
 
-David's "Finding the Right Words" Practice Program, wrapped with:
+David Feinstein's "Finding the Right Words" Practice Program, wrapped with:
 - a **purchaser email gate** (only people on the allow-list get in), and
-- **cross-device progress** (results saved to a backend, not just this browser).
+- **cross-device progress** (results saved to Supabase, not just one browser).
 
 `index.html` is David's original file **unchanged**, except:
 - three one-line `scheduleRemotePush()` hooks inside the existing save / start-fresh / name handlers, and
 - one appended `<script>` block at the bottom (the gate + sync layer, clearly commented).
 
+## Live
+- **URL:** https://c0de-mule.github.io/frw-practice-program/ (GitHub Pages, this repo, `main` branch)
+- **Database:** Supabase project **"Tapping Program"** — gate + progress verified working end-to-end.
+- Purchasers are rows in `frw_entitlements`. Add one to grant access (see SUPABASE-SETUP.md).
+
 ## Run it locally
 ```bash
-cd prototypes/frw-program
 python3 -m http.server 8777
 ```
-Open http://localhost:8777/index.html — try `buyer@example.com` or `test@example.com`.
-No database needed; a local mock stands in until you add Supabase.
+Open http://localhost:8777/index.html.
 
-## Make it real
-See **SUPABASE-SETUP.md** — ~10 minutes: create a project, run the SQL, paste two keys.
+## Backend setup / SQL
+See **SUPABASE-SETUP.md** — tables, the gate function, RLS, and how to add purchasers.
 
 ## Status / open questions
-- Auth: email-only by Everett's call (simple). Upgrade path to magic-link documented.
-- **Checkout processor?** — needed to auto-grant access + tag in ActiveCampaign.
-- **Where does this get hosted?** — it's one static file; any host works.
-- **Which repo is its home?** This lives in the Eden Method Website repo for now but is a
-  *different property* (energytapping.com). It is **not committed**. Decide its real home.
+- **Auth is email-only** (simple, by design). Anyone who knows a buyer's email could view that
+  buyer's progress — fine for review; the lock-tight upgrade is Supabase Auth magic-link
+  (documented in SUPABASE-SETUP.md).
+- **Content gating is soft:** the 144 vignettes live in `index.html`, so they're view-source-able.
+  Harden by moving the item bank into Supabase if David's IP needs protecting.
+- **Checkout processor — TBD.** Needed to auto-grant access + tag the buyer in ActiveCampaign on purchase.
+- **Production home — TBD.** On GitHub Pages for review now; may move to energytapping.com.
