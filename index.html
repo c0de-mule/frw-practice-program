@@ -6258,15 +6258,10 @@ window.addEventListener('popstate',function(e){
     .frw-lg-nr{background:#F4F0E9;border-color:var(--line)}
     .frw-sc-note{font-size:.76rem;color:var(--ink-faint);margin:.7rem 0 0;text-align:center}
     .frw-sc-close{margin-top:1.1rem;width:100%;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.65rem;font-family:var(--ui);font-weight:600;cursor:pointer}
-    /* persistent door to David's existing Practice Record */
-    .brand .frw-right{display:flex;align-items:center;gap:.85rem}
-    .frw-results{background:none;border:0;color:#CBD5DF;font-family:var(--ui);font-size:.82rem;cursor:pointer;padding:0;display:none;align-items:center}
-    .frw-results.show{display:inline-flex}
-    .frw-results:hover{color:#fff;text-decoration:underline}
     /* book-matched type: EB Garamond for reading, Cormorant for display headings */
     :root{--serif:'EB Garamond',Georgia,"Times New Roman",serif}
     .hero .prog-mark,.hero h1,.modhead h2,.profile h4,.res-hero .big,.rec-head h1,.rec-tier h3,#record .rec-tier h3,#record .rec-major,#record .cebox h4,#record .profile h4,#frw-gate h1,.frw-sheet h3{font-family:'Cormorant Garamond',Georgia,serif}
-    @media print{.frw-mapbtn,.frw-pbar,.frw-scrim,.frw-results{display:none!important}}`;
+    @media print{.frw-mapbtn,.frw-pbar,.frw-scrim{display:none!important}}`;
     document.head.appendChild(s);
   }
   function showGate(prefill){
@@ -6388,31 +6383,36 @@ window.addEventListener('popstate',function(e){
     // Keep the header Results door in sync when home re-renders (e.g. after a tier completes).
     if(typeof renderHome==='function' && !renderHome.__frwWrapped){
       const origH=renderHome;
-      renderHome=function(){ const r=origH.apply(this,arguments); try{ updateResultsDoor(); }catch(e){} return r; };
+      renderHome=function(){ const r=origH.apply(this,arguments); try{ surfaceRecordCard(); }catch(e){} return r; };
       renderHome.__frwWrapped=true;
     }
   }
 
-  // ---- persistent "Results" door to David's existing Practice Record ----
-  // Surfaces showRecord() on the same condition David already uses for his
-  // home card (a tier is done); we only make it easier to find, not sooner.
+  // ---- surface David's own "Your Practice Record" entry on home ----
+  // He already shows a record card once a tier is done. We add the same card
+  // for partial progress too, placed right after the tiers, so the overall
+  // results are findable as soon as there is anything to review. Reuses his
+  // .rec-card styling and his showRecord(); no header nav, no new screen.
   function anyTierDone(){
     try{ return ['read','phrase','twin'].some(k=>store[k] && store[k].done); }catch(e){ return false; }
   }
-  function setupResultsDoor(){
-    const brand=document.querySelector('.brand'); if(!brand || document.getElementById('frw-results')) return;
-    const btn=document.createElement('button'); btn.id='frw-results'; btn.type='button'; btn.className='frw-results'; btn.textContent='Results';
-    btn.addEventListener('click', function(){ try{ showRecord(); }catch(e){} });
-    const br=brand.querySelector('.brand-r');
-    if(br){ const right=document.createElement('div'); right.className='frw-right';
-      brand.insertBefore(right, br); right.appendChild(btn); right.appendChild(br); }
-    else { brand.appendChild(btn); }
+  function hasAnyProgress(){
+    try{ return ['read','phrase','twin'].some(k=>{ const s=store[k];
+      return s && (s.done || s.pos>0 || (s.correct||[]).length || (s.missed||[]).length || Object.keys(s.own||{}).length); }); }catch(e){ return false; }
   }
-  function updateResultsDoor(){
-    const btn=document.getElementById('frw-results'); if(btn) btn.classList.toggle('show', anyTierDone());
+  function surfaceRecordCard(){
+    const list=document.getElementById('modlist'); if(!list) return;
+    const old=document.getElementById('frw-rec-card'); if(old) old.remove();
+    // David renders his own record card once a tier is done; only add ours for partial progress.
+    if(anyTierDone() || !hasAnyProgress()) return;
+    const card=document.createElement('div'); card.id='frw-rec-card'; card.className='mod rec-card';
+    card.innerHTML='<div class="num">☰</div><div><h3>Your Practice Record</h3>'
+      +'<p>Your scores, Practice Profile, reflections and the Takeaways from the items you missed, on one page to save or print — it fills in as you go.</p></div>';
+    card.addEventListener('click', function(){ try{ showRecord(); }catch(e){} });
+    const last=list.querySelector('.mod.m-full') || list.querySelector('.mod.m-twin');
+    if(last) last.insertAdjacentElement('afterend', card); else list.appendChild(card);
   }
   function updateChrome(){
-    try{ updateResultsDoor(); }catch(e){}
     if(typeof cur==='undefined' || !cur || !cur.order) return;
     const fill=document.querySelector('#frw-pbar>div');
     if(fill) fill.style.width=((cur.pos+1)/cur.order.length*100)+'%';
@@ -6444,7 +6444,6 @@ window.addEventListener('popstate',function(e){
   window.bootGated = async function(){
     injectStyles();
     try{ enhanceQuiz(); }catch(e){ console.warn('enhanceQuiz failed', e); }
-    try{ setupResultsDoor(); updateResultsDoor(); }catch(e){ console.warn('resultsDoor failed', e); }
     if(currentEmail){
       let ok=false; try { ok=await db.checkEntitlement(currentEmail); } catch(e){ ok=true; /* offline: trust the cached session */ }
       if(ok){ await enterAs(currentEmail); return; }
