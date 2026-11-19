@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navigation mock — The Right Words</title>
+<meta name="robots" content="noindex,nofollow">
+
+<style>
+  :root{--navy:#142433;--navy2:#1B2F42;--ink:#22303C;--ink-soft:#4A5866;--ink-faint:#7A8794;
+    --paper:#F7F5F1;--card:#FFFFFF;--line:#E3DFD8;--attune:#176C9B;--explore:#B26A22;--lead:#3C7A55;
+    --gold:#D8C58C;--good:#2E7D4F;--bad:#B04A3A;--skip:#C79A3E;
+    --ui:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.5}
+
+  .mockbar{background:#241a10;color:#f3e7cf;font-size:.74rem;letter-spacing:.04em;text-align:center;padding:.4rem 1rem}
+  .mockbar b{color:#fff}
+
+  .brand{background:var(--navy);color:#fff;padding:.8rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+  .brand b{font-weight:600}
+  .brand .r{font-size:.82rem;color:#cdd6df}
+
+  /* ---- new minimal top bar ---- */
+  .wrap{max-width:720px;margin:0 auto;padding:0 1.2rem}
+  .topbar{display:flex;align-items:center;gap:.9rem;padding:1.1rem 0 .4rem;flex-wrap:wrap}
+  .tier{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--attune);font-weight:700}
+  .count{font-size:.82rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .count b{color:var(--navy)}
+  .topbar .spacer{flex:1}
+  .mapbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:.4rem .7rem;font-family:var(--ui);font-size:.8rem;color:var(--ink-soft);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;font-weight:600}
+  .mapbtn:hover{border-color:var(--navy);color:var(--navy)}
+  .mapbtn .mini{display:inline-flex;gap:2px}
+  .mapbtn .mini i{width:5px;height:5px;border-radius:1px;background:var(--line)}
+  .pbar{height:6px;background:#E7E1D6;border-radius:4px;overflow:hidden;margin:.1rem 0 1.4rem}
+  .pbar>div{height:100%;background:linear-gradient(90deg,var(--attune),var(--lead));border-radius:4px;transition:width .3s}
+
+  /* ---- question card ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.4rem}
+  .scene{font-family:var(--serif);font-size:1.05rem;line-height:1.6;color:var(--ink)}
+  .promptq{margin:1.1rem 0 .3rem;font-weight:700;color:var(--navy)}
+  .final{font-size:.75rem;color:var(--ink-faint);margin:0 0 .8rem}
+  .final b{color:var(--skip)}
+  .opts{display:grid;gap:.6rem}
+  .opt{background:#FBFAF7;border:1.5px solid var(--line);border-radius:10px;padding:.8rem .95rem;text-align:left;font-family:var(--ui);font-size:.95rem;cursor:pointer;display:flex;gap:.7rem;align-items:center;transition:border-color .12s,background .12s;color:var(--ink)}
+  .opt:hover:not(.locked){border-color:var(--navy)}
+  .opt .key{flex:0 0 22px;height:22px;border-radius:50%;border:1.5px solid var(--ink-faint);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--ink-faint)}
+  .opt.locked{cursor:default;opacity:.85}
+  .opt.picked{border-width:2px}
+  .opt.correct{border-color:var(--good);background:rgba(46,125,79,.07)}
+  .opt.correct .key{border-color:var(--good);color:var(--good)}
+  .opt.wrong{border-color:var(--bad);background:rgba(176,74,58,.06)}
+  .opt.wrong .key{border-color:var(--bad);color:var(--bad)}
+  .opt .res{margin-left:auto;font-size:.78rem;font-weight:700}
+  .opt.correct .res{color:var(--good)}.opt.wrong .res{color:var(--bad)}
+  .takeaway{display:none;margin-top:1.1rem;padding:.85rem 1rem;background:var(--navy);color:#E8EDF2;border-radius:10px;font-size:.9rem;line-height:1.5}
+  .takeaway.show{display:block}
+  .takeaway b{color:var(--gold)}
+
+  .ctrls{display:flex;align-items:center;gap:.7rem;margin:1.1rem 0 3rem}
+  .ctrls .back{border:1.5px solid var(--line);background:none;color:var(--ink-soft);border-radius:9px;padding:.6rem 1rem;font-family:var(--ui);font-size:.9rem;cursor:pointer}
+  .ctrls .back:hover:not(:disabled){border-color:var(--navy);color:var(--navy)}
+  .ctrls .back:disabled{opacity:.4;cursor:default}
+  .ctrls .skip{margin-left:auto;background:none;border:0;color:var(--ink-faint);text-decoration:underline;font-family:var(--ui);font-size:.85rem;cursor:pointer}
+  .ctrls .go{background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.65rem 1.5rem;font-family:var(--ui);font-size:.95rem;font-weight:600;cursor:pointer}
+  .ctrls .go:disabled{opacity:.35;cursor:default}
+  .readonly-note{font-size:.78rem;color:var(--ink-faint);margin-left:.2rem}
+
+  /* ---- scorecard overlay ---- */
+  .scrim{position:fixed;inset:0;background:rgba(20,36,51,.4);display:none;align-items:flex-start;justify-content:center;padding:4vh 1rem;z-index:40}
+  .scrim.show{display:flex}
+  .sheet{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:1.3rem 1.4rem 1.5rem;box-shadow:0 20px 50px rgba(20,36,51,.25)}
+  .sheet h3{font-family:var(--serif);font-weight:500;color:var(--navy);margin:0 0 .15rem;font-size:1.25rem}
+  .sheet .sub{color:var(--ink-soft);font-size:.85rem;margin:0 0 1rem}
+  .grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}
+  .cell{aspect-ratio:1;border-radius:7px;border:1.5px solid var(--line);background:#F4F0E9;color:var(--ink-faint);
+    display:flex;align-items:center;justify-content:center;font-size:.78rem;font-variant-numeric:tabular-nums;cursor:default;font-weight:600}
+  .cell.correct{background:var(--good);border-color:var(--good);color:#fff;cursor:pointer}
+  .cell.missed{background:var(--bad);border-color:var(--bad);color:#fff;cursor:pointer}
+  .cell.skipped{background:#fff;border-color:var(--skip);color:var(--skip);cursor:pointer}
+  .cell.current{outline:3px solid var(--gold);outline-offset:1px;background:var(--navy);border-color:var(--navy);color:#fff}
+  .cell.reached{cursor:pointer}
+  .legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin:1rem 0 .3rem;font-size:.76rem;color:var(--ink-soft)}
+  .legend span{display:inline-flex;align-items:center;gap:.35rem}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1.5px solid}
+  .lg-correct{background:var(--good);border-color:var(--good)}
+  .lg-missed{background:var(--bad);border-color:var(--bad)}
+  .lg-skipped{background:#fff;border-color:var(--skip)}
+  .lg-nr{background:#F4F0E9;border-color:var(--line)}
+  .sheet .close{margin-top:1.1rem;width:100%;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.65rem;font-family:var(--ui);font-weight:600;cursor:pointer}
+  .sheet .note{font-size:.76rem;color:var(--ink-faint);margin:.7rem 0 0;text-align:center}
+</style>
+</head>
+<body>
+<div class="mockbar">PREVIEW MOCK — not the live site. Click the options, use <b>Back / Continue</b>, and open <b>Items</b> to see the scorecard.</div>
+<div class="brand"><b>The Right Words</b><span class="r">Practice Program</span></div>
+
+<div class="wrap">
+  <div class="topbar">
+    <span class="tier" id="tierLabel">Tier 1 · Sensing the Direction</span>
+    <span class="count" id="count">Item <b>12</b> of 48</span>
+    <span class="spacer"></span>
+    <button class="mapbtn" onclick="openMap()"><span class="mini"><i></i><i></i><i></i></span> Items</button>
+  </div>
+  <div class="pbar"><div id="pfill" style="width:25%"></div></div>
+
+  <div class="card">
+    <div class="scene" id="scene"></div>
+    <div class="promptq" id="prompt"></div>
+    <p class="final" id="finalNote">One pick per item — <b>answers are final</b> once you choose.</p>
+    <div class="opts" id="opts"></div>
+    <div class="takeaway" id="takeaway"></div>
+  </div>
+
+  <div class="ctrls">
+    <button class="back" id="back" onclick="go(-1)">← Back</button>
+    <span class="readonly-note" id="roNote" style="display:none">Reviewing a past item (read-only)</span>
+    <button class="skip" id="skip" onclick="skip()">Skip this one →</button>
+    <button class="go" id="go" onclick="go(1)" disabled>Continue</button>
+  </div>
+</div>
+
+<div class="scrim" id="scrim" onclick="if(event.target===this)closeMap()">
+  <div class="sheet">
+    <h3>Tier 1 — your progress</h3>
+    <p class="sub" id="sheetSub"></p>
+    <div class="grid" id="grid"></div>
+    <div class="legend">
+      <span><i class="lg-correct"></i> Correct</span>
+      <span><i class="lg-missed"></i> Missed</span>
+      <span><i class="lg-skipped"></i> Skipped</span>
+      <span><i class="lg-nr"></i> Not yet reached</span>
+    </div>
+    <p class="note">Tap a completed item to re-read why. Answers can't be changed.</p>
+    <button class="close" onclick="closeMap()">Back to practicing</button>
+  </div>
+</div>
+
+<script>
+const TOTAL=48;
+// small pool of realistic vignettes, assigned by index
+const POOL=[
+  {scene:"He is telling you about the collapse of his marriage year by year. Twice now he has jumped straight from 2018 to 2020. His SUD has not moved off 5 all session, and he is composed, almost as though he has told this before.",
+   prompt:"Where should the next phrase go?", opts:["Attune","Explore","Lead"], correct:1,
+   take:"When the story is this rehearsed, the charge is in what gets skipped. Name the gap, gently, before you move anywhere else."},
+  {scene:"“Wednesday nights I’m wide awake until three,” she mentions, in the middle of a list of bad nights. You reflect it back and she taps on it. The number holds at 4, and she stays engaged and steady.",
+   prompt:"Where should the next phrase go?", opts:["Attune","Explore","Lead"], correct:0,
+   take:"Listen for the placeholder. When a client keeps the specific detail buried in a list, the specific detail is usually the one to lift out."},
+  {scene:"He gives a ten-minute list of weekend obligations and ends with “I just don’t get why I’m always tired.” You say, “You’ve scheduled burnout recovery between the fence and the couch.” He pauses, then belly-laughs. His SUD is at 4 and his breathing loosens.",
+   prompt:"Where should the next phrase go?", opts:["Attune","Explore","Lead"], correct:2,
+   take:"A laugh that lands is an opening. When the body agrees, you can lead — name the pattern he just felt, don’t over-explain it."}
+];
+function item(i){ const p=POOL[i%POOL.length]; return {scene:p.scene,prompt:p.prompt,opts:p.opts,correct:p.correct,take:p.take}; }
+
+// seeded state: items 0..10 done, currently on 11 (item 12)
+const answers=new Array(TOTAL).fill(null); // each: {picked, correct, skipped}
+const seedCorrect=[0,1,3,4,6,7,9,10], seedMissed=[2,5], seedSkipped=[8];
+seedCorrect.forEach(i=>answers[i]={picked:item(i).correct,correct:item(i).correct,skipped:false});
+seedMissed.forEach(i=>answers[i]={picked:(item(i).correct+1)%3,correct:item(i).correct,skipped:false});
+seedSkipped.forEach(i=>answers[i]={picked:null,correct:item(i).correct,skipped:true});
+let pos=11;
+let front=11; // first leading item not yet answered/skipped; you can't go past it
+const $=id=>document.getElementById(id);
+
+function render(){
+  const it=item(pos), a=answers[pos];
+  const answered=!!a; // answered OR skipped (both lock the item)
+  $('count').innerHTML='Item <b>'+(pos+1)+'</b> of '+TOTAL;
+  $('pfill').style.width=((pos+1)/TOTAL*100)+'%';
+  $('scene').textContent=it.scene;
+  $('prompt').textContent=it.prompt;
+  const reviewing = pos < front; // looking back at a locked item
+  $('roNote').style.display = (reviewing && answered) ? 'inline' : 'none';
+  $('finalNote').style.display = answered ? 'none' : 'block';
+  // options
+  $('opts').innerHTML=it.opts.map((o,oi)=>{
+    let cls='opt';
+    if(answered){
+      cls+=' locked';
+      if(oi===a.correct) cls+=' correct';
+      if(oi===a.picked && oi!==a.correct) cls+=' wrong';
+      if(oi===a.picked) cls+=' picked';
+    }
+    const res = answered ? (oi===a.correct?'<span class="res">✓ best</span>':(oi===a.picked?'<span class="res">your pick</span>':'')) : '';
+    return '<button class="'+cls+'" onclick="pick('+oi+')"><span class="key">'+String.fromCharCode(65+oi)+'</span><span>'+o+'</span>'+res+'</button>';
+  }).join('');
+  // takeaway (shown for answered items, including when reviewing)
+  if(answered && !a.skipped){ $('takeaway').innerHTML='<b>Takeaway.</b> '+it.take; $('takeaway').classList.add('show'); }
+  else if(answered && a.skipped){ $('takeaway').innerHTML='<b>Skipped.</b> You passed on this one — it stays open on your scorecard.'; $('takeaway').classList.add('show'); }
+  else { $('takeaway').classList.remove('show'); }
+  // controls
+  $('back').disabled = pos===0;
+  $('skip').style.display = answered ? 'none' : 'inline';
+  const canGo = (pos+1 <= front) && (pos < TOTAL-1);
+  $('go').disabled = !canGo;
+  $('go').textContent = (pos+1 < front) ? 'Next →' : 'Continue';
+}
+function pick(oi){
+  if(answers[pos]) return; // already locked
+  answers[pos]={picked:oi,correct:item(pos).correct,skipped:false};
+  if(pos===front) front=pos+1;
+  render();
+}
+function skip(){
+  if(!answers[pos]) answers[pos]={picked:null,correct:item(pos).correct,skipped:true};
+  if(pos===front) front=pos+1;
+  go(1);
+}
+function go(d){
+  if(d>0){ if(pos+1<=front && pos<TOTAL-1) pos++; }
+  else   { if(pos>0) pos--; }
+  render();
+}
+// scorecard
+function openMap(){
+  const reached=front; // items before `front` have been reached
+  let done=0,cor=0;
+  answers.forEach(a=>{ if(a){done++; if(!a.skipped&&a.picked===a.correct)cor++;} });
+  $('sheetSub').textContent=done+' of '+TOTAL+' answered · '+cor+' correct so far';
+  let h='';
+  for(let i=0;i<TOTAL;i++){
+    const a=answers[i]; let cls='cell';
+    if(i===pos) cls+=' current';
+    else if(a&&a.skipped) cls+=' skipped';
+    else if(a&&a.picked===a.correct) cls+=' correct';
+    else if(a) cls+=' missed';
+    else if(i<reached) cls+=' reached';
+    const clickable=(a!=null)||i===pos;
+    h+='<div class="'+cls+'" '+(clickable?'onclick="jump('+i+')"':'')+'>'+(i+1)+'</div>';
+  }
+  $('grid').innerHTML=h;
+  $('scrim').classList.add('show');
+}
+function closeMap(){ $('scrim').classList.remove('show'); }
+function jump(i){ if(answers[i]==null && i!==pos) return; pos=i; closeMap(); render(); }
+render();
+</script>
+</body>
+</html>
