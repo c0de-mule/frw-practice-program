@@ -6253,7 +6253,12 @@ window.addEventListener('popstate',function(e){
     .frw-lg-nr{background:#F4F0E9;border-color:var(--line)}
     .frw-sc-note{font-size:.76rem;color:var(--ink-faint);margin:.7rem 0 0;text-align:center}
     .frw-sc-close{margin-top:1.1rem;width:100%;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.65rem;font-family:var(--ui);font-weight:600;cursor:pointer}
-    @media print{.frw-mapbtn,.frw-pbar,.frw-scrim{display:none!important}}`;
+    /* persistent door to David's existing Practice Record */
+    .brand .frw-right{display:flex;align-items:center;gap:.85rem}
+    .frw-results{background:none;border:0;color:#CBD5DF;font-family:var(--ui);font-size:.82rem;cursor:pointer;padding:0;display:none;align-items:center}
+    .frw-results.show{display:inline-flex}
+    .frw-results:hover{color:#fff;text-decoration:underline}
+    @media print{.frw-mapbtn,.frw-pbar,.frw-scrim,.frw-results{display:none!important}}`;
     document.head.appendChild(s);
   }
   function showGate(prefill){
@@ -6336,7 +6341,7 @@ window.addEventListener('popstate',function(e){
     if(!document.getElementById('frw-items')){
       const btn=document.createElement('button');
       btn.id='frw-items'; btn.type='button'; btn.className='frw-mapbtn';
-      btn.innerHTML='<span class="mini"><i></i><i></i><i></i></span> Items';
+      btn.innerHTML='<span class="mini"><i></i><i></i><i></i></span> Progress';
       btn.addEventListener('click', openScorecard);
       const tiers=btnRow.querySelector('.home');
       btnRow.insertBefore(btn, tiers || null);
@@ -6369,8 +6374,37 @@ window.addEventListener('popstate',function(e){
       renderItem=function(){ const r=orig.apply(this,arguments); try{ updateChrome(); }catch(e){} return r; };
       renderItem.__frwWrapped=true;
     }
+    // Relabel David's "Tiers" button to "Home" (it runs goHome()); kept in our layer.
+    const homeBtn=document.querySelector('#quiz .qtop .home');
+    if(homeBtn && homeBtn.textContent.trim()==='Tiers') homeBtn.textContent='Home';
+    // Keep the header Results door in sync when home re-renders (e.g. after a tier completes).
+    if(typeof renderHome==='function' && !renderHome.__frwWrapped){
+      const origH=renderHome;
+      renderHome=function(){ const r=origH.apply(this,arguments); try{ updateResultsDoor(); }catch(e){} return r; };
+      renderHome.__frwWrapped=true;
+    }
+  }
+
+  // ---- persistent "Results" door to David's existing Practice Record ----
+  // Surfaces showRecord() on the same condition David already uses for his
+  // home card (a tier is done); we only make it easier to find, not sooner.
+  function anyTierDone(){
+    try{ return ['read','phrase','twin'].some(k=>store[k] && store[k].done); }catch(e){ return false; }
+  }
+  function setupResultsDoor(){
+    const brand=document.querySelector('.brand'); if(!brand || document.getElementById('frw-results')) return;
+    const btn=document.createElement('button'); btn.id='frw-results'; btn.type='button'; btn.className='frw-results'; btn.textContent='Results';
+    btn.addEventListener('click', function(){ try{ showRecord(); }catch(e){} });
+    const br=brand.querySelector('.brand-r');
+    if(br){ const right=document.createElement('div'); right.className='frw-right';
+      brand.insertBefore(right, br); right.appendChild(btn); right.appendChild(br); }
+    else { brand.appendChild(btn); }
+  }
+  function updateResultsDoor(){
+    const btn=document.getElementById('frw-results'); if(btn) btn.classList.toggle('show', anyTierDone());
   }
   function updateChrome(){
+    try{ updateResultsDoor(); }catch(e){}
     if(typeof cur==='undefined' || !cur || !cur.order) return;
     const fill=document.querySelector('#frw-pbar>div');
     if(fill) fill.style.width=((cur.pos+1)/cur.order.length*100)+'%';
@@ -6402,6 +6436,7 @@ window.addEventListener('popstate',function(e){
   window.bootGated = async function(){
     injectStyles();
     try{ enhanceQuiz(); }catch(e){ console.warn('enhanceQuiz failed', e); }
+    try{ setupResultsDoor(); updateResultsDoor(); }catch(e){ console.warn('resultsDoor failed', e); }
     if(currentEmail){
       let ok=false; try { ok=await db.checkEntitlement(currentEmail); } catch(e){ ok=true; /* offline: trust the cached session */ }
       if(ok){ await enterAs(currentEmail); return; }
