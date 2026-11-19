@@ -9,7 +9,7 @@ David Feinstein's "Finding the Right Words" Practice Program, wrapped with:
 - one appended `<script>` block at the bottom (the gate + sync layer, clearly commented).
 
 ## Live
-- **URL:** https://c0de-mule.github.io/frw-practice-program/ (GitHub Pages, this repo, `main` branch)
+- **URL:** https://finding-the-right-words.vercel.app (Vercel — auto-deploys from this repo's `main`)
 - **Database:** Supabase project **"Tapping Program"** — gate + progress verified working end-to-end.
 - Purchasers are rows in `frw_entitlements`. Add one to grant access (see SUPABASE-SETUP.md).
 
@@ -29,4 +29,11 @@ See **SUPABASE-SETUP.md** — tables, the gate function, RLS, and how to add pur
 - **Content gating is soft:** the 144 vignettes live in `index.html`, so they're view-source-able.
   Harden by moving the item bank into Supabase if David's IP needs protecting.
 - **Checkout processor — TBD.** Needed to auto-grant access + tag the buyer in ActiveCampaign on purchase.
-- **Production home — TBD.** On GitHub Pages for review now; may move to energytapping.com.
+- **Production home:** Vercel (`finding-the-right-words.vercel.app`). A custom domain can be added
+  later once DNS is available (e.g. a subdomain of energytapping.com).
+
+## Updating from David
+When David sends a revised program file, replace `index.html` with his new version, then re-apply
+the three `scheduleRemotePush()` hooks and the appended gate `<script>` block (with the Supabase
+creds). His edits won't collide as long as he doesn't rewrite the save / start-fresh / name-field
+internals. Push to `main` and Vercel redeploys automatically.
