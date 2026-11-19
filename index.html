@@ -6225,8 +6225,35 @@ window.addEventListener('popstate',function(e){
     /* Amber feedback: keep the quiz view centered — hide the right-side item list
        and its toggle, and drop the content's right margin. The "Jump to #" box in
        the top bar stays, so item navigation is unaffected. */
-    .sidebar,.sidebar-scrim,#q-sidetoggle{display:none!important}
-    #quiz.has-sidebar .wrap,#quiz.has-sidebar.sb-open .wrap{margin-left:auto!important;margin-right:auto!important}`;
+    .sidebar,.sidebar-scrim,#q-sidetoggle,.jumpwrap{display:none!important}
+    #quiz.has-sidebar .wrap,#quiz.has-sidebar.sb-open .wrap{margin-left:auto!important;margin-right:auto!important}
+    /* --- new quiz navigation: progress bar + on-demand Items scorecard --- */
+    .frw-mapbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:.35rem .65rem;font-family:var(--ui);font-size:.8rem;color:var(--ink-soft);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;font-weight:600;vertical-align:middle;margin:0 .3rem}
+    .frw-mapbtn:hover{border-color:var(--navy);color:var(--navy)}
+    .frw-mapbtn .mini{display:inline-flex;gap:2px}
+    .frw-mapbtn .mini i{width:5px;height:5px;border-radius:1px;background:currentColor;opacity:.5}
+    .frw-pbar{height:6px;background:#E7E1D6;border-radius:4px;overflow:hidden;margin:.3rem 0 1.3rem}
+    .frw-pbar>div{height:100%;background:linear-gradient(90deg,var(--attune),var(--lead));border-radius:4px;transition:width .3s ease;width:0}
+    .frw-scrim{position:fixed;inset:0;background:rgba(20,36,51,.4);display:none;align-items:flex-start;justify-content:center;padding:4vh 1rem;z-index:9998;overflow:auto}
+    .frw-scrim.show{display:flex}
+    .frw-sheet{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:1.3rem 1.4rem 1.5rem;box-shadow:0 20px 50px rgba(20,36,51,.25)}
+    .frw-sheet h3{font-family:var(--serif);font-weight:500;color:var(--navy);margin:0 0 .15rem;font-size:1.25rem}
+    .frw-sc-sub{color:var(--ink-soft);font-size:.85rem;margin:0 0 1rem}
+    .frw-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}
+    .frw-cell{aspect-ratio:1;border-radius:7px;border:1.5px solid var(--line);background:#F4F0E9;color:var(--ink-faint);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-variant-numeric:tabular-nums;font-weight:600;cursor:default}
+    .frw-cell[data-pos]{cursor:pointer}
+    .frw-cell.correct{background:var(--good);border-color:var(--good);color:#fff}
+    .frw-cell.missed{background:var(--bad);border-color:var(--bad);color:#fff}
+    .frw-cell.current{outline:3px solid var(--gold);outline-offset:1px;background:var(--navy);border-color:var(--navy);color:#fff}
+    .frw-legend{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin:1rem 0 .3rem;font-size:.76rem;color:var(--ink-soft)}
+    .frw-legend span{display:inline-flex;align-items:center;gap:.35rem}
+    .frw-legend i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1.5px solid}
+    .frw-lg-correct{background:var(--good);border-color:var(--good)}
+    .frw-lg-missed{background:var(--bad);border-color:var(--bad)}
+    .frw-lg-nr{background:#F4F0E9;border-color:var(--line)}
+    .frw-sc-note{font-size:.76rem;color:var(--ink-faint);margin:.7rem 0 0;text-align:center}
+    .frw-sc-close{margin-top:1.1rem;width:100%;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.65rem;font-family:var(--ui);font-weight:600;cursor:pointer}
+    @media print{.frw-mapbtn,.frw-pbar,.frw-scrim{display:none!important}}`;
     document.head.appendChild(s);
   }
   function showGate(prefill){
@@ -6299,8 +6326,82 @@ window.addEventListener('popstate',function(e){
     foot.parentNode.insertBefore(p, foot.nextSibling);
   }
 
+  // ---- new quiz navigation: progress bar + on-demand Items scorecard ----
+  // Reuses David's `cur` state and jumpToItem(); his original item-list drawer
+  // stays hidden (see CSS). All of this lives in our layer so his file is clean.
+  function enhanceQuiz(){
+    const btnRow = document.querySelector('#quiz .qtop > div');
+    const qbody  = document.getElementById('q-body');
+    if(!btnRow || !qbody) return;
+    if(!document.getElementById('frw-items')){
+      const btn=document.createElement('button');
+      btn.id='frw-items'; btn.type='button'; btn.className='frw-mapbtn';
+      btn.innerHTML='<span class="mini"><i></i><i></i><i></i></span> Items';
+      btn.addEventListener('click', openScorecard);
+      const tiers=btnRow.querySelector('.home');
+      btnRow.insertBefore(btn, tiers || null);
+    }
+    if(!document.getElementById('frw-pbar')){
+      const pb=document.createElement('div'); pb.id='frw-pbar'; pb.className='frw-pbar';
+      pb.innerHTML='<div></div>';
+      qbody.parentNode.insertBefore(pb, qbody);
+    }
+    if(!document.getElementById('frw-scrim')){
+      const sc=document.createElement('div'); sc.id='frw-scrim'; sc.className='frw-scrim';
+      sc.innerHTML='<div class="frw-sheet"><h3 id="frw-sc-title">Your progress</h3>'
+        +'<p class="frw-sc-sub" id="frw-sc-sub"></p><div class="frw-grid" id="frw-grid"></div>'
+        +'<div class="frw-legend"><span><i class="frw-lg-correct"></i> Correct</span>'
+        +'<span><i class="frw-lg-missed"></i> Missed</span>'
+        +'<span><i class="frw-lg-nr"></i> Not answered</span></div>'
+        +'<p class="frw-sc-note">Tap a completed item to re-read it. Answers can’t be changed.</p>'
+        +'<button type="button" class="frw-sc-close" id="frw-sc-close">Back to practicing</button></div>';
+      document.body.appendChild(sc);
+      sc.addEventListener('click', e=>{ if(e.target===sc) closeScorecard(); });
+      document.getElementById('frw-sc-close').addEventListener('click', closeScorecard);
+      document.getElementById('frw-grid').addEventListener('click', e=>{
+        const cell=e.target.closest('.frw-cell[data-pos]'); if(!cell) return;
+        const i=parseInt(cell.dataset.pos,10); closeScorecard();
+        try{ jumpToItem(i); }catch(err){}
+      });
+    }
+    if(typeof renderItem==='function' && !renderItem.__frwWrapped){
+      const orig=renderItem;
+      renderItem=function(){ const r=orig.apply(this,arguments); try{ updateChrome(); }catch(e){} return r; };
+      renderItem.__frwWrapped=true;
+    }
+  }
+  function updateChrome(){
+    if(typeof cur==='undefined' || !cur || !cur.order) return;
+    const fill=document.querySelector('#frw-pbar>div');
+    if(fill) fill.style.width=((cur.pos+1)/cur.order.length*100)+'%';
+    const scrim=document.getElementById('frw-scrim');
+    if(scrim && scrim.classList.contains('show')) buildGrid();
+  }
+  function buildGrid(){
+    if(typeof cur==='undefined' || !cur || !cur.order) return;
+    const correctSet=new Set(cur.correct||[]), missedSet=new Set(cur.missed||[]);
+    let answered=0, h='';
+    for(let i=0;i<cur.order.length;i++){
+      const idx=cur.order[i];
+      const isC=correctSet.has(idx), isM=missedSet.has(idx), isCur=(i===cur.pos);
+      let cls='frw-cell';
+      if(isCur) cls+=' current'; else if(isC) cls+=' correct'; else if(isM) cls+=' missed';
+      if(isC||isM) answered++;
+      const clickable=isC||isM||isCur;
+      h+='<div class="'+cls+'"'+(clickable?' data-pos="'+i+'"':'')+'>'+(i+1)+'</div>';
+    }
+    document.getElementById('frw-grid').innerHTML=h;
+    const tier=(cur.label||'').split(' · ')[0] || 'This tier';
+    document.getElementById('frw-sc-title').textContent=tier+' — your progress';
+    document.getElementById('frw-sc-sub').textContent=
+      answered+' of '+cur.order.length+' answered · '+(cur.score||0)+' correct so far';
+  }
+  function openScorecard(){ buildGrid(); const s=document.getElementById('frw-scrim'); if(s) s.classList.add('show'); }
+  function closeScorecard(){ const s=document.getElementById('frw-scrim'); if(s) s.classList.remove('show'); }
+
   window.bootGated = async function(){
     injectStyles();
+    try{ enhanceQuiz(); }catch(e){ console.warn('enhanceQuiz failed', e); }
     if(currentEmail){
       let ok=false; try { ok=await db.checkEntitlement(currentEmail); } catch(e){ ok=true; /* offline: trust the cached session */ }
       if(ok){ await enterAs(currentEmail); return; }
