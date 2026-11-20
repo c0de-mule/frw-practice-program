@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Opt-in options — Finding the Right Words</title>
+<title>Opt-in — Finding the Right Words</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,43 +29,25 @@
   .navlinks{display:flex;gap:1.3rem;font-size:.92rem}
   .navlinks a{color:#DCE2E8;text-decoration:none;font-weight:500}
 
-  .wrap{max-width:720px;margin:0 auto;padding:0 1.25rem}
-  .intro{text-align:center;padding:2.4rem 0 .4rem}
-  .intro h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.7rem;margin:0 0 .4rem}
-  .intro p{color:var(--ink-soft);font-size:.98rem;margin:0 auto;max-width:44ch}
+  .wrap{max-width:680px;margin:0 auto;padding:0 1.25rem}
+  .faux{color:var(--ink-faint);text-align:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin:2.6rem 0 1.4rem}
 
-  .variant-label{font-family:var(--ui);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;color:var(--brass-deep);margin:2.8rem 0 .9rem;text-align:center}
-
-  /* shared field styles */
-  .optin input[type=email]{font-family:var(--ui);font-size:1rem;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);width:100%}
+  .optin input[type=email]{font-family:var(--ui);font-size:1rem;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);width:100%}
   .optin input[type=email]:focus{outline:none;border-color:var(--brand)}
-  .optin button{font-family:var(--ui);font-weight:600;font-size:1rem;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.8rem 1.5rem;cursor:pointer;white-space:nowrap;transition:background .15s}
+  .optin button{font-family:var(--ui);font-weight:600;font-size:1rem;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.85rem 1.6rem;cursor:pointer;white-space:nowrap;transition:background .15s}
   .optin button:hover{background:#17304a}
 
-  /* Variant A — card */
-  .optin-card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(15,35,51,.05);padding:2.2rem 1.8rem;text-align:center}
+  .optin-card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 34px rgba(15,35,51,.06);padding:2.4rem 2rem;text-align:center;margin-bottom:3rem}
   .optin-card .eyebrow{font-family:var(--ui);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--brass-deep);margin:0 0 .6rem}
-  .optin-card h3{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.5rem;margin:0 0 .5rem;line-height:1.2}
-  .optin-card .sub{color:var(--ink-soft);font-size:1rem;margin:0 auto 1.3rem;max-width:40ch}
+  .optin-card h3{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.65rem;margin:0 0 .6rem;line-height:1.18}
+  .optin-card .sub{color:var(--ink-soft);font-size:1.05rem;margin:0 auto 1.4rem;max-width:40ch}
   .optin-card form{display:flex;gap:.6rem;max-width:30rem;margin:0 auto;flex-wrap:wrap}
   .optin-card form input{flex:1;min-width:12rem}
-  .optin-card .fine{color:var(--ink-faint);font-size:.84rem;margin:1rem 0 0}
-  .optin-card .fine b{color:var(--ink-soft);font-weight:600}
-
-  /* Variant B — slim band */
-  .optin-band{background:var(--warm);border:1px solid #E7DECB;border-radius:14px;padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap}
-  .optin-band .bt{min-width:16rem;flex:1}
-  .optin-band .bt strong{display:block;font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.18rem}
-  .optin-band .bt span{color:var(--ink-soft);font-size:.9rem}
-  .optin-band form{display:flex;gap:.5rem;flex:0 0 auto}
-  .optin-band form input{width:13rem}
-  @media(max-width:560px){ .optin-band form{width:100%} .optin-band form input{flex:1;width:auto} }
-
-  footer{text-align:center;padding:3rem 1.25rem;color:var(--ink-faint);font-size:.85rem}
+  .optin-card .fine{color:var(--ink-faint);font-size:.84rem;margin:1.1rem 0 0}
 </style>
 </head>
 <body>
-<div class="mockbar">PREVIEW — optional opt-in mock. <b>Not wired to ActiveCampaign yet.</b> Two placements to choose from. The free Field Guide stays free either way.</div>
+<div class="mockbar">PREVIEW — optional opt-in, tightened copy. <b>Not wired to ActiveCampaign yet.</b></div>
 
 <div class="nav"><div class="nav-in">
   <div class="brand"><span class="l">Finding the </span><span class="r">Right Words</span></div>
@@ -73,36 +55,18 @@
 </div></div>
 
 <div class="wrap">
-  <div class="intro">
-    <h1>Optional opt-in &mdash; two looks</h1>
-    <p>A soft invitation to join David&rsquo;s list, not a wall in front of the guide. Pick whichever placement fits.</p>
-  </div>
+  <p class="faux">&middot;&nbsp;&nbsp;end of the Field Guide / Info page&nbsp;&nbsp;&middot;</p>
 
-  <p class="variant-label">Option A &middot; Card (e.g. end of the Info or Field Guide page)</p>
   <section class="optin optin-card">
-    <p class="eyebrow">Stay in touch</p>
-    <h3>Hear from David now and then</h3>
-    <p class="sub">New resources, classes, and the occasional paper &mdash; sent sparingly, never spammy. Unsubscribe anytime.</p>
+    <p class="eyebrow">Keep learning</p>
+    <h3>Keep getting better at the words</h3>
+    <p class="sub">David shares new research, language techniques, and practitioner resources as he develops them &mdash; a few times a year, straight to your inbox.</p>
     <form onsubmit="return false">
       <input type="email" placeholder="Your email address" aria-label="Your email address">
-      <button type="submit">Keep me posted</button>
+      <button type="submit">Send them my way</button>
     </form>
-    <p class="fine"><b>Optional</b> &mdash; the Field Guide stays free to download either way.</p>
-  </section>
-
-  <p class="variant-label">Option B &middot; Slim band (lighter footprint, inline)</p>
-  <section class="optin optin-band">
-    <div class="bt">
-      <strong>Want David&rsquo;s occasional notes?</strong>
-      <span>Resources, classes, papers &mdash; sparingly. Unsubscribe anytime.</span>
-    </div>
-    <form onsubmit="return false">
-      <input type="email" placeholder="Your email" aria-label="Your email">
-      <button type="submit">Sign up</button>
-    </form>
+    <p class="fine">Unsubscribe anytime. The Field Guide stays free to download either way.</p>
   </section>
 </div>
-
-<footer>Mock only &middot; both feed one ActiveCampaign list once wired &middot; the mandatory-gate version is a separate mock for David&rsquo;s call.</footer>
 </body>
 </html>
