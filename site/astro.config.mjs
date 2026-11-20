@@ -1,9 +1,11 @@
 import { defineConfig } from 'astro/config';
 
-// NOTE: `base: '/app/'` is only so the built site can preview under
-// finding-the-right-words.vercel.app/app/ on the existing static deploy.
-// For the real subdomain (its own Vercel project), drop `base` (or set '/').
+// Served at the site root (the existing Vercel project builds from `site/`).
+// Home redirects to the info/sales page; change the target to set a different home.
 export default defineConfig({
-  base: '/app/',
+  base: '/',
   trailingSlash: 'always',
+  redirects: {
+    '/': '/infopage/',
+  },
 });

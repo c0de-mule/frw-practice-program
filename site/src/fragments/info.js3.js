@@ -479,7 +479,7 @@ function fpRenderDone(){
   
   html += '<p class="fp-offer">The full program has 144 scenarios like these across three tiers, with your Practice Profile, reflections, and a Practice Record to keep. <b>$129 · lifetime access · 14-day full refund · 6 CE hours available through ACEP.</b></p>';
   html += '<div class="fp-cta-row">';
-  html += '<a class="fp-primary" href="https://energytapping.com/infopage/enroll/" target="_blank" rel="opener">Enroll in the Program — $129</a>';
+  html += '<a class="fp-primary" href="/enroll/" target="_blank" rel="opener">Enroll in the Program — $129</a>';
   html += '<a href="#" onclick="event.preventDefault(); enterFoldedPreview(fpOrigin);">Restart the Sample</a>';
   html += '<a href="#" onclick="event.preventDefault(); exitFoldedPreview();">Back to the page</a>';
   html += '</div>';

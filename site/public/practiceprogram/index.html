@@ -5487,12 +5487,12 @@ function renderHome(){
   rhead.innerHTML='<h2>Two Companions</h2><p>The Field Guide sets out in full the twenty-one language variations you will be learning to use instinctively, and the Guide on a Page puts them on a single page. Read the Field Guide and glance over the Guide on a Page before you begin. Then set them both aside as you work through the Three Tiers. In a session, you won\u2019t have either.</p>';
   el.appendChild(rhead);
 
-  const fg=document.createElement('a'); fg.className='mod fg-card'; fg.href='https://energytapping.com/fieldguide/';
+  const fg=document.createElement('a'); fg.className='mod fg-card'; fg.href='/fieldguide/';
   fg.innerHTML=`<div class="num">↗</div><div><h3>The Field Guide</h3><p>Haven’t read the Field Guide yet? That’s the place to begin.</p></div>`;
   el.appendChild(fg);
 
   const rc=document.createElement('a'); rc.className='mod rc-card';
-  rc.href='https://energytapping.com/practiceprogram/guideonapage.pdf';
+  rc.href='/practiceprogram/guideonapage.pdf';
   rc.setAttribute('download','');
   rc.innerHTML=`<div class="num">☷</div><div><h3>The Guide on a Page</h3><p>The whole framework on one page, for review or for warming up before a challenging session. Not for consulting during one.</p></div>`;
   el.appendChild(rc);
