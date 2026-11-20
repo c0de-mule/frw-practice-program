@@ -1,0 +1,1430 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finding the Right Words — An Interactive Program for Tapping Practitioners</title><meta name="description" content="An interactive practice program developed by clinical psychologist David Feinstein, PhD."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet"><style>:root{--paper:#F7F5F1;--card:#FFFFFF;--ink:#1E2A36;--navy:#0F2337;--ink-soft:#465360;--ink-faint:#7C8894;--line:#E4DFD7;--brass:#D8C58C;--brass-deep:#B7975A;--brand:#176C9B;--warm:rgba(151,143,131,.13);--serif:"Newsreader",Georgia,"Times New Roman",serif;--ui:"Public Sans","Segoe UI",Helvetica,Arial,sans-serif}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}main{flex:1 0 auto}a{color:var(--brand);text-underline-offset:2px}.nav{background:#0f2337f7;position:sticky;top:0;z-index:20}.nav-in{max-width:1040px;margin:0 auto;height:63px;display:flex;align-items:center;justify-content:space-between;padding:0 1.3rem;gap:1rem}.brand{font-family:var(--serif);font-size:1.28rem;letter-spacing:.01em;white-space:nowrap}.brand a{text-decoration:none}.brand .l{color:#cbb37a;font-weight:500}.brand .r{color:#e6ce8f;font-weight:600}.navlinks{display:flex;gap:1.4rem;font-size:.95rem;align-items:center}.navlinks a{color:#dce2e8;text-decoration:none;font-weight:500}.navlinks a:hover{color:#fff}.navlinks .enroll{background:#2c6a93;color:#fff;padding:.5rem 1.05rem;border-radius:7px}.navlinks .enroll:hover{background:#357aa7;color:#fff}@media(max-width:600px){.navlinks{gap:.9rem;font-size:.85rem}.brand{font-size:1.02rem}.navlinks .hide-sm{display:none}}.site-footer{flex-shrink:0;text-align:center;padding:2.8rem 1.25rem 3.2rem;color:var(--ink-faint);font-size:.9rem;border-top:1px solid var(--line);margin-top:2rem}.site-footer a{color:var(--ink-faint)}.site-footer .fine{margin:.5rem 0 0;font-size:.82rem}
+.section-nav[data-astro-cid-l2skfkwp]{position:sticky;top:63px;z-index:19;background:#132c44;border-bottom:1px solid rgba(0,0,0,.25)}.section-nav[data-astro-cid-l2skfkwp] .inner[data-astro-cid-l2skfkwp]{max-width:1040px;margin:0 auto;display:flex;gap:1.4rem;align-items:center;height:46px;padding:0 1.3rem;overflow-x:auto;scrollbar-width:none}.section-nav[data-astro-cid-l2skfkwp] .inner[data-astro-cid-l2skfkwp]::-webkit-scrollbar{display:none}.section-nav[data-astro-cid-l2skfkwp] a[data-astro-cid-l2skfkwp]{color:#cbd6df;text-decoration:none;font-weight:600;font-size:.86rem;white-space:nowrap}.section-nav[data-astro-cid-l2skfkwp] a[data-astro-cid-l2skfkwp]:hover{color:#fff}.section-nav[data-astro-cid-l2skfkwp] a[data-astro-cid-l2skfkwp].cta{margin-left:auto;background:#2c6a93;color:#fff;padding:.42rem .95rem;border-radius:6px}.section-nav[data-astro-cid-l2skfkwp] a[data-astro-cid-l2skfkwp].cta:hover{background:#357aa7;color:#fff}@media(max-width:600px){.section-nav[data-astro-cid-l2skfkwp] a[data-astro-cid-l2skfkwp].cta{margin-left:0}}html{scroll-padding-top:112px}
+</style></head> <body> <div class="nav"> <div class="nav-in"> <div class="brand"><a href="/app/"><span class="l">Finding the </span><span class="r">Right Words</span></a></div> <nav class="navlinks"> <a class="hide-sm" href="https://energytapping.com/infopage/">About the program</a> <a href="/app/fieldguide/">Field Guide</a> <a class="enroll" href="https://energytapping.com/infopage/enroll/">Enroll</a> </nav> </div> </div> <main>  <style is:global>:root{
+  --navy:#0F2337; --navy2:#132C44; --ink:#1E2A36; --ink-soft:#465360; --ink-faint:#7C8894;
+  --paper:#F7F5F1; --card:#FFFFFF; --line:#E4DFD7;
+  --brass:#D8C58C; --brass-deep:#B7975A;
+  --attune:#1C74A3; --explore:#B26A22; --lead:#3C7A55;
+  --brand:#176C9B;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Public Sans","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ui);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.narrow{max-width:760px;margin:0 auto;padding:0 1.5rem}
+a{color:var(--brand)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:-.01em;color:var(--navy)}
+.eyebrow{font-family:var(--ui);font-weight:700;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-deep)}
+.btn{display:inline-block;font-family:var(--ui);font-weight:600;font-size:1rem;background:var(--brand);color:#fff;text-decoration:none;padding:.85rem 1.8rem;border-radius:10px;transition:transform .15s,background .15s;border:none;cursor:pointer}
+.btn:hover{background:#125883;transform:translateY(-1px);color:#fff}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn.big{font-size:1.08rem;padding:1rem 2.3rem}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(15,35,55,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(216,197,140,.18)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.topbar .mark{font-family:var(--serif);color:var(--brass);font-size:1.15rem;letter-spacing:.01em}
+.topbar .mark b{color:var(--brass);font-weight:600}
+.topbar nav{display:flex;align-items:center;gap:1.6rem}
+.topbar nav a{color:#CBD6DF;text-decoration:none;font-size:.86rem;font-weight:500}
+.topbar nav a:hover{color:#fff}
+.topbar .btn{padding:.55rem 1.2rem;font-size:.86rem}
+
+/* hero */
+.hero{background:linear-gradient(160deg,#173250 0%,var(--navy) 62%);color:#EAF0F5;padding:5.5rem 0 5rem;position:relative;overflow:hidden;text-align:center}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,rgba(216,197,140,.10),transparent 70%);pointer-events:none}
+.hero .eyebrow{color:var(--brass)}
+.hero h1{color:#fff;font-size:clamp(3rem,8vw,5.2rem);margin:1rem 0 2.2rem;letter-spacing:-.02em}
+.hero .sub-title a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(216,197,140,.45)}
+.hero .sub-title{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--brass);margin-bottom:2rem}
+.hero .hook{font-family:var(--serif);font-size:clamp(1.35rem,3.4vw,2rem);color:#F2F5F8;margin:0 auto 1.5rem;line-height:1.25;max-width:44rem;padding:1.6rem 2.1rem 1.75rem;border:1px solid rgba(216,197,140,.32);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0))}
+.hero .hook p{margin:0 0 .55em;text-wrap:balance}
+.hero .hook p:last-child{margin:.35em 0 0;color:var(--brass);font-weight:600}
+/* The promise. First thing under the hook, and the only paragraph in the
+   hero that states an outcome rather than a description. */
+.hero .promise{font-family:var(--serif);font-size:1.16rem;line-height:1.55;color:#E8EFF4;max-width:46rem;margin:0 auto 1.35rem}
+.hero .promise b{color:var(--brass);font-weight:600}
+.hero .dek{font-size:1.05rem;color:#B8C6D2;max-width:52ch;margin:0 auto 1.5rem}
+.hero .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.hero .dek-note{max-width:40rem;margin:1rem auto 1.1rem;font-size:1rem;color:#C6D4DF;font-style:italic}
+.byline{font-size:1rem;color:#CBD9E2;margin:1.15rem 0;text-align:center}
+.byline b{color:#fff;font-weight:600}
+.under{margin-top:1.6rem;font-size:.82rem;color:#8FA2B2;letter-spacing:.02em}
+.hero .under b{color:var(--brass);font-weight:600}
+
+/* domain rule */
+.domain-rule{height:5px;display:flex}
+.domain-rule i{flex:1}
+.domain-rule i:nth-child(1){background:var(--attune)}
+.domain-rule i:nth-child(2){background:var(--explore)}
+.domain-rule i:nth-child(3){background:var(--lead)}
+
+section{padding:4.5rem 0}
+.section-eyebrow{text-align:center;margin-bottom:.7rem}
+.section-h{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1rem}
+.section-lead{text-align:center;font-size:1.12rem;color:var(--ink-soft);max-width:60ch;margin:0 auto 2.8rem}
+
+/* problem */
+.problem{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.problem .q{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--navy);text-align:center;max-width:22ch;margin:0 auto 1.4rem;line-height:1.2}
+.problem p{font-size:1.1rem;color:var(--ink-soft);max-width:60ch;margin:0 auto 1rem;text-align:center}
+.problem .stress{color:var(--explore);font-weight:600}
+
+/* practice loop */
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:.6rem}
+.loop-after{margin:1.5rem auto 0}
+.loop .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.4rem;position:relative}
+.loop .step .n{font-family:var(--serif);font-size:1.05rem;color:#fff;background:var(--navy);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.loop .step h3{font-size:1.15rem;margin-bottom:.4rem}
+.loop .step p{font-size:.96rem;color:var(--ink-soft)}
+.loop-note{text-align:center;margin-top:2rem;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--navy)}
+
+/* tiers */
+.tiers{background:var(--navy);color:#E7EDF2}
+.tiers .section-h{color:#fff}
+.tiers .section-lead{color:#B4C2CE}
+.tiers .section-eyebrow .eyebrow{color:var(--brass)}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:1rem}
+.tier{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:1.8rem 1.5rem;border-top:4px solid}
+.tier.t1{border-top-color:var(--attune)}
+.tier.t2{border-top-color:var(--explore)}
+.tier.t3{border-top-color:var(--lead)}
+.tier .tno{font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.9rem}
+.tier.t1 .tno{color:#7CC0E4}.tier.t2 .tno{color:#E0A567}.tier.t3 .tno{color:#7FC49B}
+.tier h3{color:#fff;font-size:1.3rem;margin-bottom:.5rem}
+.tier p{color:#B7C4CF;font-size:.98rem}
+.tier .cnt{margin-top:1.1rem;font-family:var(--ui);font-size:1.05rem;font-weight:600;color:#B4C2CE;letter-spacing:.02em}
+
+/* who */
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem 2rem;max-width:820px;margin:0 auto}
+.who-grid li{list-style:none;padding-left:1.7rem;position:relative;color:var(--ink-soft);font-size:1.02rem}
+.who-grid li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:50%;background:var(--brass-deep)}
+
+/* contribution quote */
+.contrib{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.contrib blockquote{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2.15rem);color:var(--navy);max-width:24ch;margin:0 auto;line-height:1.28}
+.contrib .attrib{margin-top:1.6rem;font-size:.95rem;color:var(--ink-faint)}
+
+/* included */
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto}
+.feat .f{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.4rem}
+.feat .f h4{font-family:var(--ui);font-size:1.02rem;color:var(--navy);margin-bottom:.25rem}
+.feat .f p{font-size:.94rem;color:var(--ink-soft)}
+
+/* pricing */
+.creed-note{max-width:60ch;margin:2rem auto 0;color:var(--ink-soft);font-size:1rem}
+.pricing{text-align:center}
+.price-card{background:var(--card);border:1px solid var(--line);border-radius:20px;max-width:440px;margin:0 auto;padding:2.6rem 2.2rem;box-shadow:0 20px 50px -24px rgba(15,35,55,.28)}
+.price-card .plan{font-family:var(--ui);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;color:var(--brass-deep)}
+.price-card .amt{font-family:var(--serif);font-size:3.4rem;color:var(--navy);margin:.5rem 0 .1rem;line-height:1}
+.price-card .amt small{font-size:1rem;color:var(--ink-faint);font-family:var(--ui)}
+.price-card .terms{font-size:.9rem;color:var(--ink-faint);margin-bottom:1.6rem}
+.price-card ul{text-align:left;margin:0 auto 1.8rem;max-width:300px}
+.price-card li{list-style:none;padding-left:1.6rem;position:relative;font-size:.96rem;color:var(--ink-soft);margin-bottom:.55rem}
+.price-card li::before{content:"✓";position:absolute;left:0;color:var(--lead);font-weight:700}
+.price-card .btn{width:100%}
+.price-note{margin-top:1.2rem;font-size:.82rem;color:var(--ink-faint)}
+.price-note.guarantee{margin-top:.55rem;color:var(--ink-soft);font-size:.86rem;line-height:1.5;max-width:30rem;margin-left:auto;margin-right:auto}
+
+/* final cta */
+.final{background:linear-gradient(160deg,#173250,var(--navy));color:#fff;text-align:center}
+.final h2{color:#fff;font-size:clamp(1.9rem,4.5vw,2.8rem);max-width:20ch;margin:0 auto 1rem}
+.final p{color:#B8C6D2;max-width:none;margin:0 auto 2rem;font-size:1.08rem}
+
+/* footer */
+footer{background:#0B1A29;color:#8FA2B2;padding:3rem 0;font-size:.9rem}
+footer .cite{font-size:.85rem;line-height:1.6;max-width:70ch;margin-bottom:1.2rem}
+footer .cite i{color:#B7C4CF}
+footer a{color:#B7C4CF}
+footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center;border-top:1px solid rgba(255,255,255,.08);padding-top:1.2rem;margin-top:1.2rem}
+
+.creed{background:var(--paper);padding:4rem 0}
+.creed-list{list-style:none;max-width:920px;margin:1.2rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 2.6rem}
+.creed-list li{font-family:var(--serif);font-size:1.13rem;line-height:1.34;color:var(--navy);padding-left:1.5rem;position:relative}
+.creed-list li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%;background:var(--brass-deep)}
+.creed-list li:nth-child(3n+1)::before{background:var(--attune)}
+.creed-list li:nth-child(3n+2)::before{background:var(--explore)}
+.creed-list li:nth-child(3n)::before{background:var(--lead)}
+@media(max-width:820px){
+  .loop,.tier-grid,.feat,.who-grid,.creed-list{grid-template-columns:1fr}
+  section{padding:3.5rem 0}
+  .topbar nav a:not(.btn){display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+.hero .free-guide-note{margin-top:1.2rem;font-size:1.05rem;color:#9FB0BE}
+.hero .free-guide-note a{color:var(--brass);text-decoration:none;font-weight:600}
+.hero .free-guide-note .fg-ease{display:block;font-size:.88rem;margin-top:.25rem}
+@media print {
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .final{break-inside:avoid;page-break-inside:avoid}
+  html, body { background:#fff !important; }
+  .topbar { display:none !important; }
+  .hero::after { display:none !important; }
+  /* dark sections -> white bg, dark text */
+  .hero, .tiers, .final, footer { background:#fff !important; background-image:none !important; }
+  .hero, .hero *, .tiers, .tiers *, .final, .final *, footer, footer * { color:#1E2A36 !important; }
+  /* re-apply accents on light */
+  .hero .eyebrow, .hero .sub-title, .hero .under b, .tiers .section-eyebrow .eyebrow { color:#9A7736 !important; }
+  .hero h1, .tiers .section-h, .final h2, .contrib blockquote, .price-card .amt { color:#0F2337 !important; }
+  .tier { background:#fff !important; border:1px solid #E4DFD7 !important; }
+  .tier.t1 { border-top:4px solid #1C74A3 !important; }
+  .tier.t2 { border-top:4px solid #B26A22 !important; }
+  .tier.t3 { border-top:4px solid #3C7A55 !important; }
+  .tier.t1 .tno { color:#1C74A3 !important; }
+  .tier.t2 .tno { color:#B26A22 !important; }
+  .tier.t3 .tno { color:#3C7A55 !important; }
+  footer a { color:#155E86 !important; }
+  /* buttons stay legible */
+  .btn { background:#176C9B !important; color:#fff !important; border:none !important; box-shadow:none !important; }
+  .btn.ghost { background:#fff !important; color:#176C9B !important; border:1.5px solid #176C9B !important; }
+  /* tidy pagination */
+  .loop .step, .tier, .feat .f, .price-card { break-inside:avoid; }
+  section, .hero { padding-top:1.7rem !important; padding-bottom:1.7rem !important; }
+}
+
+/* problem bridge */
+.problem .problem-bridge{margin-top:1.4rem;padding-top:1.3rem;border-top:1px solid var(--line);font-family:var(--serif);font-size:1.12rem;color:var(--navy)}
+
+/* stats band */
+.stats{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:900px;margin:0 auto}
+.stat{text-align:center;padding:.4rem}
+.stat .num{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3rem);color:var(--navy);line-height:1}
+.stat .lbl{font-family:var(--ui);font-size:.9rem;color:var(--ink-soft);margin-top:.4rem;line-height:1.35}
+.stat-note{text-align:center;max-width:62ch;margin:2.2rem auto 0;color:var(--ink-soft);font-size:1rem}
+
+/* scope / limits */
+.scope{background:var(--paper)}
+.scope-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brass-deep);border-radius:14px;max-width:760px;margin:0 auto;padding:1.9rem 2rem}
+.scope-card h3{font-family:var(--ui);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-deep);margin-bottom:1rem}
+.scope-card ul{margin:0;padding:0}
+.scope-card li{list-style:none;padding-left:1.5rem;position:relative;color:var(--ink-soft);font-size:1rem;margin-bottom:.7rem;line-height:1.5}
+.scope-card li:last-child{margin-bottom:0}
+.scope-card li::before{content:"—";position:absolute;left:0;color:var(--brass-deep)}
+.scope-more-in{text-align:center;margin:1.5rem 0 0;padding-top:1.2rem;border-top:1px solid var(--line);font-size:1rem;color:var(--ink-soft)}
+.scope-more{text-align:center;margin-top:1.6rem;font-size:1rem;color:var(--ink-soft)}
+
+/* continuing education */
+.ce{background:var(--paper)}
+.ce-lede{max-width:64ch;margin:0 auto 2rem;text-align:center;color:var(--ink-soft);font-size:1.04rem}
+.ce-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto}
+.ce-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.5rem}
+.ce-card.wide{grid-column:1/-1}
+.ce-card h3{font-family:var(--ui);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-deep);margin-bottom:.8rem}
+.ce-steps,.ce-obj{margin:0;padding-left:1.3rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
+.ce-steps li,.ce-obj li{margin-bottom:.55rem}
+.ce-obj b{color:var(--ink);font-weight:600}
+.ce-intro{color:var(--ink-soft);font-size:.95rem;margin-bottom:.6rem}
+.ce-link{margin-top:.9rem;font-family:var(--ui);font-weight:600;font-size:.95rem}
+.ce-dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem 1rem;margin:0;font-size:.93rem}
+.ce-dl dt{font-family:var(--ui);font-weight:600;color:var(--navy)}
+.ce-dl dd{margin:0;color:var(--ink-soft)}
+.ce-fine p{font-size:.9rem;color:var(--ink-soft);margin-bottom:.6rem}
+.ce-fine p:last-child{margin-bottom:0}
+.ce-approval{font-style:italic}
+.hero .hero-ce{text-align:center;margin:.35rem 0 0;font-family:var(--ui);font-size:.95rem}
+.hero-ce a{color:var(--brass);text-decoration:none;border-bottom:1px solid rgba(216,197,140,.5)}
+.ce-mini{font-size:.85em;margin-left:.25rem}
+.voices .vcard.wide{grid-column:1/-1}
+@media(max-width:820px){ .ce-grid{grid-template-columns:1fr} .ce-card.wide{grid-column:auto} .voices .vcard.wide{grid-column:auto} }
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto}
+.faq-grid .q-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.4rem}
+.faq-grid .q-item.wide{grid-column:1/-1}
+.faq-grid h4{font-family:var(--ui);font-size:1rem;color:var(--navy);margin-bottom:.3rem}
+.faq-grid p{font-size:.94rem;color:var(--ink-soft)}
+
+/* author */
+.author{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.author-card{max-width:720px;margin:0 auto;text-align:center}
+.author-card p{text-align:left}
+.author-card .who,.author-card .section-eyebrow{text-align:center}
+.author-card.origin{margin-top:2.2rem}
+.author-card p.bio{padding-bottom:1.8rem}
+.author-card .who{font-family:var(--serif);font-size:1.5rem;color:var(--navy);margin-bottom:.6rem}
+.author-card p{color:var(--ink-soft);font-size:1.04rem;margin-bottom:.9rem}
+.author-card p.bio{font-size:.99rem;line-height:1.62;text-align:left;padding-bottom:.9rem;border-bottom:1px solid var(--line)}
+.author-card p:last-child{margin-bottom:0}
+
+@media(max-width:820px){
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .faq-grid{grid-template-columns:1fr}
+}
+
+/* Try It teaser — embedded interactive scenario */
+.try{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4.5rem 0}
+.try .try-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:2rem 1.9rem;max-width:640px;margin:2.4rem auto 0;box-shadow:0 1px 2px rgba(15,35,55,.03)}
+.try .try-scene{font-family:var(--serif);font-size:1.08rem;line-height:1.55;color:var(--ink);margin:0 0 1rem}
+.try .try-setup{background:rgba(216,197,140,.16);border-radius:8px;padding:.7rem 1rem;font-size:.94rem;color:var(--ink);margin:0 0 1.2rem;line-height:1.5}
+.try .try-setup b{color:var(--brass-deep);font-weight:700}
+.try .try-prompt{font-family:var(--serif);font-weight:600;font-size:1.02rem;color:var(--navy);margin:0 0 1rem}
+.try .try-opts{display:grid;gap:.55rem;margin-bottom:0}
+.try .try-opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;text-align:left;cursor:pointer;display:flex;gap:.85rem;align-items:flex-start;font-family:var(--ui);color:var(--ink);width:100%;transition:border-color .15s, box-shadow .15s}
+.try .try-opt:hover:not(.locked){border-color:var(--brand);box-shadow:0 1px 3px rgba(23,108,155,.1)}
+.try .try-key{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:600;font-size:.82rem;color:var(--ink-soft);transition:background .15s, color .15s, border-color .15s}
+.try .try-body{flex:1;min-width:0}
+.try .try-t{display:block;font-family:var(--serif);font-size:1.02rem;font-weight:500;color:var(--ink);line-height:1.4;font-style:italic}
+.try .try-why{display:none;margin-top:.6rem;font-family:var(--ui);font-size:.87rem;color:var(--ink-soft);line-height:1.5;font-style:normal}
+.try .try-why b{color:var(--ink);font-style:normal}
+.try-card.answered .try-why{display:block}
+.try-card.answered .try-opt{cursor:default}
+.try .try-opt.correct{border-color:#4a8f5c;background:linear-gradient(0deg,rgba(74,143,92,.05),rgba(74,143,92,.05))}
+.try .try-opt.correct .try-key{background:#4a8f5c;color:#fff;border-color:#4a8f5c}
+.try .try-opt.wrongpick{border-color:#c47846;background:linear-gradient(0deg,rgba(196,120,70,.05),rgba(196,120,70,.05))}
+.try .try-opt.wrongpick .try-key{background:#c47846;color:#fff;border-color:#c47846}
+.try .try-opt.dim{opacity:.55}
+.try .try-takeaway{display:none;background:var(--navy);color:#fff;border-radius:10px;padding:1.15rem 1.35rem;margin-top:1.3rem;font-family:var(--serif);font-size:1rem;line-height:1.55}
+.try .try-takeaway b{display:block;color:var(--brass);font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.4rem;font-style:normal}
+.try-card.answered .try-takeaway{display:block}
+.try .try-cta{text-align:center;margin-top:2rem;opacity:1;pointer-events:auto;transition:opacity .3s ease .1s}
+.try .try-cta.show{opacity:1;pointer-events:auto}
+@media (max-width:600px){
+  .try .try-card{padding:1.5rem 1.3rem}
+  .try .try-opt{padding:.85rem 1rem}
+}
+
+
+    .hero .hero-sub{font-family:var(--serif);color:var(--brass);text-align:center;font-style:italic;font-size:1.55rem;margin:1rem 0 2rem;letter-spacing:.01em;line-height:1.3}
+    body.preview-mode .topbar,body.preview-mode .hero,body.preview-mode #creed,body.preview-mode .problem,body.preview-mode #how,body.preview-mode #try,body.preview-mode #tiers,body.preview-mode .contrib,body.preview-mode #enroll,body.preview-mode footer,body.preview-mode section:not(#folded-preview){display:none !important}
+    #folded-preview{display:none;background:var(--paper);min-height:100vh;padding:0 0 5rem}
+    body.preview-mode #folded-preview{display:block}
+    #folded-preview .fp-topbar{background:var(--navy);padding:.85rem 0;margin-bottom:3rem}
+    #folded-preview .fp-topbar .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}
+    #folded-preview .fp-topbar .mark{color:var(--brass);font-family:var(--serif);font-size:1.15rem;letter-spacing:.01em}
+    #folded-preview .fp-topbar .mark b{color:var(--brass);font-weight:600}
+    #folded-preview .fp-back{color:#CBD6DF;font-family:var(--ui);font-size:.86rem;text-decoration:none;font-weight:500}
+    #folded-preview .fp-back:hover{color:#fff}
+    #folded-preview .fp-heading{text-align:center;margin-bottom:1.5rem}
+    #folded-preview .fp-progress{font-family:var(--ui);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-deep)}
+    #folded-preview .fp-tier-chip{display:inline-block;background:var(--brand);color:#fff;font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.35rem 1rem;border-radius:20px;margin-bottom:1rem}
+    #folded-preview .fp-tier-chip.t-phrase{background:#B26A22}
+    #folded-preview .fp-tier-chip.t-twin{background:#3d7550}
+    #folded-preview .try-card{max-width:640px;margin:0 auto}
+    #folded-preview .fp-nav{max-width:640px;margin:2rem auto 0;display:flex;justify-content:space-between;gap:1rem}
+    #folded-preview .fp-nav button{font-family:var(--ui);font-weight:600;font-size:.95rem;padding:.75rem 1.5rem;border-radius:8px;cursor:pointer;transition:all .15s;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+    #folded-preview .fp-nav button:disabled{opacity:.4;cursor:not-allowed}
+    #folded-preview .fp-nav button:not(:disabled):hover{border-color:var(--brand);color:var(--brand)}
+    #folded-preview .fp-nav .fp-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+    #folded-preview .fp-nav .fp-primary:hover{background:#0a1a2c;color:#fff}
+    #folded-preview .fp-enroll{text-align:center;margin:1.8rem auto 0;max-width:640px;font-size:.88rem}
+    #folded-preview .fp-enroll a{color:var(--ink-soft);font-family:var(--ui);text-decoration:none}
+    #folded-preview .fp-enroll a:hover{color:var(--brand);text-decoration:underline}
+    #folded-preview .fp-done{text-align:center;padding:2rem 1rem;max-width:640px;margin:0 auto}
+    #folded-preview .fp-done h2{font-family:var(--serif);font-size:1.8rem;color:var(--navy);margin-bottom:1rem;font-weight:500}
+    #folded-preview .fp-done p{color:var(--ink-soft);margin:0 auto 2rem;line-height:1.6}
+    #folded-preview .fp-done .fp-cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+    #folded-preview .fp-done .fp-cta-row a{font-family:var(--ui);font-weight:600;font-size:.95rem;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;transition:all .15s;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+    #folded-preview .fp-done .fp-cta-row a:hover{border-color:var(--brand);color:var(--brand)}
+    #folded-preview .fp-done .fp-cta-row .fp-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+    #folded-preview .fp-done .fp-cta-row .fp-primary:hover{background:#0a1a2c;color:#fff}
+
+
+    /* Fold-in preview view uses the same visual style as the .try scenario card */
+    #folded-preview .try-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:2rem 1.9rem;max-width:640px;margin:2.4rem auto 0;box-shadow:0 1px 2px rgba(15,35,55,.03)}
+    #folded-preview .try-scene{font-family:var(--serif);font-size:1.08rem;line-height:1.55;color:var(--ink);margin:0 0 1rem}
+    #folded-preview .try-setup{background:rgba(216,197,140,.16);border-radius:8px;padding:.7rem 1rem;font-size:.94rem;color:var(--ink);margin:0 0 1.2rem;line-height:1.5}
+    #folded-preview .try-setup b{color:var(--brass-deep);font-weight:700}
+    #folded-preview .try-prompt{font-family:var(--serif);font-weight:600;font-size:1.02rem;color:var(--navy);margin:0 0 1rem}
+    #folded-preview .try-opts{display:grid;gap:.55rem;margin-bottom:0}
+    #folded-preview .try-opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;text-align:left;cursor:pointer;display:flex;gap:.85rem;align-items:flex-start;font-family:var(--ui);color:var(--ink);width:100%;transition:border-color .15s, box-shadow .15s}
+    #folded-preview .try-opt:hover:not(.locked){border-color:var(--brand);box-shadow:0 1px 3px rgba(23,108,155,.1)}
+    #folded-preview .try-key{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--ui);font-weight:600;font-size:.82rem;color:var(--ink-soft);transition:background .15s, color .15s, border-color .15s}
+    #folded-preview .try-body{flex:1;min-width:0}
+    #folded-preview .try-t{display:block;font-family:var(--serif);font-size:1.02rem;font-weight:500;color:var(--ink);line-height:1.4;font-style:italic}
+    #folded-preview .try-why{display:none;margin-top:.6rem;font-family:var(--ui);font-size:.87rem;color:var(--ink-soft);line-height:1.5;font-style:normal}
+    #folded-preview .try-why b{color:var(--ink);font-style:normal}
+    #folded-preview .try-opt.correct{border-color:#4a8f5c;background:linear-gradient(0deg,rgba(74,143,92,.05),rgba(74,143,92,.05))}
+    #folded-preview .try-opt.correct .try-key{background:#4a8f5c;color:#fff;border-color:#4a8f5c}
+    #folded-preview .try-opt.wrongpick{border-color:#c47846;background:linear-gradient(0deg,rgba(196,120,70,.05),rgba(196,120,70,.05))}
+    #folded-preview .try-opt.wrongpick .try-key{background:#c47846;color:#fff;border-color:#c47846}
+    #folded-preview .try-opt.dim{opacity:.55}
+    #folded-preview .try-takeaway{display:none;background:var(--navy);color:#fff;border-radius:10px;padding:1.15rem 1.35rem;margin-top:1.3rem;font-family:var(--serif);font-size:1rem;line-height:1.55}
+    #folded-preview .try-takeaway b{display:block;color:var(--brass);font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.4rem;font-style:normal}
+    #folded-preview .try-card.answered .try-why{display:block}
+    #folded-preview .try-card.answered .try-takeaway{display:block}
+    #folded-preview .try-card.answered .try-opt{cursor:default}
+    @media (max-width:600px){
+        #folded-preview .try-card{padding:1.5rem 1.3rem}
+        #folded-preview .try-opt{padding:.85rem 1rem}
+    }
+
+
+    #folded-preview .fp-layout{max-width:1080px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1fr;gap:2rem}
+    @media (min-width:900px){#folded-preview .fp-layout{grid-template-columns:1fr 200px}}
+    #folded-preview .fp-main{min-width:0}
+    #folded-preview .fp-sidebar{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.2rem 0;height:fit-content;display:none}
+    @media (min-width:900px){#folded-preview .fp-sidebar{display:block;position:sticky;top:1rem}}
+    #folded-preview .fp-sidebar-head{font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-deep);padding:0 1.2rem;margin:0 0 .8rem}
+    #folded-preview .fp-sidebar-list{list-style:none;padding:0;margin:0}
+    #folded-preview .fp-side-item{display:flex;justify-content:space-between;align-items:center;padding:.55rem 1.2rem;cursor:pointer;color:var(--ink);font-family:var(--ui);font-size:.9rem;transition:background .1s}
+    #folded-preview .fp-side-item:hover{background:rgba(15,35,55,.04)}
+    #folded-preview .fp-side-item.fp-current{background:var(--navy);color:#fff}
+    #folded-preview .fp-side-item.fp-correct{color:#4a8f5c}
+    #folded-preview .fp-side-item.fp-missed{color:#c47846}
+    #folded-preview .fp-side-item.fp-current.fp-correct{background:var(--navy);color:#fff}
+    #folded-preview .fp-side-item.fp-current.fp-missed{background:var(--navy);color:#fff}
+    #folded-preview .fp-num{font-weight:500}
+    #folded-preview .fp-mark{font-size:.95rem;font-weight:600}
+    /* Summary screen */
+    #folded-preview .fp-done{text-align:left;padding:2rem 1rem;max-width:640px;margin:0 auto}
+    #folded-preview .fp-done h2{font-family:var(--serif);font-size:1.9rem;color:var(--navy);margin-bottom:1rem;font-weight:500;text-align:center}
+    #folded-preview .fp-done-lead{color:var(--ink-soft);line-height:1.6;text-align:center;margin-bottom:2rem}
+    #folded-preview .fp-tier-breakdown{text-align:center;font-family:var(--ui);font-weight:700;font-size:.82rem;letter-spacing:.1em;color:var(--brass-deep);margin:-.5rem auto 1.8rem;text-transform:uppercase}
+    #folded-preview .fp-perfect{background:rgba(74,143,92,.08);border-left:3px solid #4a8f5c;padding:1rem 1.2rem;border-radius:6px;color:var(--ink);font-family:var(--serif);font-style:italic;margin-bottom:2rem}
+    #folded-preview .fp-missed-review{background:rgba(216,197,140,.12);border-radius:10px;padding:1.3rem 1.5rem;margin-bottom:2rem}
+    #folded-preview .fp-missed-review h3{font-family:var(--ui);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-deep);margin:0 0 .8rem}
+    #folded-preview .fp-missed-review ul{list-style:none;padding:0;margin:0}
+    #folded-preview .fp-missed-review li{padding:.7rem 0;border-bottom:1px dashed rgba(151,143,131,.3);font-family:var(--serif);font-size:.98rem;color:var(--ink);line-height:1.5}
+    #folded-preview .fp-missed-review li:last-child{border-bottom:none}
+    #folded-preview .fp-missed-review a{color:var(--brand);text-decoration:none;font-family:var(--ui);font-weight:600;font-size:.86rem;white-space:nowrap;margin-left:.5rem}
+    #folded-preview .fp-missed-review a:hover{text-decoration:underline}
+    #folded-preview .fp-cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+    /* Adjust fp-nav max-width now that layout has fp-main container */
+    #folded-preview .fp-nav{max-width:640px;margin:2rem auto 0}
+
+
+    /* Tier chip on the landing-page teaser scenario (matches fold-in styling) */
+    .try .try-tier-chip{display:inline-block;background:#B26A22;color:#fff;font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.35rem 1rem;border-radius:20px;margin-bottom:1rem}
+    .try .try-tier-chip.t-read{background:var(--brand)}
+    .try .try-tier-chip.t-twin{background:#3d7550}
+
+.contrib-note{margin-top:1.15rem;font-size:.98rem;line-height:1.6;color:var(--ink-soft);max-width:38rem;margin-left:auto;margin-right:auto}
+/* ---- endorsements ---- */
+.voice{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:3.2rem 0}
+.voice blockquote{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.28rem);line-height:1.58;color:var(--navy);text-align:center;margin:0}
+.voice .attrib{margin-top:1.5rem;text-align:center}
+.voice .attrib b{display:block;font-family:var(--ui);font-size:.96rem;color:var(--ink);font-weight:600}
+.voice .attrib span{display:block;font-family:var(--ui);font-size:.87rem;color:var(--ink-faint);margin-top:.2rem}
+.voice.spont blockquote{font-style:italic}
+.hero .hero-quote{max-width:40rem;margin:0 auto 2rem;text-align:center}
+.hero .hero-quote blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.55;color:#E8EFF4}
+.hero .hero-quote .attrib{margin:.7rem 0 0;font-family:var(--ui);font-size:.88rem;color:#B4C2CE}
+.hero .hero-quote .attrib b{color:var(--brass);font-weight:600}
+.try .try-label{display:block;text-align:center;font-family:var(--ui);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 1rem}
+.try .try-note{font-style:italic;color:var(--ink-soft);font-size:.98rem;margin:0 0 .6rem}
+.try .try-instr{display:block;font-weight:400;font-style:italic;font-size:.95rem;color:var(--ink-soft);margin-top:.25rem}
+.voices .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.4rem;align-items:stretch;max-width:860px;margin-left:auto;margin-right:auto}
+.voices .vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.7rem 1.5rem;display:flex;flex-direction:column}
+.voices .vcard blockquote{font-family:var(--serif);font-size:1rem;line-height:1.6;color:var(--ink);margin:0 0 1.3rem;flex:1 1 auto}
+.voices .vcard .attrib b{display:block;font-family:var(--ui);font-size:.92rem;color:var(--navy);font-weight:600}
+.voices .vcard .attrib span{display:block;font-family:var(--ui);font-size:.84rem;color:var(--ink-faint);line-height:1.45}
+@media (max-width:860px){.voices .vgrid{grid-template-columns:1fr;max-width:34rem;margin-left:auto;margin-right:auto}}
+@media print{footer{break-inside:avoid;page-break-inside:avoid}.voice,.voices .vcard{background:#fff !important;break-inside:avoid}.voices .vgrid{display:block !important}.voices .vcard{margin-bottom:1rem}}
+
+  /* The top bar is sticky, so anything reached by an anchor needs room to clear it. */
+  #problem, #try, #try-cta, #how, #tiers, #enroll, #faq, #guide, #ce { scroll-margin-top:78px; }
+
+  #folded-preview .fp-done .fp-still{margin:1.5rem auto 0;font-size:.92rem}
+  #folded-preview .fp-done .fp-still a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+  #folded-preview .fp-done .fp-still a:hover{color:var(--brand);border-bottom-color:var(--brand)}
+@media (max-width:640px){br.wb{display:none}}
+/* Long prose: justified rather than centered. Quotes, headings and one-line notes stay centered. */
+.hero .dek{max-width:46rem}
+.hero .promise,.hero .dek,.problem p:not(.q),#how .loop-after,.stats .stat-note,.author .bio,.scope li{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.hero .hero-assure{margin:1rem 0 0;text-align:center;font-family:var(--ui);font-size:.95rem;color:#CBD9E2;letter-spacing:.01em}
+.hero .hero-assure b{color:var(--brass);font-weight:600}
+.voice .mid-cta{margin:1.8rem 0 0;text-align:center;font-family:var(--ui);font-size:1rem}
+.voice .mid-cta a{color:var(--brand);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(23,108,155,.35)}
+.voice .mid-cta a:hover{border-bottom-color:var(--brand)}
+.price-note.guarantee{font-size:1rem;color:var(--ink);margin-top:1rem}
+.price-note.guarantee b{color:var(--navy)}
+/* Nov 12: sales-letter pass (pre-head, promise headline, benefits, extra CTAs) */
+.hero .pre-head{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.2vw,1.18rem);color:#C6D4DF;max-width:38rem;margin:0 auto -.4rem;text-wrap:balance}
+.hero .hook .hs{font-size:max(1rem,.6em);font-weight:500;line-height:1.4;margin-top:.7em}
+.hero .gains-h{font-family:var(--ui);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin:0 auto .8rem;font-weight:700}
+.hero .gains{list-style:none;padding:0;margin:0 auto 2rem;max-width:34rem;text-align:left}
+.hero .gains li{position:relative;padding-left:1.5rem;margin:0 0 .55rem;color:#E8EFF4;font-size:1.05rem;line-height:1.5}
+.hero .gains li::before{content:"";position:absolute;left:.2rem;top:.62em;width:.5rem;height:.5rem;border-radius:50%;background:var(--brass)}
+.try .try-reassure{text-align:center;font-style:italic;color:var(--ink-soft);font-size:.98rem;margin:-1.8rem auto 2rem;max-width:40rem}
+.inline-cta{margin:2.2rem 0 0;text-align:center;font-family:var(--ui);font-size:1rem}
+.inline-cta a{color:var(--brand);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(23,108,155,.35)}
+.inline-cta a:hover{border-bottom-color:var(--brand)}
+.pricing .section-lead{margin-bottom:2rem}
+.price-card .value{font-size:.9rem;color:var(--ink-soft);font-style:italic;margin:-.2rem 0 1rem}
+.try-opt .vtag,#folded-preview .try-opt .vtag{display:table;font-family:var(--ui);font-size:.72rem;font-weight:700;letter-spacing:.04em;font-style:normal;padding:.12rem .55rem;border-radius:999px;margin:0 0 .35rem;color:#fff}
+.try-opt .vtag.good{background:#4a8f5c}
+.try-opt .vtag.mine{background:#c47846}
+.try-verdict{margin:0 0 .75rem;font-family:var(--ui);font-weight:700;font-size:.95rem;font-style:normal}
+.try-verdict.good{color:#4a8f5c}
+.try-verdict.miss{color:#b0612f}
+/* Nov 16: Carrie's revisions — opening section benefits, end-of-preview offer */
+.problem .gains-h{font-family:var(--ui);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-deep,#8a6a2a);margin:1.8rem 0 .8rem;font-weight:700}
+.problem .gains{list-style:none;padding:0;margin:0 0 1.8rem}
+.problem .gains li{position:relative;padding-left:1.5rem;margin:0 0 .6rem;font-size:1.05rem;line-height:1.55}
+.problem .gains li::before{content:"";position:absolute;left:.2rem;top:.62em;width:.5rem;height:.5rem;border-radius:50%;background:var(--brass,#b8924a)}
+.problem p.open-cta{text-align:center;margin:0 auto}
+.problem p.gains-h{text-align:center}
+.problem .gains{max-width:60ch;margin-left:auto;margin-right:auto}
+.hero .hero-assure a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.hero .hero-quote{margin-top:2.2rem}
+#folded-preview .fp-done .fp-offer{font-family:var(--ui);font-size:.98rem;color:var(--ink);margin:0 auto 1.4rem;max-width:34rem;text-align:center}
+</style>  <nav class="section-nav" aria-label="On this page" data-astro-cid-l2skfkwp> <div class="inner" data-astro-cid-l2skfkwp> <a href="#try" data-astro-cid-l2skfkwp>Try a scenario</a> <a href="#how" data-astro-cid-l2skfkwp>How it works</a> <a href="#tiers" data-astro-cid-l2skfkwp>The program</a> <a href="#faq" data-astro-cid-l2skfkwp>Questions</a> <a class="cta" href="#enroll" data-astro-cid-l2skfkwp>Enroll</a> </div> </nav> <header class="hero">
+  <div class="wrap">
+    <p class="pre-head">For tapping practitioners</p>
+    <h1>Finding the Right Words</h1>
+    <div class="hook">
+      <p>The Client Is Distressed. You Know Where to Tap. What Do You Say?</p>
+      <p class="hs">An interactive practice program developed by clinical psychologist David Feinstein, PhD</p>
+    </div>
+    <p class="promise">Through 144 realistic clinical scenarios, practice recognizing what the moment calls for, choosing language that fits the client’s experience, and understanding why some responses are more effective than others.</p>
+    <p class="under">Grounded in the <a href="https://energytapping.com/wordingstudy" target="_blank" rel="noopener"><b>Attune / Explore / Lead</b></a> framework recently published in <i>Frontiers in Psychology</i>.</p>
+    <div class="cta-row">
+      <a class="btn big" href="#try">Try a Free Clinical Scenario</a>
+      <a class="btn ghost big" href="#enroll">Enroll in the Program — $129</a>
+    </div>
+    <p class="hero-assure">Lifetime access · <b>14-day full refund</b> · <a href="#ce">6 CE hours available through ACEP</a></p>
+    <div class="hero-quote">
+      <blockquote>&ldquo;What David Feinstein has built is the thing almost no practitioner ever gets: focused, systematic practice on the words themselves, at the exact moments they matter. . . . This will quietly raise the level of anyone who works through it.&rdquo;</blockquote>
+      <p class="attrib"><b>Nick Ortner</b> · Founder, The Tapping Solution</p>
+    </div>
+  </div>
+</header>
+<div class="domain-rule"><i></i><i></i><i></i></div>
+
+<section class="problem" id="problem">
+  <div class="narrow">
+    <p class="q">More Than Knowing<br>the Protocol</p>
+    <p>A client’s distress can be plain while the most useful response is not. Should you acknowledge the emotion? Invite further exploration? Help the client consider a different perspective? Even a well-intentioned phrase can be premature, too general, or poorly matched to what the client is actually feeling.</p>
+    <p>Experienced therapists develop a feel for these distinctions over years of practice. The Practice Program lets you examine and rehearse them systematically, with realistic clinical situations and the reasoning behind every option.</p>
+    <p class="gains-h">The practice is built to help you</p>
+    <ul class="gains">
+      <li>Keep the client in contact with what they actually feel, rather than talking about it from a distance.</li>
+      <li>Know when to stay with a feeling and when the client is ready to move toward change.</li>
+      <li>Catch your own habitual missteps, such as leading too soon, that usually only supervision reveals.</li>
+      <li>Stay present with the client instead of searching for words.</li>
+    </ul>
+    <p class="open-cta"><a class="btn" href="#try">Try a Sample Scenario</a></p>
+  </div>
+</section>
+
+<section id="try" class="try">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">Try it</span></p>
+    <h2 class="section-h">A Sample from the 144</h2>
+    <p class="section-lead">Read the moment, choose the phrase you’d offer,<br class="wb"> then see how each one would land.</p>
+    <p class="try-reassure">Nothing here is a test you pass or fail. Even highly experienced practitioners miss some of these.</p>
+
+    <div class="try-card" id="try-card">
+      <span class="try-label">Sample Scenario</span>
+      <p class="try-scene">Her youngest left for college on Saturday. “I’m being silly. It’s a good thing,” she says, blinking hard. She puts the feeling at 6.</p>
+      <p class="try-note">In this one, the direction is given. Your task is the wording.</p>
+      <div class="try-setup">The moment calls to <b>ATTUNE</b>. To accurately name the ache, since she’s busy talking herself out of it.</div>
+      <p class="try-prompt">Which best fits this moment?<span class="try-instr"><b>Click on</b> one to see the reasoning behind all four.</span></p>
+      <div class="try-opts" id="try-opts">
+        <button class="try-opt" data-i="0" data-correct="false">
+          <span class="try-key">A</span>
+          <span class="try-body">
+            <span class="try-t">&ldquo;I’m being silly. This is a good thing and I should be glad.&rdquo;</span>
+            <span class="try-why"><b>Colluding with the self-dismissal.</b> Echoing her own dismissal isn’t attunement, and “should be glad” lays a duty on top of it. It ratifies the voice that is blocking the feeling.</span>
+          </span>
+        </button>
+        <button class="try-opt" data-i="1" data-correct="false">
+          <span class="try-key">B</span>
+          <span class="try-body">
+            <span class="try-t">&ldquo;Time to rediscover who I am beyond motherhood!&rdquo;</span>
+            <span class="try-why"><b>Premature positive / leading too early.</b> The reinvention chapter can’t open before the loss chapter is allowed a first sentence.</span>
+          </span>
+        </button>
+        <button class="try-opt" data-i="2" data-correct="true">
+          <span class="try-key">C</span>
+          <span class="try-body">
+            <span class="try-t">&ldquo;This ache of the suddenly quiet house.&rdquo;</span>
+            <span class="try-why"><b>Naming the Problem.</b> Concrete, felt, and hers. The quiet house is where the ache lives. It legitimizes the feeling she’s been dismissing.</span>
+          </span>
+        </button>
+        <button class="try-opt" data-i="3" data-correct="false">
+          <span class="try-key">D</span>
+          <span class="try-body">
+            <span class="try-t">&ldquo;I wonder if this echoes the day I left my own mother.&rdquo;</span>
+            <span class="try-why"><b>Exploring before meeting.</b> A promising thread for a session where today’s ache has already been received.</span>
+          </span>
+        </button>
+      </div>
+      <div class="try-takeaway"><b>Takeaway</b>When a client dismisses their own feeling, naming it plainly gives them permission to own it.</div>
+    </div>
+
+    <div class="try-cta" id="try-cta">
+      <a class="btn" href="#" onclick="event.preventDefault(); enterFoldedPreview();">Test Drive Nine More Scenarios &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="voice">
+  <div class="narrow">
+    <blockquote>&ldquo;As a licensed clinical psychologist trained in EFT, I have wrestled with how best to frame acupoint tapping protocols for maximum effectiveness. <i>Finding the Right Words</i> is the clinical resource I hoped to find as a teacher and for my own sessions. Being able to practice with compelling scenarios has sharpened and refined the language I use, helping my clients more fully realize the benefits of tapping.&rdquo;</blockquote>
+    <p class="attrib"><b>David Rosenberg, PhD</b><span>Chair, Psychology Department, Averett University</span></p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">How it works</span></p>
+    <h2 class="section-h">How Practice Trains the Brain</h2>
+    <div class="loop">
+      <div class="step"><div class="n">1</div><h3>Make the call</h3><p>Read the moment and commit to a phrase, before anything is revealed.</p></div>
+      <div class="step"><div class="n">2</div><h3>See what each option would do</h3><p>Including the ones you didn’t choose, and what each option would have cost or gained.</p></div>
+      <div class="step"><div class="n">3</div><h3>Learn the pattern, not the answer</h3><p>Every correct choice is identified as one of the Field Guide’s 21 variations, and the reasoning shows exactly what makes it that one.</p></div>
+    </div>
+    <p class="section-lead loop-after">Each item drops you into a true-to-life clinical moment, with options that run from clinical errors to solid choices to fine distinctions that ordinarily require substantial clinical experience. The wrong answers are explained as carefully as the right ones, because that is where much of the learning happens. Across the 144, the choosing gets quicker and surer, and the right words arrive on their own more and more often.</p>
+    <p class="section-lead loop-after">No single perfect phrase exists. Many phrasings could serve the client in that moment, though some will serve better than others. The learning is in coming to recognize what makes the best one work.</p>
+    <p class="section-lead loop-after">Language researchers distinguish choosing what to say, the <i>conceptualizer</i>, from putting it into words, the <i>formulator</i>, which works at two or three words a second, far too fast to choose words one at a time. The scenarios train the choice of direction, and the reasoning behind all 528 options adds to the patterns the formulator draws on. You don’t need to remember the details afterward. What stays is a change in which words come to mind when it’s your turn to speak. <b>In short, the program trains your brain to find the right words.</b></p>
+    <p class="section-lead loop-after"><b>More than language.</b> Every choice of words rests on a clinical choice about where the client is and what the moment calls for. So the program is also practice in reading a client and pacing a tapping session.</p>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="voice">
+  <div class="narrow">
+    <blockquote>&ldquo;Tapping does much of the work, but the practitioner&rsquo;s words often decide how far a session goes. <i>Finding the Right Words</i> is the first systematic map for that choice. You work through 144 client scenarios, seeing why the best wording lands and where the others dead-end. That builds the kind of clinical judgment that usually takes years of practice to acquire.&rdquo;</blockquote>
+    <p class="attrib"><b>Dawson Church, PhD</b><span>Executive Director, National Institute for Integrative Healthcare</span></p>
+    <p class="mid-cta"><a href="#enroll">Enroll — $129, lifetime access, 14-day full refund →</a></p>
+  </div>
+</section>
+
+<section id="tiers" class="tiers">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">The program</span></p>
+    <h2 class="section-h">Three Tiers of Clinical Skill</h2>
+    <p class="section-lead">Each tier builds on the last, from recognizing what the moment calls for, to finding the words that fit, to the fine distinctions that help clients move through what has kept them stuck.</p>
+    <div class="tier-grid">
+      <div class="tier t1">
+        <p class="tno">Tier One · Foundations</p>
+        <h3>Sensing the Direction</h3>
+        <p><b>At the foundation:</b> recognizing what the moment is asking for. You will learn to read the moment across a wide range of clinical situations, until the needed direction comes more readily.</p>
+        <p class="cnt">48 clinical choice points</p>
+      </div>
+      <div class="tier t2">
+        <p class="tno">Tier Two · Craft</p>
+        <h3>Shaping the Phrase</h3>
+        <p><b>More challenging:</b> the direction (<i>attune</i>, <i>explore</i>, <i>lead</i>) is clear, but many wordings are possible. You practice finding the phrase that actually carries the direction forward, among options that all look reasonable.</p>
+        <p class="cnt">48 clinical choice points</p>
+      </div>
+      <div class="tier t3">
+        <p class="tno">Tier Three · Mastery</p>
+        <h3>Sophisticated Discernment</h3>
+        <p><b>The finest grain:</b> choices so close that the difference turns on particulars in the scene — the client’s exact words, where the arousal sits, what the session has already done. You practice the discriminations that separate a wording that may sound right from the one the moment actually calls for.</p>
+        <p class="cnt">48 clinical choice points</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">By the numbers</span></p>
+    <h2 class="section-h">The Scope of the Practice</h2>
+    <div class="stat-grid">
+      <div class="stat"><p class="num">144</p><p class="lbl">clinical choice points</p></div>
+      <div class="stat"><p class="num">528</p><p class="lbl">options, each with its own reasoning</p></div>
+      <div class="stat"><p class="num">140</p><p class="lbl">distinct presenting issues</p></div>
+      <div class="stat"><p class="num">21</p><p class="lbl">language variations, all practiced repeatedly</p></div>
+    </div>
+    <p class="stat-note">The 144 scenarios provide balanced coverage across the framework. All 21 language variations are practiced repeatedly, each appearing in four to nine different clinical situations. This allows learners to encounter each wording type often enough, and in enough varied contexts, to recognize when it may fit a new clinical moment.</p>
+    <p class="stat-note">The scenarios include a range of SUD levels, what has already unfolded in the session, and shifts in breathing, posture, and tone — including the moments when the most skillful use of language is to stop talking and simply tap.</p>
+  </div>
+</section>
+
+
+
+<section class="voice">
+  <div class="narrow">
+    <blockquote>&ldquo;As a researcher in Clinical EFT, I know how important the words we use during tapping are to the therapeutic process. David Feinstein&rsquo;s <i>Finding the Right Words</i> tackles an aspect of practice that is often overlooked, offering a practical and thoughtful guide to what to say, when to say it, and how to respond to each client in the moment. This is a valuable resource for both new and experienced tapping practitioners who want to move beyond simply applying a technique and develop greater precision, sensitivity, and skill in their clinical work.&rdquo;</blockquote>
+    <p class="attrib"><b>Peta Stapleton, PhD</b><span>Professor of Psychology, Bond University · Author, <i>The Science Behind Tapping</i></span></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">Who it’s for</span></p>
+    <h2 class="section-h">For Tapping Practitioners Who Want to<br class="wb"> Use Language More Effectively</h2>
+    <ul class="who-grid">
+      <li>EFT and other energy psychology practitioners use it to sharpen the line between wording that sounds right and wording the moment calls for.</li>
+      <li>Trainees use it to build the verbal instincts that usually take years of clinical practice to acquire.</li>
+      <li>Seasoned practitioners return to it as a refresher — before a difficult case, or after time away from the work.</li>
+      <li>Supervisors and trainers use it as a structured way to teach in-session language.</li>
+      <li>Practitioners trained in other modalities use it to strengthen the tapping they do alongside their primary approach.</li>
+      <li>People who guide tapping with friends and family use it to find words that help.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<section>
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">What’s inside</span></p>
+    <h2 class="section-h">Everything, in One Guided Path</h2>
+    <div class="feat">
+      <div class="f"><h4>The wrong answers teach, too</h4><p>Every incorrect option carries its own explanation — a well-intentioned move offered too early, a beginner’s overreach, a phrase that sounds clinically astute but doesn’t advance the session. This is deliberate: fine discrimination is built one near-miss at a time. Threaded through the explanations are brief clinical asides — observations that catch a familiar moment from an unexpected angle.</p></div>
+      <div class="f"><h4>A few hours to complete, a reference you keep</h4><p>The first pass through each tier takes about an hour. Retrying what you missed and reflecting on it add a little more. You move through them at your own pace. Lifetime access means the scenarios stay yours to work again — these discriminations stay sharp by being exercised.</p></div>
+      <div class="f"><h4>Grounded in research</h4><p>Built directly on the Attune / Explore / Lead framework — and its 21 variations of language — from <a href="https://energytapping.com/wordingstudy" target="_blank" rel="noopener">peer-reviewed research</a>. Each correct answer names the variation it reflects, so the framework becomes yours scenario by scenario. Each item also closes with a takeaway that states the principle at work as a plain rule of thumb, one that will serve you in a session whether or not you remember which variation it belongs to.</p></div>
+      <div class="f"><h4>Your Practice Profile</h4><p>At the end of each tier
+      you see where your choices landed: across the three directions, across
+      the 21 variations, and against the errors practitioners most often make.
+      Most people find a tendency &mdash; leading a little too soon, or staying
+      in attunement past the point where the client was ready to move. You finish knowing
+      your own tendencies, which would usually be a benefit of live supervision.</p></div>
+      <div class="f"><h4>Your own words first</h4><p>Before the options appear, you can write what you would say. After you answer, you compare your phrase with the best one. Recognizing the right words is one skill. Producing them with a client waiting is another. This lets you practice both. A good way to use it is to go through the program once with the options showing, then return a few weeks later and go through again writing your own phrase first. The language patterns your formulator was exposed to the first time through will guide you, as they are already doing in your sessions with clients.</p></div>
+<div class="f"><h4>Into your own practice</h4><p>After each tier, three short questions ask you to name a pattern to watch for, picture a client of your own facing the same issue, and write the phrase you&rsquo;d use. A second pass lets you retry the items you missed. Your Practice Record gathers your scores, Profile, reflections and phrases on one page to print or save.</p></div>
+<div class="f"><h4>A companion to the Field Guide</h4><p>The Field Guide gives you the map; this program builds the skill. The Field Guide is complete, free, and shareable — not an excerpt with the useful parts withheld, and it can be passed to other tapping practitioners without recommending a purchase.</p></div>
+    </div>
+    <p class="inline-cta"><a href="#enroll">Enroll — $129, lifetime access, 14-day full refund →</a></p>
+  </div>
+</section>
+
+<section class="author">
+  <div class="wrap">
+    <div class="author-card">
+      <p class="section-eyebrow"><span class="eyebrow">How the program came about</span></p>
+      <p class="who">Built on a Career Studying Therapeutic Language</p>
+      <p class="bio">David Feinstein, PhD, has been a student of the therapeutic uses of language since his early work on the construction of personal reality in the Department of Psychiatry at the Johns Hopkins University School of Medicine in the 1970s. Since learning of tapping protocols and recognizing their power two decades ago, he has been studying the most effective wording to accompany them. <a href="https://energytapping.com/wordingstudy" target="_blank" rel="noopener">A comprehensive report</a>, which provides the scientific rationale for this program, was recently published in the peer-reviewed journal <i>Frontiers in Psychology</i>.</p>
+      <p class="bio">Dr. Feinstein is a clinical psychologist whose work developing innovative therapeutic approaches has earned nine national awards for his books on consciousness and healing, including the 2017 USA Book News Award for the Best Psychology Book and the 2026 Nautilus Book Award Gold in Psychology. In May 2026 he received the Association for Comprehensive Energy Psychology&rsquo;s Distinguished Pioneer Award. With his wife Donna Eden, he has built one of the world&rsquo;s largest organizations teaching the hands-on use of Energy Medicine. Together they have authored several award-winning books, including <i>The Promise of Energy Psychology</i>, <i>Tapping</i>, and the <i>New York Times</i> bestseller <i>The Energies of Love</i>.</p>
+      <p class="bio">Integrating tapping increased the speed, depth, and range of positive outcomes in his practice. Conveying to others how he did this was another matter. He reflects, &ldquo;I never tried to teach my approach to tapping because it builds on thirty years of clinical experience prior to my learning the technique. How do you teach that in a tapping course?&rdquo; But when he ran process research on his own videotaped tapping sessions, he found that the language <i>patterns</i> moving those sessions forward were finite and could be organized in a way that can be taught. His question had an answer after all: the thirty years could not be taught, but the language they had built into his tapping sessions could.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="guide">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">The map behind it</span></p>
+    <h2 class="section-h">What the Field Guide Maps</h2>
+    <div class="feat">
+      <div class="f"><h4>Brief enough to hold</h4><p>Short enough to be spoken, repeated, or held in mind while tapping — and when a thought needs more room, spread across several tapping points.</p></div>
+      <div class="f"><h4>Concrete and close</h4><p>Specific sensory language, often based on the client’s own words, that keeps the client in contact with the actual feeling rather than narrating it from a distance.</p></div>
+      <div class="f"><h4>Offered, not imposed</h4><p>The practitioner supplies the phrase, but it only works if the client finds that it fits. When a phrase goes beyond what the client has said, their response is the test — in the body, in how they take it up, or in what they say when you ask if it fits.</p></div>
+      <div class="f"><h4>Good enough is enough</h4><p>Wording need not be polished or perfect. Offered with presence and a willingness to adjust, good-enough phrasing can carry the work forward. Whatever one phrase misses, the next can pick up.</p></div>
+    </div>
+    <p class="stat-note">Ten such principles, and the 21 language variations — consolidated from the 62 identified in the original study — are set out in the <a href="https://energytapping.com/fieldguide/">free Field Guide →</a></p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">Practical questions</span></p>
+    <h2 class="section-h">Before You Start</h2>
+    <div class="faq-grid">
+      <div class="q-item"><h4>How long does it take?</h4><p>About six hours in all. The first time through each tier takes about an hour, three hours for all three. Retrying items you missed might add another 30 minutes. The reflections after each tier take about an hour total. Reading the Field Guide and the Guide on a Page takes about 90 minutes. No need to do it in one sitting. Progress is saved as long as you are using the same computer and browser, and you can stop and return whenever.</p></div>
+      <div class="q-item"><h4>Does access expire?</h4><p>No. Access is permanent, so you can come back for a refresher before a difficult case, or whenever you want to keep your skills fresh. Any updates to the program are incorporated each time you open it.</p></div>
+      <div class="q-item"><h4>What do I need?</h4><p>Any browser on a computer, tablet, or phone. Nothing to install. You do need to be familiar with at least one tapping protocol.</p></div>
+      <div class="q-item"><h4>Do I need the Field Guide first?</h4><p>Not required. Anyone experienced with tapping can work straight through the program. But the <a href="https://energytapping.com/fieldguide/">Field Guide</a> is where the framework is taught: the three directions, the 21 variations, what makes each one work, and the importance of presence. The program is where it becomes yours. Reading the Field Guide first means you get to spend the program building the skill rather than learning the map.</p></div>
+      <div class="q-item"><h4>Can I try before buying?</h4><p>Yes. Ten scenarios — the one offered above plus nine more — are free to work through, with the full reasoning behind every option. About ten minutes, and it will tell you more than any description can. <a href="#try">Start with the sample →</a></p></div>
+      <div class="q-item"><h4>Is it suitable for non-clinicians?</h4><p>The scenarios are written from clinical practice, but the skills apply to anyone who guides others in tapping — in a coaching relationship, in a group, or with friends and family.</p></div>
+      <div class="q-item"><h4>Will it conflict with the protocol I was trained in?</h4><p>No. Whatever protocol you use, you already decide what to say each time it’s your turn to speak. The program gives that choice a vocabulary and a place to practice it.</p></div>
+      <div class="q-item"><h4>Does it replace clinical training or supervision?</h4><p>No. It provides structured practice in reading clinical cues, choosing a direction, and finding language that fits the client’s experience. It complements the broader clinical judgment that training, supervision, and experience develop.</p></div>
+      <div class="q-item"><h4>Does completing it provide certification?</h4><p>No. The program offers continuing education hours through ACEP, but it does not confer a certification or credential.</p></div>
+      <div class="q-item"><h4>Are the scenarios based on actual clients?</h4><p>They are clinically representative composites, written to reflect situations practitioners meet in tapping sessions. They are not records of individual clients.</p></div>
+      <div class="q-item"><h4>What if it isn’t right for me?</h4><p>You can request a full refund within 14 days of purchase, no questions asked.</p></div>
+      <div class="q-item wide"><h4>Can I earn CE credit?</h4><p>Yes. The Field Guide and the Practice Program together are approved for 6 continuing education hours through the Association for Comprehensive Energy Psychology (ACEP). Credit is optional and separate from enrollment. When you finish, you pay ACEP’s $39 CE fee and take the post-test on ACEP’s site. <a href="#ce">How CE credit works →</a></p></div>
+      <div class="q-item wide"><h4>How do I know it works?</h4><p>The framework rests on a decade of research recently published in <i>Frontiers in Psychology</i>, and the program is built directly on it. What has not been done is a study linking the program itself to practitioner performance. Early users report finding it highly valuable, which is encouraging but is not the same thing as research evidence. So the honest answer is that the framework is well grounded but the program’s effect on the clients of practitioners who have completed it has yet to be measured. Stronger validation will require independent coders, larger samples, and controlled studies linking specific language variations to outcomes. The most direct answer available to you is to <a href="#try">work the ten free scenarios</a> and judge for yourself. And if the Practice Program isn’t right for you, you can ask for a full refund within 14 days of purchase.</p></div>
+      <div class="q-item wide"><h4>Isn’t it best to stay with the client’s own words?</h4><p>Often, yes — and that is the safest ground with a new client or when arousal is high. But echoing is also a craft. Which word to give back, which to soften, when to stop talking altogether — these are choices, and making them well is vital for attunement. As the practitioner goes beyond what the client has presented, the Field Guide teaches that speculative statements are hypotheses, to be checked in the moment, such as with a simple “True or false?” The Field Guide also gives considerable space to presence and therapeutic resonance. Both support attunement and guard against unconsciously imposing the practitioner’s own story on the client’s unprocessed material.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ce" class="ce">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">Continuing education</span></p>
+    <h2 class="section-h">6 CE Hours Through ACEP</h2>
+    <p class="ce-lede">The Field Guide and the Practice Program together are approved for 6 continuing education hours through the Association for Comprehensive Energy Psychology. Credit is optional and separate from enrollment. ACEP handles the CE fee, the post-test, and your certificate.</p>
+    <div class="ce-grid">
+      <div class="ce-card">
+        <h3>Earning the credit</h3>
+        <ol class="ce-steps">
+          <li>Read the free Field Guide and the Guide on a Page.</li>
+          <li>Complete all three tiers of the Practice Program, the second pass through the items you missed, and the reflection questions after each tier.</li>
+          <li>On ACEP’s CE site, pay the $39 CE fee, confirm that you completed the program, and pass the 32-question post-test with a score of 80% or higher. Up to three retakes are allowed.</li>
+          <li>Complete the course evaluation and download your certificate.</li>
+        </ol>
+        <p class="ce-link"><a href="https://energytapping.com/ce" target="_blank" rel="noopener">Go to ACEP’s CE site →</a></p>
+      </div>
+      <div class="ce-card">
+        <h3>Course details</h3>
+        <dl class="ce-dl">
+          <dt>Hours</dt><dd>6 (Field Guide and Guide on a Page, 90 minutes; three tiers, one hour each; second pass, 30 minutes; reflections, one hour)</dd>
+          <dt>Format</dt><dd>Self-paced, online home study</dd>
+          <dt>Level</dt><dd>Intermediate</dd>
+          <dt>For</dt><dd>Mental health professionals and other practitioners who use acupoint tapping with clients</dd>
+          <dt>CE fee</dt><dd>$39, paid to ACEP. The full fee goes to ACEP.</dd>
+        </dl>
+      </div>
+      <div class="ce-card wide">
+        <h3>Learning objectives</h3>
+        <p class="ce-intro">After completing this program, participants will be able to:</p>
+        <ol class="ce-obj">
+          <li><b>Describe the role of therapist language in acupoint tapping,</b> including how the wording determines what the tapping acts on, and how the Setup Statement and Reminder Phrase are used.</li>
+          <li><b>Identify the three directions a tapping phrase can take (Attune, Explore, or Lead) and the seven language variations within each.</b></li>
+          <li><b>Determine which of three primary directions a clinical moment calls for,</b> based on cues such as the client’s level of distress (SUD), experience of being understood, and readiness for change.</li>
+          <li><b>Select wording that serves a given direction,</b> distinguishing effective phrasing from common errors such as leading too soon, rushing the client’s words into the next round, and skipping past what the client has said to insert one’s own insight.</li>
+          <li><b>Distinguish among closely competing phrasings to choose the one most likely to advance a session,</b> recognizing how subtle differences in the client’s state, readiness, and timing favor one plausible option over another.</li>
+          <li><b>Apply the framework to their own practice</b> by identifying their personal patterns of error and formulating phrases for new clinical situations.</li>
+        </ol>
+      </div>
+      <div class="ce-card wide ce-fine">
+        <h3>Approval and disclosures</h3>
+        <p class="ce-approval">[ACEP’s approval statement for each credit type goes here, in ACEP’s exact wording.]</p>
+        <p><b>Conflict of interest.</b> David Feinstein, PhD, is the author of the Field Guide and the Practice Program and receives income from Program sales. He receives no portion of the CE fee.</p>
+        <p><b>Refunds and grievances.</b> The $39 CE fee is refunded, and complaints are handled, under ACEP’s policies. The Program’s own 14-day guarantee is separate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="voices">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">In their words</span></p>
+    <h2 class="section-h">What Colleagues Are Saying</h2>
+    <div class="vgrid">
+
+      <div class="vcard wide">
+        <blockquote>&ldquo;A masterful presentation, indispensable for anyone wishing to master the art of skillful languaging in tapping therapies. Goes far beyond what is taught in traditional Energy Psychology trainings. I particularly appreciated the succinct &lsquo;Takeaways&rsquo; and the commentaries on my personal scores. Very highly recommended.&rdquo;</blockquote>
+        <p class="attrib"><b>John Freedom</b><span>Chair, Research Committee, Association for Comprehensive Energy Psychology</span></p>
+      </div>
+
+      <div class="vcard">
+        <blockquote>&ldquo;I am so impressed with Finding the Right Words. This is a fantastic way to quickly build skills with composite cases that accurately reflect client care. Your patients will benefit as your skills and confidence grow.&rdquo;</blockquote>
+        <p class="attrib"><b>Kerri Husman, MD</b><span>President of the Board, Association for Comprehensive Energy Psychology</span></p>
+      </div>
+
+      <div class="vcard">
+        <blockquote>&ldquo;. . . an invaluable resource that gave me new ways of approaching clients and clinical situations.&rdquo;</blockquote>
+        <p class="attrib"><b>Jo&atilde;o Pestana</b><span>Clinical Psychologist, Portugal</span></p>
+      </div>
+
+      <div class="vcard">
+        <blockquote>&ldquo;Eye-opening, confidence-building, and sure to be powerfully helpful to both practitioners and clients.&rdquo;</blockquote>
+        <p class="attrib"><b>Christine Kelley</b><span>Certified Clinical EFT Practitioner</span></p>
+      </div>
+
+      <div class="vcard">
+        <blockquote>&ldquo;. . . a road map to a simple language, to better gauge where the client is during the session and when to move forward.&rdquo;</blockquote>
+        <p class="attrib"><b>Karina Paxton</b><span>Certified Clinical EFT Practitioner</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="enroll" class="pricing">
+  <div class="wrap">
+    <p class="section-eyebrow"><span class="eyebrow">Enroll</span></p>
+    <h2 class="section-h">Start the Program</h2>
+    <p class="section-lead">The moment will come again in your next session. Practice now, and meet it ready.</p>
+    <div class="price-card">
+      <p class="plan">Full Access</p>
+      <p class="amt">$<span data-price>129</span> <small>one time</small></p>
+      <p class="terms">Lifetime access to the entire program</p>
+      <p class="value">About the cost of a single hour of clinical supervision</p>
+      <ul>
+        <li>Three tiers, each emphasizing different skills</li>
+        <li>All 144 clinical choice points, across 140 presenting issues</li>
+        <li>The reasoning behind all 528 options</li>
+        <li>The Practice Profile &mdash; tracks how your choices land and your own tendencies</li>
+        <li>The option to write your own phrase before seeing the choices, ideal for a second round</li>
+        <li>Reflection questions and a printable Practice Record</li>
+        <li>Free updates as the program evolves</li>
+        <li>Eligible for 6 CE hours through ACEP (optional, $39 paid to ACEP) <a href="#ce" class="ce-mini">details</a></li>
+      </ul>
+      <a class="btn big" href="https://energytapping.com/infopage/enroll/" target="_blank" rel="opener">Enroll now</a>
+      <p class="price-note">Secure checkout · Instant access · No subscription</p>
+      <p class="price-note guarantee"><b>14-day guarantee.</b> If the Practice Program isn&rsquo;t right for you, <a href="mailto:support@edenmethod.com">email us</a> within 14 days of purchase for a full refund. No questions asked.</p>
+    </div>
+    <p class="scope-more">Want to try it first? <a href="#try-cta" onclick="event.preventDefault(); enterFoldedPreview('price');">Work through nine scenarios free →</a></p>
+  </div>
+</section>
+
+
+
+<section id="folded-preview">
+  <div class="fp-topbar">
+    <div class="wrap">
+      <span class="mark">Finding the <b>Right Words</b></span>
+      <a href="#" class="fp-back" onclick="event.preventDefault(); exitFoldedPreview();">&larr; Back to the page</a>
+    </div>
+  </div>
+  <div class="fp-layout">
+    <div class="fp-main">
+      <div class="fp-heading">
+        <p class="fp-progress" id="fp-progress">Scenario 1 of 9</p>
+      </div>
+      <div id="fp-body"></div>
+      <div class="fp-nav">
+        <button id="fp-prev" onclick="fpPrev()" disabled>&larr; Previous</button>
+        <button id="fp-next" class="fp-primary" onclick="fpNext()" disabled>Next Scenario &rarr;</button>
+      </div>
+      <p class="fp-enroll" id="fp-enroll"><a href="https://energytapping.com/infopage/enroll/" target="_blank" rel="opener">Seen enough? Enroll in the full program &rarr;</a></p>
+    </div>
+    <aside class="fp-sidebar" id="fp-sidebar">
+      <p class="fp-sidebar-head">Sample Scenarios</p>
+      <ol class="fp-sidebar-list" id="fp-sidebar-list"></ol>
+    </aside>
+  </div>
+</section>
+ <script>// Say in words what the colors show, for the sample scenario and the nine free ones.
+function lpVerdict(optsEl, picked, correctBtn){
+  if(!optsEl || !correctBtn) return;
+  const isC = (picked === correctBtn);
+  optsEl.querySelectorAll('.try-opt').forEach(b => {
+    const body = b.querySelector('.try-body'); if(!body || body.querySelector('.vtag')) return;
+    let t = null;
+    if(b === correctBtn) t = '<span class="vtag good">' + (isC ? '\u2713 Correct' : '\u2713 Best answer') + '</span>';
+    else if(b === picked) t = '<span class="vtag mine">Your choice</span>';
+    if(t) body.insertAdjacentHTML('afterbegin', t);
+  });
+  if(optsEl.previousElementSibling && optsEl.previousElementSibling.classList.contains('try-verdict')) return;
+  const v = document.createElement('p'); v.setAttribute('role','status');
+  v.className = 'try-verdict ' + (isC ? 'good' : 'miss');
+  const key = (correctBtn.querySelector('.try-key')||{}).textContent || '';
+  v.textContent = isC ? '\u2713 Correct.' : 'Not this time. The best answer is ' + key.trim() + '.';
+  optsEl.parentNode.insertBefore(v, optsEl);
+}
+</script> <script>(function(){
+  const card = document.getElementById('try-card');
+  const opts = document.querySelectorAll('#try-opts .try-opt');
+  const cta = document.getElementById('try-cta');
+  opts.forEach(btn => {
+    btn.addEventListener('click', function(){
+      if (card.classList.contains('answered')) return;
+      card.classList.add('answered');
+      const correctBtn = document.querySelector('#try-opts .try-opt[data-correct="true"]');
+      opts.forEach(b => { b.classList.add('locked'); });
+      correctBtn.classList.add('correct');
+      if (btn !== correctBtn) btn.classList.add('wrongpick');
+      opts.forEach(b => {
+        if (b !== correctBtn && b !== btn) b.classList.add('dim');
+      });
+      lpVerdict(document.getElementById('try-opts'), btn, correctBtn);
+      setTimeout(() => cta.classList.add('show'), 250);
+    });
+  });
+})();
+</script> <script>const FP_SCENARIOS = [
+ {
+  "id": "s1-006",
+  "tier": "read",
+  "accent": "attune",
+  "issue": "caregiver guilt",
+  "position": "mid-processing",
+  "targetFunction": "Discerning Multiple Layers",
+  "pair": null,
+  "scene": "She has been caring for her father through his dementia. “I should just be grateful for the time we have,” she says brightly, while her hands shred a tissue and her SUD sits at 7.",
+  "setup": null,
+  "prompt": "Where should the next phrase go?",
+  "options": [
+   {
+    "t": "Attune",
+    "ok": true,
+    "why": "<b>Attune — via Discerning Multiple Layers.</b> Her words say fine. Her hands and the 7 say otherwise. Attune to the layer under the brightness — <i>“Under the gratitude, something in me is worn all the way down”</i> — so the real feeling gets a place to exist."
+   },
+   {
+    "t": "Explore",
+    "ok": false,
+    "why": "Hunting for where the guilt began skips a step. The present feeling hasn’t been admitted into the room yet."
+   },
+   {
+    "t": "Lead",
+    "ok": false,
+    "why": "Any forward step endorses the gratitude mask — <b>agreeing with the cover story</b> instead of meeting the person under it."
+   }
+  ],
+  "takeaway": "When the words say fine and the body says otherwise, attune to the body’s report."
+ },
+ {
+  "id": "s1-021",
+  "tier": "read",
+  "accent": "explore",
+  "issue": "emotional numbness",
+  "position": "mid-processing",
+  "targetFunction": "Exploration via Metaphor",
+  "pair": null,
+  "scene": "“I feel like there’s a brick wall around my chest,” she says. Her voice is flat, and she keeps tapping. Her SUD has not moved off 3. She pauses and looks at you, and the look is asking whether that was all right to say.",
+  "setup": null,
+  "prompt": "Where should the next phrase go?",
+  "options": [
+   {
+    "t": "Attune",
+    "ok": false,
+    "why": "Echoing “wall” would attune, but she’s regulated and offering the image <i>to be used</i>. Staying put wastes the invitation."
+   },
+   {
+    "t": "Explore",
+    "ok": true,
+    "why": "<b>Explore — via Metaphor.</b> A client-made image is a doorway. Walk through it with her: <i>“This wall around my chest — I’m starting to wonder what it was built to keep out.”</i>"
+   },
+   {
+    "t": "Lead",
+    "ok": false,
+    "why": "Tearing the wall down before knowing its job risks removing a load-bearing structure."
+   }
+  ],
+  "takeaway": "A metaphor the client builds is a doorway. Walk through it rather than admiring it from outside."
+ },
+ {
+  "id": "s1-038",
+  "tier": "read",
+  "accent": "lead",
+  "issue": "childhood memory rework",
+  "position": "late",
+  "targetFunction": "Re-experiencing Past Events Safely",
+  "pair": null,
+  "scene": "The kitchen memory that flooded her in week two has come down to a 2. “I can look at it now,” she says, and her voice is steady. “I almost want to go back and stand next to that kid.”",
+  "setup": null,
+  "prompt": "Where should the next phrase go?",
+  "options": [
+   {
+    "t": "Attune",
+    "ok": false,
+    "why": "Safety is established. That project is complete. Staying there declines the visit she just proposed."
+   },
+   {
+    "t": "Explore",
+    "ok": false,
+    "why": "The links are made and understood. More analysis adds footnotes to a chapter that’s ready to be rewritten."
+   },
+   {
+    "t": "Lead",
+    "ok": true,
+    "why": "<b>Lead — via Re-experiencing Past Events Safely.</b> She proposed the revisit herself from a 2. Go, carrying resources: <i>“I’m standing in that kitchen next to eight-year-old me, and she can feel that I made it out.”</i>"
+   }
+  ],
+  "takeaway": "When a settled client offers to revisit the memory, go with it. Bringing today’s safety to yesterday’s scene is how it re-encodes."
+ },
+ {
+  "id": "s2-006",
+  "tier": "phrase",
+  "accent": "attune",
+  "issue": "caregiver bereavement / relief-guilt",
+  "position": "mid-processing",
+  "targetFunction": "Recognizing Conflicting Feelings",
+  "pair": null,
+  "scene": "His wife’s long illness ended a month ago. He is barely audible. “Part of me is just... relieved. What kind of husband says that?” His SUD is at 7.",
+  "setup": "The moment calls to <b>ATTUNE</b>. Grief and relief are both in the room, and he believes only one is allowed.",
+  "prompt": "Which best fits this moment?",
+  "options": [
+   {
+    "t": "The relief just means I loved her enough to want her free of pain.",
+    "ok": false,
+    "why": "<b>Leading past the conflict.</b> A kind reframe. Offered too soon, it resolves a tension he needs permission to simply feel first."
+   },
+   {
+    "t": "I’m relieved, plain and simple, and that is all there is to it.",
+    "ok": false,
+    "why": "<b>Single-sided echo.</b> It amputates the grief to normalize the relief, when the whole difficulty is that both are true at once."
+   },
+   {
+    "t": "I’m grieving her, I’m relieved the suffering is over, and both are real.",
+    "ok": true,
+    "why": "<b>Recognizing Conflicting Feelings.</b> “Both are real” directly answers “what kind of husband.” The kind who feels both. It legalizes the forbidden feeling next to the sanctioned one."
+   },
+   {
+    "t": "When did I first learn that some feelings are forbidden to have?",
+    "ok": false,
+    "why": "<b>Exploring too early.</b> Where forbidden feelings come from is a rich thread. For after this one has been allowed to exist."
+   }
+  ],
+  "takeaway": "A client asking what kind of person feels this is asking for permission, not for an answer. Give the forbidden feeling equal standing and the question dissolves."
+ },
+ {
+  "id": "s2-019",
+  "tier": "phrase",
+  "accent": "explore",
+  "issue": "attachment panic",
+  "position": "mid-processing",
+  "targetFunction": "Connecting Past and Present",
+  "pair": null,
+  "scene": "An unanswered text from a friend can spiral him for hours. He is steady now, at a 3, and he asks flatly, “Why do I do the math on how long people take to reply? Where does that even come from?” In the previous session he described a childhood memory of standing at the front window after the divorce, watching the driveway, waiting for his father’s car.",
+  "setup": "The moment calls to <b>EXPLORE</b>. He himself has asked where the response comes from. The phrase should provide an informed possibility.",
+  "prompt": "Which best fits this moment?",
+  "options": [
+   {
+    "t": "Waiting for a reply is uncomfortable for me. True or false?",
+    "ok": false,
+    "why": "<b>Attuning behind his question.</b> He asked where it comes from. A reflection answers a different, easier question."
+   },
+   {
+    "t": "Modern communication really has shortened everyone’s patience for waiting. I’m not alone in this.",
+    "ok": false,
+    "why": "<b>Universalizing the wrong scale.</b> True in a cultural sense, but it swerves the origin question he found the courage to ask. The moment isn’t asking about phones. It’s asking about the ache underneath."
+   },
+   {
+    "t": "People who take hours to reply don’t respect me. True or false?",
+    "ok": false,
+    "why": "<b>Harsh absolute</b>. It converts an attachment alarm into a rule about other people, pointing the inquiry away from where it can help."
+   },
+   {
+    "t": "Every unanswered text is the driveway, waiting for a car that might not come back. True or false?",
+    "ok": true,
+    "why": "<b>Connecting Past and Present.</b> It bridges to the history he’s described before, and the “true or false?” keeps it his to confirm or correct."
+   }
+  ],
+  "takeaway": "When the client asks where something comes from, offer an informed possibility and attach a “true or false?”"
+ },
+ {
+  "id": "s2-030",
+  "tier": "phrase",
+  "accent": "lead",
+  "issue": "over-obligation revealed through practitioner-initiated humor",
+  "position": "insight through belly-laugh",
+  "targetFunction": "Using Humor or Irony — practitioner-introduced, serving Lead",
+  "pair": null,
+  "scene": "He gives a ten-minute list of weekend obligations: the fence, the gutters, moving his neighbor’s couch, his daughter’s tournament, his son’s lamp, a coworker’s deck on Monday. It ends with “I just don’t get why I’m always tired.” You say, “You’ve scheduled burnout recovery between the fence and the couch.” He pauses. Then he belly-laughs. His SUD is at 4 and his breathing has loosened.",
+  "setup": "The moment calls to <b>LEAD</b>. Your line landed. The tapping phrase should install what the laugh just showed him.",
+  "prompt": "Which best fits this moment?",
+  "options": [
+   {
+    "t": "I need to say no to all of this, and I need to start right now.",
+    "ok": false,
+    "why": "<b>Charging to action.</b> Skips the loosening the laugh created. Action from a still-tight place usually stops at the next weekend."
+   },
+   {
+    "t": "It’s not really funny. This is my actual life we’re laughing at.",
+    "ok": false,
+    "why": "<b>Retreating from the humor.</b> The laugh was doing work. Backing away from it puts the pattern back where it couldn’t be seen."
+   },
+   {
+    "t": "I’ve been trying to recover from burnout by fixing everyone else’s weekend.",
+    "ok": true,
+    "why": "<b>Using Humor or Irony — practitioner-introduced, serving Lead.</b> A well-placed joke landed as recognition. This tapping phrase installs the insight in his own voice, so the laughing recognition becomes something his body can practice. The practitioner’s line was the doorway. This is the room."
+   },
+   {
+    "t": "Everyone leans on me because they know by now that they can get away with it.",
+    "ok": false,
+    "why": "<b>Externalizing.</b> Blames others for a pattern he just laughed at in himself. The humor was pointed at his own scheduling, not other people’s asking."
+   }
+  ],
+  "takeaway": "Watch what a laugh does to the body. The loosening it creates is a window, and it shuts faster than you expect."
+ },
+ {
+  "id": "s3-006",
+  "tier": "twin",
+  "accent": "attune",
+  "issue": "ending a friendship",
+  "position": "mid-processing",
+  "targetFunction": "Discerning Multiple Layers",
+  "pair": "Conflicting vs Layers",
+  "scene": "She ended a twenty-year friendship that had turned corrosive, and her SUD is at 4. As she describes how quiet her phone has been since, she says several times, “I feel so guilty.” But each time a small smile escapes.",
+  "setup": "She’s reporting one feeling. Her face is leaking another.",
+  "prompt": "Which best fits this moment?",
+  "options": [
+   {
+    "t": "Part of me feels guilty about ending it, and part of me feels relieved it’s finally over. Both at once.",
+    "ok": false,
+    "why": "<b>Stating conflicting feelings before the conflict has been owned.</b> Side-by-side framing treats an unadmitted layer as an open debate. The relief isn’t standing next to the guilt yet. It’s underneath, leaking out as a smile she hasn’t owned."
+   },
+   {
+    "t": "Part of me feels like a good person would have found a way to keep the friendship.",
+    "ok": false,
+    "why": "<b>Arming the guilt.</b> Plausible, but it hands her a standard to fail against just as the relief was peeking out."
+   },
+   {
+    "t": "Under the guilt, there’s a relief I haven’t dared say out loud.",
+    "ok": true,
+    "why": "<b>Attune — Discerning Multiple Layers.</b> Only guilt gets spoken. The relief leaks out sideways as a smile. It’s hiding <i>beneath</i>, not standing beside. Naming it grants the permission the smile is asking for."
+   },
+   {
+    "t": "I made the right call and I’m moving on.",
+    "ok": false,
+    "why": "<b>Leading past both feelings</b>. Case closed before either one has been examined."
+   }
+  ],
+  "takeaway": "When one feeling is spoken and another only leaks out, they are not side by side. Name the leak as the layer beneath."
+ },
+ {
+  "id": "s3-011",
+  "tier": "twin",
+  "accent": "explore",
+  "issue": "medical procedure avoidance carrying older fear",
+  "position": "ripe for depth",
+  "targetFunction": "Investigating Secondary Gains",
+  "pair": "Validating vs Secondary Gains",
+  "scene": "She just turned 52. Her mother died of breast cancer at 52. She has put off her yearly mammogram for the third year running. “My friend has to practically drag me from the parking lot,” she says. Today, calm and at a 4, she asks, “Why is this so hard? It’s just a mammogram.”",
+  "setup": "Three years of avoidance and one calm question. The phobia has been carrying something she hasn’t named.",
+  "prompt": "Which best fits this moment?",
+  "options": [
+   {
+    "t": "The odds of finding anything serious at my age are actually quite low. I know that.",
+    "ok": false,
+    "why": "<b>Reasoning at exactly the moment feeling is asked for.</b> True, but it lands as thin comfort. She’s not confused about odds. She’s stopped at a threshold that odds can’t cross."
+   },
+   {
+    "t": "No wonder I’ve been dreading this. Three years of turning back at that parking lot has worn me down. True or false?",
+    "ok": false,
+    "why": "<b>Attuning to the surface — meeting the fear, not opening it.</b> Validates the phobia as the whole story. But the phobia has been standing in for something. Meeting only the surface leaves the actual weight unnamed."
+   },
+   {
+    "t": "I schedule the mammogram this week, and then this is behind me.",
+    "ok": false,
+    "why": "<b>Leading before Exploring.</b> Charges to commitment when the moment is asking for depth. Her body has been avoiding that parking lot for three years. Willpower without understanding usually stops at the parking lot again."
+   },
+   {
+    "t": "The mammogram isn’t what I’m really afraid of. What I’ve been avoiding is my mother’s story becoming mine. True or false?",
+    "ok": true,
+    "why": "<b>Explore — Investigating Secondary Gains.</b> She asked “why is this so hard?” — the phrase supplies the answer beneath the answer. The phobia has been carrying the weight of the underlying fear. Naming the substitution lets both be met separately."
+   }
+  ],
+  "takeaway": "When a phobia is doing more than being a phobia, name what it’s been carrying. The deeper fear is often what actually needs the tapping."
+ },
+ {
+  "id": "s3-005",
+  "tier": "twin",
+  "accent": "lead",
+  "issue": "client revising memory after tapping released charge",
+  "position": "consolidation moment",
+  "targetFunction": "Consolidating Gains — naming the Apex Effect",
+  "pair": "Conflicting vs Layers",
+  "scene": "Her mother’s cutting comments were part of her childhood. Last session she named one comment that had stayed. At fourteen, she had saved for six months to buy her mother a music box for her birthday. Her mother unwrapped it, said “well, that’s ugly,” set it down, and never picked it up again. Tapping brought that memory from an 8 to a 2 by the end of the hour. She opens the next session: “That music box thing. Honestly, my mother had a hard life. I don’t know why I made a big deal out of it.”",
+  "setup": "The reduction happened. Now the memory is being retold as if it never was much of anything.",
+  "prompt": "Which best fits this moment?",
+  "options": [
+   {
+    "t": "Last week I couldn’t get through that memory. Today it feels small. That difference is the tapping. True or false?",
+    "ok": true,
+    "why": "<b>Lead — Naming the Apex Effect.</b> When tapping releases the charge on a memory, the mind often follows by rewriting the memory as small, known as the Apex Effect. Naming the shift lets her own what her body just did. The true or false inquiry provides a window for her to recognize the shift and her role in bringing it about. Without the naming, the client loses the credit for what tapping just accomplished."
+   },
+   {
+    "t": "My mother had a hard life. That’s just how she talked. I probably made too much of it. True or false?",
+    "ok": false,
+    "why": "<b>Colluding with the Apex Effect.</b> The revised memory becomes the new truth, and the previous distress gets explained away. The naive move that lets tapping’s most important lesson slip past — that the memory hasn’t gotten smaller, the charge has moved."
+   },
+   {
+    "t": "I need to hold onto how big this was, or I’m minimizing what happened to me.",
+    "ok": false,
+    "why": "<b>Arguing with the release.</b> Trying to reinstate the past SUD as if losing the charge would mean the memory didn’t matter. Confuses release of charge with denial of experience. Both are respected only when the shift is named as shift."
+   },
+   {
+    "t": "This one is done. There’s nothing more to say about it.",
+    "ok": false,
+    "why": "<b>Skipping what just happened.</b> Takes the Apex Effect at face value and moves to the next issue. The gain gets banked without being recognized — which means the next Apex Effect will look like resistance instead of like the work paying off."
+   }
+  ],
+  "takeaway": "The Apex Effect isn’t resistance. It is the mind following the body’s release. Name the shift so the client can own what tapping just did. Otherwise the credit for the work quietly slips past."
+ }
+];
+const FP_TIER_NAMES = {"read":"Tier 1: Sensing the Direction","phrase":"Tier 2: Shaping the Phrase","twin":"Tier 3: Sophisticated Discernment"};
+const FP_TIER_SHORT = {"read":"Tier 1","phrase":"Tier 2","twin":"Tier 3"};
+let fpPos = 0;
+let fpResults = new Array(FP_SCENARIOS.length).fill(null); // null | 'correct' | 'missed'
+let fpPicked = new Array(FP_SCENARIOS.length).fill(-1);   // which option index they clicked
+
+let fpOrigin = 'sample';   // 'sample' = the button under the sample; 'price' = the line under the pricing
+function enterFoldedPreview(origin){
+  fpOrigin = (origin === 'price') ? 'price' : 'sample';
+  document.body.classList.add('preview-mode');
+  fpPos = 0;
+  fpResults = new Array(FP_SCENARIOS.length).fill(null);
+  fpPicked = new Array(FP_SCENARIOS.length).fill(-1);
+  // Reset button display in case they were hidden by a previous 'done' screen
+  document.getElementById('fp-prev').style.display = '';
+  document.getElementById('fp-next').style.display = '';
+  document.getElementById('fp-sidebar').style.display = '';
+  document.getElementById('fp-enroll').style.display = '';
+  fpRender();
+  window.scrollTo(0,0);
+}
+
+function exitFoldedPreviewTo(id){
+  document.body.classList.remove('preview-mode');
+  setTimeout(() => {
+    const target = document.getElementById(id);
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 50);
+}
+
+function exitFoldedPreview(){
+  document.body.classList.remove('preview-mode');
+  setTimeout(() => {
+    /* Someone who came from the sample has not read the tiers or the price yet,
+       so send them forward. Someone who came from the pricing line has read
+       everything and went to the preview to settle one question — send them back
+       to the decision, not backwards through the page. */
+    const target = document.getElementById(fpOrigin === 'price' ? 'enroll' : 'tiers');
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 50);
+}
+
+function fpRenderSidebar(){
+  const list = document.getElementById('fp-sidebar-list');
+  let html = '';
+  for(let i = 0; i < FP_SCENARIOS.length; i++){
+    let cls = 'fp-side-item';
+    if(i === fpPos) cls += ' fp-current';
+    if(fpResults[i] === 'correct') cls += ' fp-correct';
+    if(fpResults[i] === 'missed') cls += ' fp-missed';
+    let mark = '';
+    if(fpResults[i] === 'correct') mark = '<span class="fp-mark">&#10003;</span>';
+    else if(fpResults[i] === 'missed') mark = '<span class="fp-mark">&#10007;</span>';
+    else if(i === fpPos) mark = '<span class="fp-mark">&#9654;</span>';
+    html += '<li class="' + cls + '" onclick="fpJumpTo(' + i + ')"><span class="fp-num">' + (i+1) + '</span>' + mark + '</li>';
+  }
+  list.innerHTML = html;
+}
+
+function fpJumpTo(i){
+  if(i < 0 || i >= FP_SCENARIOS.length) return;
+  fpPos = i;
+  fpRender();
+  window.scrollTo(0,0);
+}
+
+function fpRender(){
+  if(fpPos >= FP_SCENARIOS.length){ fpRenderDone(); return; }
+  const s = FP_SCENARIOS[fpPos];
+  document.getElementById('fp-progress').textContent = 'Scenario ' + (fpPos+1) + ' of ' + FP_SCENARIOS.length;
+  const tierChipClass = 't-' + s.tier;
+  const tierLabel = FP_TIER_NAMES[s.tier] || s.tier;
+  let html = '<div class="try-card" id="fp-card">';
+  html += '<div style="text-align:center"><span class="fp-tier-chip ' + tierChipClass + '">' + tierLabel + '</span></div>';
+  html += '<p class="try-scene">' + s.scene + '</p>';
+  if(s.setup) html += '<div class="try-setup">' + s.setup + '</div>';
+  html += '<p class="try-prompt">' + s.prompt + '</p>';
+  html += '<div class="try-opts" id="fp-opts">';
+  const keys = ['A','B','C','D'];
+  s.options.forEach((o,i) => {
+    html += '<button class="try-opt" data-i="' + i + '" data-correct="' + (o.ok ? 'true':'false') + '" onclick="fpAnswer(' + i + ')">';
+    html += '<span class="try-key">' + keys[i] + '</span>';
+    html += '<span class="try-body">';
+    html += '<span class="try-t">' + o.t + '</span>';
+    html += '<span class="try-why">' + o.why + '</span>';
+    html += '</span></button>';
+  });
+  html += '</div>';
+  html += '<div class="try-takeaway"><b>Takeaway</b>' + s.takeaway + '</div>';
+  html += '</div>';
+  document.getElementById('fp-body').innerHTML = html;
+  document.getElementById('fp-prev').disabled = (fpPos === 0);
+  document.getElementById('fp-next').disabled = (fpResults[fpPos] === null);
+  document.getElementById('fp-next').innerHTML = (fpPos === FP_SCENARIOS.length - 1) ? 'See Summary &rarr;' : 'Next Scenario &rarr;';
+  // Restore answered state if this scenario was already answered
+  if(fpResults[fpPos] !== null){
+    const card = document.getElementById('fp-card');
+    card.classList.add('answered');
+    const correctBtn = document.querySelector('#fp-opts .try-opt[data-correct="true"]');
+    const pickedBtn = document.querySelector('#fp-opts .try-opt[data-i="' + fpPicked[fpPos] + '"]');
+    document.querySelectorAll('#fp-opts .try-opt').forEach(b => b.classList.add('locked'));
+    correctBtn.classList.add('correct');
+    if(pickedBtn && pickedBtn !== correctBtn) pickedBtn.classList.add('wrongpick');
+    document.querySelectorAll('#fp-opts .try-opt').forEach(b => {
+      if(b !== correctBtn && b !== pickedBtn) b.classList.add('dim');
+    });
+    lpVerdict(document.getElementById('fp-opts'), pickedBtn, correctBtn);
+  }
+  fpRenderSidebar();
+}
+
+function fpAnswer(i){
+  const card = document.getElementById('fp-card');
+  if(card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  const opts = document.querySelectorAll('#fp-opts .try-opt');
+  const correctBtn = document.querySelector('#fp-opts .try-opt[data-correct="true"]');
+  opts.forEach(b => b.classList.add('locked'));
+  correctBtn.classList.add('correct');
+  const clickedBtn = document.querySelector('#fp-opts .try-opt[data-i="' + i + '"]');
+  const isCorrect = (clickedBtn === correctBtn);
+  if(!isCorrect) clickedBtn.classList.add('wrongpick');
+  opts.forEach(b => {
+    if(b !== correctBtn && b !== clickedBtn) b.classList.add('dim');
+  });
+  lpVerdict(document.getElementById('fp-opts'), clickedBtn, correctBtn);
+  fpResults[fpPos] = isCorrect ? 'correct' : 'missed';
+  fpPicked[fpPos] = i;
+  document.getElementById('fp-next').disabled = false;
+  fpRenderSidebar();
+}
+
+function fpNext(){
+  if(fpPos < FP_SCENARIOS.length - 1){
+    fpPos++; fpRender(); window.scrollTo(0,0);
+  } else {
+    fpPos = FP_SCENARIOS.length;
+    fpRenderDone();
+  }
+}
+
+function fpPrev(){
+  if(fpPos > 0){ fpPos--; fpRender(); window.scrollTo(0,0); }
+}
+
+function fpRenderDone(){
+  document.getElementById('fp-progress').textContent = 'Preview complete';
+  const correctCount = fpResults.filter(r => r === 'correct').length;
+  const missedIndices = fpResults.map((r,i) => r === 'missed' ? i : -1).filter(i => i >= 0);
+  const total = FP_SCENARIOS.length;
+  // Compute tier breakdown
+  const tierCounts = {'read':[0,0],'phrase':[0,0],'twin':[0,0]}; // [correct, total]
+  FP_SCENARIOS.forEach((s,i) => {
+    tierCounts[s.tier][1]++;
+    if(fpResults[i] === 'correct') tierCounts[s.tier][0]++;
+  });
+  
+  let html = '<div class="fp-done">';
+  html += '<h2>Preview complete &mdash; ' + correctCount + ' of ' + total + '</h2>';
+  html += '<p class="fp-tier-breakdown">Tier 1: ' + tierCounts.read[0] + '/' + tierCounts.read[1] + '  &middot;  Tier 2: ' + tierCounts.phrase[0] + '/' + tierCounts.phrase[1] + '  &middot;  Tier 3: ' + tierCounts.twin[0] + '/' + tierCounts.twin[1] + '</p>';
+  html += '<p class="fp-done-lead">These nine scenarios, plus the one offered above, are drawn from the 144 in the full Practice Program. Each named the language variation it reflects &mdash; and the full program does the same for every one of its choice points.</p>';
+  
+  if(missedIndices.length > 0){
+    html += '<div class="fp-missed-review">';
+    html += '<h3>Scenarios worth a second look:</h3>';
+    html += '<ul>';
+    missedIndices.forEach(idx => {
+      const s = FP_SCENARIOS[idx];
+      const shortTier = FP_TIER_SHORT[s.tier];
+      html += '<li><b>Scenario ' + (idx+1) + ' (' + shortTier + ').</b> ' + s.takeaway + ' <a href="#" onclick="event.preventDefault(); fpBackFromSummary(' + idx + ');">Revisit &rarr;</a></li>';
+    });
+    html += '</ul>';
+    html += '</div>';
+  } else if(correctCount === total){
+    html += '<p class="fp-perfect">All nine in hand. The full 144-item program deepens what you just did &mdash; many more scenarios in each tier, and finer discriminations.</p>';
+  }
+  
+  html += '<p class="fp-offer">The full program has 144 scenarios like these across three tiers, with your Practice Profile, reflections, and a Practice Record to keep. <b>$129 · lifetime access · 14-day full refund · 6 CE hours available through ACEP.</b></p>';
+  html += '<div class="fp-cta-row">';
+  html += '<a class="fp-primary" href="https://energytapping.com/infopage/enroll/" target="_blank" rel="opener">Enroll in the Program — $129</a>';
+  html += '<a href="#" onclick="event.preventDefault(); enterFoldedPreview(fpOrigin);">Restart the Sample</a>';
+  html += '<a href="#" onclick="event.preventDefault(); exitFoldedPreview();">Back to the page</a>';
+  html += '</div>';
+  html += '<p class="fp-still"><a href="#faq" onclick="event.preventDefault(); exitFoldedPreviewTo(\'faq\');">Still weighing it? Common questions &rarr;</a></p>';
+  html += '</div>';
+  document.getElementById('fp-body').innerHTML = html;
+  document.getElementById('fp-prev').style.display = 'none';
+  document.getElementById('fp-next').style.display = 'none';
+  document.getElementById('fp-sidebar').style.display = 'none';
+  document.getElementById('fp-enroll').style.display = 'none';
+}
+
+function fpBackFromSummary(idx){
+  idx = Math.floor(Number(idx));
+  if(!Number.isFinite(idx) || idx < 0 || idx >= FP_SCENARIOS.length) return;
+  fpPos = idx;
+  document.getElementById('fp-prev').style.display = '';
+  document.getElementById('fp-next').style.display = '';
+  document.getElementById('fp-sidebar').style.display = '';
+  document.getElementById('fp-enroll').style.display = '';
+  fpRender();
+  window.scrollTo(0,0);
+}
+</script> <script>/* Arriving from a link such as /infopage/#try: the browser jumps to the
+   section before the web fonts and images finish loading, and as they load the
+   page above grows, so the reader ends up somewhere else (Safari does not
+   correct for this). Re-aim at the section once everything has loaded. */
+(function(){
+  if(!location.hash || location.hash.length < 2) return;
+  var target;
+  try { target = document.querySelector(location.hash); } catch(e) { return; }
+  if(!target) return;
+  function go(){ target.scrollIntoView({behavior:'instant', block:'start'}); }
+  window.addEventListener('load', function(){
+    var ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    ready.then(function(){ go(); setTimeout(go, 350); setTimeout(go, 1200); });
+  });
+})();
+</script>   </main> <footer class="site-footer"> <p>Questions? Email <a href="mailto:support@edenmethod.com">support@edenmethod.com</a>.</p> <p class="fine">Finding the Right Words · David Feinstein, PhD</p> </footer> </body></html>

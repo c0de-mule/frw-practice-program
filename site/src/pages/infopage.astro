@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import css from '../fragments/info.css?raw';
+import body from '../fragments/info.body.html?raw';
+import js1 from '../fragments/info.js1.js?raw';
+import js2 from '../fragments/info.js2.js?raw';
+import js3 from '../fragments/info.js3.js?raw';
+import js4 from '../fragments/info.js4.js?raw';
+---
+<Base title="Finding the Right Words — An Interactive Program for Tapping Practitioners" description="An interactive practice program developed by clinical psychologist David Feinstein, PhD.">
+  <style is:global set:html={css}></style>
+  <style is:global>html{scroll-padding-top:112px}</style>
+
+  <nav class="section-nav" aria-label="On this page">
+    <div class="inner">
+      <a href="#try">Try a scenario</a>
+      <a href="#how">How it works</a>
+      <a href="#tiers">The program</a>
+      <a href="#faq">Questions</a>
+      <a class="cta" href="#enroll">Enroll</a>
+    </div>
+  </nav>
+
+  <Fragment set:html={body} />
+
+  <script is:inline set:html={js1}></script>
+  <script is:inline set:html={js2}></script>
+  <script is:inline set:html={js3}></script>
+  <script is:inline set:html={js4}></script>
+
+  <style>
+    .section-nav{position:sticky;top:63px;z-index:19;background:#132C44;border-bottom:1px solid rgba(0,0,0,.25)}
+    .section-nav .inner{max-width:1040px;margin:0 auto;display:flex;gap:1.4rem;align-items:center;height:46px;padding:0 1.3rem;overflow-x:auto;scrollbar-width:none}
+    .section-nav .inner::-webkit-scrollbar{display:none}
+    .section-nav a{color:#CBD6DF;text-decoration:none;font-weight:600;font-size:.86rem;white-space:nowrap}
+    .section-nav a:hover{color:#fff}
+    .section-nav a.cta{margin-left:auto;background:#2C6A93;color:#fff;padding:.42rem .95rem;border-radius:6px}
+    .section-nav a.cta:hover{background:#357aa7;color:#fff}
+    @media(max-width:600px){ .section-nav a.cta{margin-left:0} }
+  </style>
+</Base>
