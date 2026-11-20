@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opt-in options — Finding the Right Words</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5F1; --card:#FFFFFF; --ink:#1E2A36; --navy:#0F2337;
+    --ink-soft:#465360; --ink-faint:#7C8894; --line:#E4DFD7;
+    --brass:#D8C58C; --brass-deep:#B7975A; --brand:#176C9B; --warm:rgba(151,143,131,.13);
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --ui:'Public Sans','Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  .mockbar{background:#241a10;color:#f3e7cf;font-size:.74rem;letter-spacing:.04em;text-align:center;padding:.5rem 1rem}
+  .mockbar b{color:#fff}
+
+  .nav{background:rgba(15,35,55,.97)}
+  .nav-in{max-width:1040px;margin:0 auto;height:63px;display:flex;align-items:center;justify-content:space-between;padding:0 1.3rem}
+  .brand{font-family:var(--serif);font-size:1.28rem}
+  .brand .l{color:#CBB37A;font-weight:500}
+  .brand .r{color:#E6CE8F;font-weight:600}
+  .navlinks{display:flex;gap:1.3rem;font-size:.92rem}
+  .navlinks a{color:#DCE2E8;text-decoration:none;font-weight:500}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 1.25rem}
+  .intro{text-align:center;padding:2.4rem 0 .4rem}
+  .intro h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.7rem;margin:0 0 .4rem}
+  .intro p{color:var(--ink-soft);font-size:.98rem;margin:0 auto;max-width:44ch}
+
+  .variant-label{font-family:var(--ui);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;color:var(--brass-deep);margin:2.8rem 0 .9rem;text-align:center}
+
+  /* shared field styles */
+  .optin input[type=email]{font-family:var(--ui);font-size:1rem;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);width:100%}
+  .optin input[type=email]:focus{outline:none;border-color:var(--brand)}
+  .optin button{font-family:var(--ui);font-weight:600;font-size:1rem;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:.8rem 1.5rem;cursor:pointer;white-space:nowrap;transition:background .15s}
+  .optin button:hover{background:#17304a}
+
+  /* Variant A — card */
+  .optin-card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(15,35,51,.05);padding:2.2rem 1.8rem;text-align:center}
+  .optin-card .eyebrow{font-family:var(--ui);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--brass-deep);margin:0 0 .6rem}
+  .optin-card h3{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.5rem;margin:0 0 .5rem;line-height:1.2}
+  .optin-card .sub{color:var(--ink-soft);font-size:1rem;margin:0 auto 1.3rem;max-width:40ch}
+  .optin-card form{display:flex;gap:.6rem;max-width:30rem;margin:0 auto;flex-wrap:wrap}
+  .optin-card form input{flex:1;min-width:12rem}
+  .optin-card .fine{color:var(--ink-faint);font-size:.84rem;margin:1rem 0 0}
+  .optin-card .fine b{color:var(--ink-soft);font-weight:600}
+
+  /* Variant B — slim band */
+  .optin-band{background:var(--warm);border:1px solid #E7DECB;border-radius:14px;padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap}
+  .optin-band .bt{min-width:16rem;flex:1}
+  .optin-band .bt strong{display:block;font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.18rem}
+  .optin-band .bt span{color:var(--ink-soft);font-size:.9rem}
+  .optin-band form{display:flex;gap:.5rem;flex:0 0 auto}
+  .optin-band form input{width:13rem}
+  @media(max-width:560px){ .optin-band form{width:100%} .optin-band form input{flex:1;width:auto} }
+
+  footer{text-align:center;padding:3rem 1.25rem;color:var(--ink-faint);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="mockbar">PREVIEW — optional opt-in mock. <b>Not wired to ActiveCampaign yet.</b> Two placements to choose from. The free Field Guide stays free either way.</div>
+
+<div class="nav"><div class="nav-in">
+  <div class="brand"><span class="l">Finding the </span><span class="r">Right Words</span></div>
+  <nav class="navlinks"><a href="#">About the program</a><a href="#">Field Guide</a></nav>
+</div></div>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Optional opt-in &mdash; two looks</h1>
+    <p>A soft invitation to join David&rsquo;s list, not a wall in front of the guide. Pick whichever placement fits.</p>
+  </div>
+
+  <p class="variant-label">Option A &middot; Card (e.g. end of the Info or Field Guide page)</p>
+  <section class="optin optin-card">
+    <p class="eyebrow">Stay in touch</p>
+    <h3>Hear from David now and then</h3>
+    <p class="sub">New resources, classes, and the occasional paper &mdash; sent sparingly, never spammy. Unsubscribe anytime.</p>
+    <form onsubmit="return false">
+      <input type="email" placeholder="Your email address" aria-label="Your email address">
+      <button type="submit">Keep me posted</button>
+    </form>
+    <p class="fine"><b>Optional</b> &mdash; the Field Guide stays free to download either way.</p>
+  </section>
+
+  <p class="variant-label">Option B &middot; Slim band (lighter footprint, inline)</p>
+  <section class="optin optin-band">
+    <div class="bt">
+      <strong>Want David&rsquo;s occasional notes?</strong>
+      <span>Resources, classes, papers &mdash; sparingly. Unsubscribe anytime.</span>
+    </div>
+    <form onsubmit="return false">
+      <input type="email" placeholder="Your email" aria-label="Your email">
+      <button type="submit">Sign up</button>
+    </form>
+  </section>
+</div>
+
+<footer>Mock only &middot; both feed one ActiveCampaign list once wired &middot; the mandatory-gate version is a separate mock for David&rsquo;s call.</footer>
+</body>
+</html>
