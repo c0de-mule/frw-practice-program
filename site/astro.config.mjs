@@ -7,5 +7,6 @@ export default defineConfig({
   trailingSlash: 'always',
   redirects: {
     '/': '/infopage/',
+    '/video-intro/': '/infopage/',
   },
 });
