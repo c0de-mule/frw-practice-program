@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+const pages = [
+  { href: `${base}fieldguide/`, name: 'Field Guide', note: 'The printable guide — reframed cover' },
+  { href: `${base}thankyou/`, name: 'Thank You', note: 'Post-purchase page' },
+];
+---
+<Base title="Finding the Right Words — site shell" description="Astro shell preview">
+  <div class="wrap">
+    <h1>Site shell — preview</h1>
+    <p class="sub">Shared header, footer, palette and type across every page. Pages ported so far:</p>
+    <ul class="pagelist">
+      {pages.map((p) => (
+        <li><a href={p.href}>{p.name}</a><span>{p.note}</span></li>
+      ))}
+    </ul>
+    <p class="todo">Next to port: Practice Info Page, Enroll, Announcements, and the full Field Guide body.</p>
+  </div>
+  <style>
+    .wrap{max-width:720px;margin:0 auto;padding:3rem 1.25rem}
+    h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:2rem;margin:0 0 .5rem}
+    .sub{color:var(--ink-soft);margin:0 0 1.6rem}
+    .pagelist{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+    .pagelist li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem 1.2rem}
+    .pagelist a{font-family:var(--serif);font-size:1.2rem;color:var(--navy);text-decoration:none;display:block}
+    .pagelist span{color:var(--ink-faint);font-size:.9rem}
+    .todo{margin-top:2rem;color:var(--ink-faint);font-size:.9rem}
+  </style>
+</Base>

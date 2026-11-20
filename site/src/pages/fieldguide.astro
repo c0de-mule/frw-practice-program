@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Field Guide — Finding the Right Words" description="A printable field guide for acupoint tapping practitioners.">
+  <div class="wrap">
+    <section class="hero">
+      <span class="kicker">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B7975A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M7 3h8l5 5v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 13h6M9 17h6"/></svg>
+        Printable Field Guide · PDF
+      </span>
+
+      <div class="stack">
+        <div class="sheet back b2" aria-hidden="true"></div>
+        <div class="sheet back b1" aria-hidden="true"></div>
+        <div class="sheet top">
+          <div class="cover-name"><span>Practitioner</span><span>Compass</span></div>
+
+          <div class="compass-art">
+            <svg viewBox="0 0 260 260" role="img" aria-label="Practitioner compass">
+              <defs>
+                <linearGradient id="wood" x1="0" y1="0" x2="0.9" y2="1">
+                  <stop offset="0" stop-color="#8A5E36"/><stop offset=".45" stop-color="#5E3D22"/><stop offset="1" stop-color="#331F10"/>
+                </linearGradient>
+                <linearGradient id="brass" x1="0" y1="0" x2="0.2" y2="1">
+                  <stop offset="0" stop-color="#F3E1A8"/><stop offset=".5" stop-color="#B8903F"/><stop offset="1" stop-color="#6E5122"/>
+                </linearGradient>
+                <linearGradient id="inlay" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#D9B569"/><stop offset="1" stop-color="#9C7231"/>
+                </linearGradient>
+                <radialGradient id="face" cx=".42" cy=".38" r=".74">
+                  <stop offset="0" stop-color="#123049"/><stop offset="1" stop-color="#091C2D"/>
+                </radialGradient>
+                <g id="card">
+                  <path d="M130 6 L141 18 L130 30 L119 18 Z" fill="url(#inlay)" stroke="#2A1B0E" stroke-width="0.6" opacity=".95"/>
+                  <path d="M130 11 L136 18 L130 25 L124 18 Z" fill="#5C3B22" opacity=".8"/>
+                  <path d="M142 15 q12 -5 17 4 q3 6 -3 8 q-5 1 -5 -4" fill="url(#inlay)" opacity=".9"/>
+                  <path d="M118 15 q-12 -5 -17 4 q-3 6 3 8 q5 1 5 -4" fill="url(#inlay)" opacity=".9"/>
+                  <circle cx="163" cy="26" r="1.5" fill="url(#inlay)"/>
+                  <circle cx="97" cy="26" r="1.5" fill="url(#inlay)"/>
+                </g>
+                <g id="dsm">
+                  <path d="M130 9 L136 18 L130 27 L124 18 Z" fill="url(#inlay)" stroke="#2A1B0E" stroke-width="0.5" opacity=".9"/>
+                </g>
+              </defs>
+              <circle cx="130" cy="130" r="126" fill="url(#wood)"/>
+              <circle cx="130" cy="130" r="120" fill="none" stroke="#2C1B0D" stroke-width="1" opacity=".2"/>
+              <circle cx="130" cy="130" r="112" fill="none" stroke="#2C1B0D" stroke-width="1" opacity=".18"/>
+              <circle cx="130" cy="130" r="126" fill="none" stroke="#231508" stroke-width="2"/>
+              <use href="#card"/>
+              <use href="#card" transform="rotate(90 130 130)"/>
+              <use href="#card" transform="rotate(180 130 130)"/>
+              <use href="#card" transform="rotate(270 130 130)"/>
+              <use href="#dsm" transform="rotate(45 130 130)"/>
+              <use href="#dsm" transform="rotate(135 130 130)"/>
+              <use href="#dsm" transform="rotate(225 130 130)"/>
+              <use href="#dsm" transform="rotate(315 130 130)"/>
+              <circle cx="130" cy="130" r="97" fill="url(#face)"/>
+              <circle cx="130" cy="130" r="97.3" fill="none" stroke="#231508" stroke-width="1.6" opacity=".65"/>
+              <g fill="none" stroke-width="11" stroke-linecap="round">
+                <path d="M130 38.5 A91.5 91.5 0 0 1 209.2 175.8" stroke="#2E86B5"/>
+                <path d="M209.2 175.8 A91.5 91.5 0 0 1 50.8 175.8" stroke="#CB8642"/>
+                <path d="M50.8 175.8 A91.5 91.5 0 0 1 130 38.5" stroke="#4E9A6E"/>
+              </g>
+              <g stroke="#DCCBA2" stroke-width="1.2" opacity=".5">
+                <line x1="130" y1="130" x2="130" y2="38.5"/>
+                <line x1="130" y1="130" x2="209.2" y2="175.8"/>
+                <line x1="130" y1="130" x2="50.8" y2="175.8"/>
+              </g>
+              <g>
+                <path d="M130 65 L134.5 130 L125.5 130 Z" fill="#B5403A"/>
+                <path d="M130 195 L134.5 130 L125.5 130 Z" fill="#33383F"/>
+                <circle cx="130" cy="130" r="8" fill="url(#brass)" stroke="#6E521F" stroke-width="1"/>
+                <circle cx="130" cy="130" r="3" fill="#3A2414"/>
+              </g>
+              <text x="177" y="103" fill="#176C9B" font-family="Public Sans,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" transform="rotate(60 177 103)">ATTUNE</text>
+              <text x="130" y="184" fill="#9A6A22" font-family="Public Sans,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle">EXPLORE</text>
+              <text x="83" y="103" fill="#3C7A55" font-family="Public Sans,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" transform="rotate(-60 83 103)">LEAD</text>
+            </svg>
+          </div>
+
+          <div class="cn-top"><span>The Needle Moves</span><span>with Moment-by-Moment Shifts</span><span>in the Session</span></div>
+
+          <div class="cover-rule"></div>
+          <h1 class="cover-title">Finding the Right Words</h1>
+          <p class="cover-sub">Field Guide for Acupoint Tapping Practitioners</p>
+          <p class="cover-author">David Feinstein, PhD</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="below">
+      <p class="lede">A moment-by-moment compass for choosing your direction, with a map of the wording that carries you there — a printable guide you can keep beside you and return to.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://energytapping.com/fieldguide/fieldguide.pdf">Download as a PDF for printing</a>
+        <a class="btn ghost" href="https://energytapping.com/guideonapage/">Get the Guide on a Page</a>
+      </div>
+      <p class="cite"><b>Source:</b> Feinstein, D., &amp; Rajah, S. (2026). Finding the right words: A process-informed framework for therapist language in acupoint tapping psychotherapy. <i>Frontiers in Psychology, 17</i>:1800386.</p>
+    </section>
+  </div>
+
+  <style>
+    .wrap{max-width:760px;margin:0 auto;padding:0 1.25rem}
+    .hero{text-align:center;padding:2.8rem 0 1rem}
+    .kicker{font-family:var(--ui);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--brass-deep);
+      display:inline-flex;align-items:center;gap:.5rem;background:var(--warm);border:1px solid #E7DECB;padding:.4rem .9rem;border-radius:999px}
+    .kicker svg{width:14px;height:14px}
+
+    .stack{position:relative;width:min(430px,84vw);margin:1.6rem auto 0}
+    .sheet{border-radius:4px;background:#fff;border:1px solid var(--line)}
+    .sheet.back{position:absolute;inset:0;box-shadow:0 10px 26px rgba(15,35,51,.08)}
+    .sheet.b2{transform:rotate(2.6deg) translate(11px,13px);background:#FBF9F5}
+    .sheet.b1{transform:rotate(-2.2deg) translate(-11px,7px)}
+    .sheet.top{position:relative;z-index:3;padding:2.4rem 1.9rem 2.2rem;text-align:center;
+      box-shadow:0 2px 0 #fff,0 4px 0 #efe9df,0 6px 0 #fff,0 8px 0 #ece6da,0 22px 50px rgba(15,35,51,.17)}
+
+    .cover-name{display:flex;flex-direction:column;gap:.02rem;align-items:center;margin:0 0 .7rem;
+      font-family:var(--ui);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;color:var(--brass-deep)}
+    .compass-art{width:100%;max-width:230px;margin:0 auto .3rem}
+    .compass-art svg{width:100%;height:auto;display:block}
+    .cn-top{display:flex;flex-direction:column;gap:.02rem;align-items:center;margin:.1rem 0 1.1rem;
+      font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:.92rem;line-height:1.35}
+    .cover-rule{width:44px;height:1px;background:var(--line);margin:0 auto 1rem}
+    .cover-title{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.9rem;line-height:1.1;margin:0 0 .4rem}
+    .cover-sub{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:1.02rem;margin:0 0 1rem}
+    .cover-author{font-family:var(--ui);font-weight:600;color:var(--navy);font-size:.92rem;letter-spacing:.01em;margin:0}
+    @media(max-width:600px){ .cover-title{font-size:1.65rem} .sheet.top{padding:2rem 1.4rem 1.8rem} .compass-art{max-width:200px} }
+
+    .below{padding:2.4rem 0 1rem;text-align:center}
+    .lede{color:var(--ink-soft);font-size:1.08rem;max-width:46ch;margin:0 auto 1.6rem}
+    .actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+    .btn{display:inline-block;text-decoration:none;font-family:var(--ui);font-weight:600;font-size:.98rem;padding:.8rem 1.4rem;border-radius:9px}
+    .btn.primary{background:var(--navy);color:#fff}
+    .btn.primary:hover{background:#17304a}
+    .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+    .btn.ghost:hover{border-color:var(--navy)}
+    .cite{color:var(--ink-faint);font-size:.82rem;max-width:52ch;margin:1.8rem auto 0;line-height:1.5}
+  </style>
+</Base>
