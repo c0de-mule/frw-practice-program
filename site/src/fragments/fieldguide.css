@@ -1,0 +1,750 @@
+  .fg-body{
+    --ink:#19222F;
+    --ink-soft:#54616F;
+    --ink-faint:#7C8794;
+    --paper:#F4F6F8;
+    --surface:#FFFFFF;
+    --line:#E3E8ED;
+    --navy:#14304A;
+    --navy-deep:#0E2438;
+
+    --brand:#176C9B;      /* Energy Psychology cerulean */
+    --attune:#176C9B;     /* brand cerulean — safety, meeting */
+    --attune-soft:#E5EFF6;
+    --attune-tint:#EAF3F9;
+    --explore:#B26A22;    /* ochre — bringing into light */
+    --explore-soft:#F6EEE2;
+    --explore-tint:#F8F1E5;
+    --lead:#3C7A55;       /* moss green — forward movement */
+    --lead-soft:#E7F1EA;
+    --lead-tint:#ECF5EF;
+
+    --display:"Fraunces",Georgia,serif;
+    --body:"Newsreader",Georgia,serif;
+    --ui:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+
+    --attune-line:#C5DAEA;   /* light cerulean rule, between --attune-soft and --attune */
+  --brass:#B26A22;         /* the existing ochre, as the interactive accent */
+  --brass-deep:#8A5119;    /* a darker ochre for the takeaway rule */
+  --measure:43rem;
+    --wide:70rem;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  .fg-body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-optical-sizing:auto;
+    font-size:1.18rem;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{font-family:var(--display);font-weight:500;line-height:1.12;margin:0;letter-spacing:-0.01em}
+  p{margin:0 0 1.05em}
+  a{color:var(--attune);text-underline-offset:2px;text-decoration-thickness:1px}
+  a:hover{color:var(--navy)}
+  :focus-visible{outline:2.5px solid var(--attune);outline-offset:3px;border-radius:2px}
+
+  .wrap{width:100%;max-width:var(--measure);margin:0 auto;padding:0 1.5rem}
+  .wrap-wide{width:100%;max-width:var(--wide);margin:0 auto;padding:0 1.5rem}
+
+  /* ---------- Brand identity bar ---------- */
+  .brandbar{background:#fff;border-bottom:1px solid var(--line)}
+  .brandbar .row{max-width:var(--wide);margin:0 auto;padding:.65rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brandbar img{height:42px;width:auto;display:block}
+  .brand-tag{font-family:var(--ui);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  @media (max-width:520px){.brandbar img{height:32px}.brand-tag{display:none}}
+  .foot-brand{display:inline-flex;background:#fff;border-radius:10px;padding:.55rem .95rem;margin-bottom:1.7rem}
+  .foot-brand img{height:36px;width:auto;display:block}
+
+  .eyebrow{
+    font-family:var(--ui);font-weight:600;font-size:.72rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 1.1rem
+  }
+  .mast-title{margin:0 0 1.6rem;text-align:center;padding-top:.4rem}
+  .mast-title-main{
+    font-family:var(--display);font-weight:500;letter-spacing:-0.022em;
+    font-size:clamp(2.4rem,4.8vw,3.6rem);line-height:1.05;margin:0 0 .6rem;color:#FFFFFF;
+  }
+  .mast-title-main em{font-style:italic;color:#BFE0EC;font-weight:400}
+  .mast-title-sub{
+    font-family:var(--ui);font-weight:500;letter-spacing:.03em;
+    font-size:clamp(1.3rem,2.55vw,2.05rem);line-height:1.3;margin:0;color:#FFFFFF;white-space:nowrap;
+  }
+  .mast-author{
+    font-family:var(--ui);font-weight:600;letter-spacing:.05em;font-size:1.06rem;
+    color:#DCE9F1;margin:1.5rem 0 0;
+  }
+  .mast-text{text-align:center}
+  .mast-text .lede{margin-left:auto;margin-right:auto}
+  .mast-text .cite-chip{margin-left:auto;margin-right:auto;text-align:left}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    background:var(--navy-deep);
+    background-image:radial-gradient(120% 92% at 85% 4%, #155E86 0%, #123A57 40%, var(--navy-deep) 72%);
+    color:#EAF0F4;
+    border-bottom:1px solid #0a1b2b;
+  }
+  .masthead .wrap-wide{
+    display:grid;grid-template-columns:1fr;gap:2rem;
+    padding-top:3.4rem;padding-bottom:3.4rem;
+  }
+  .masthead .eyebrow{color:#8FB6CB}
+  .masthead h1{
+    font-size:clamp(2.7rem,6vw,4.6rem);font-weight:500;color:#FFFFFF;letter-spacing:-0.025em;
+    margin:0 0 1.1rem;
+  }
+  .masthead h1 em{font-style:italic;color:#BFE0EC;font-weight:400}
+  .lede{font-size:1.28rem;color:#CAD9E3;max-width:30rem;margin:0 0 1.8rem}
+  @media screen{ .lede-more{margin-top:-.8rem} }
+  .byline{font-family:var(--ui);font-size:.92rem;color:#9FBACB;line-height:1.5}
+  .byline strong{color:inherit;font-weight:600}
+  .cite-chip{
+    display:block;margin-top:1.6rem;padding:.95rem 1.15rem;border:1px solid #2A4A66;border-radius:8px;
+    background:#102A41;font-family:var(--ui);font-size:.93rem;line-height:1.55;color:#B0C4D0;max-width:34rem
+  }
+  .cite-chip a{color:#95C7DD}
+  .cite-chip b{color:inherit;font-weight:600}
+  .cite-chip .doi{color:#7FA6BC;font-style:italic}
+
+  /* ---------- Compass signature ---------- */
+  .compass-art{justify-self:center;width:100%;max-width:360px;order:-1}
+  .compass-name{margin:0 0 .85rem;display:flex;flex-direction:column;align-items:center;gap:.05rem}
+  .cn-line{font-family:var(--ui);text-transform:uppercase;font-weight:700;font-size:1rem;letter-spacing:.34em;color:#D8C58C;padding-left:.34em}
+  .cn-top{text-align:center;margin-top:.7rem;line-height:1.32}
+  .cn-top span{display:block;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.05rem;color:#D8C58C;letter-spacing:.01em}
+  .compass-art svg{width:100%;height:auto;display:block}
+  .compass-art .seg{transition:opacity .2s}
+
+  /* ---------- PDF download row ---------- */
+  .pdf-row{
+    background:rgba(244,246,248,.92);border-bottom:1px solid var(--line);
+    display:flex;flex-direction:column;align-items:center;gap:.65rem;padding:.95rem 1rem;
+  }
+  a.pdf-btn, a.pdf-btn:link, a.pdf-btn:visited{
+    display:inline-block;font-family:var(--ui);font-weight:600;font-size:.86rem;
+    letter-spacing:.02em;color:#ffffff;background:var(--brand);
+    padding:.6rem 1.4rem;border-radius:999px;text-decoration:none;text-align:center;
+    min-width:20rem;max-width:100%;
+    transition:background .18s ease, transform .18s ease;
+  }
+  a.pdf-btn:hover, a.pdf-btn:focus{background:#1a3a5a;color:#ffffff;transform:translateY(-1px)}
+  a.pdf-btn.print-only{display:none}
+  .runtime-print{white-space:nowrap}
+  /* Caption under the print-only cover button */
+  .cover-cta{
+    display:flex;flex-direction:column;align-items:center;gap:.3rem;
+    break-inside:avoid;page-break-inside:avoid
+  }
+  .pdf-caption{
+    font-family:var(--display);font-style:italic;font-size:1rem;line-height:1.45;
+    color:var(--ink-soft);text-align:center;margin:.1rem auto 0;max-width:34rem
+  }
+  /* Screen: quiet signpost to the Practice Program, set off from the resource buttons */
+  .pdf-signpost{
+    margin:.5rem 0 .1rem;padding-top:.9rem;border-top:1px solid var(--line);
+    max-width:34rem;text-align:center;
+    font-family:var(--display);font-style:italic;font-size:1rem;line-height:1.5;color:var(--ink-soft)
+  }
+  .pdf-signpost a{color:var(--brand);text-decoration:none}
+  .pdf-signpost a:hover, .pdf-signpost a:focus{text-decoration:underline}
+
+  /* Guide on a Page offer (Map section) and the intro video */
+  .gp-cap{font-size:.92rem;margin-top:0}
+  .gp-offer{margin:2rem 0 0;padding:1.1rem 1.3rem;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;
+    background:rgba(23,108,155,.05);display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;break-inside:avoid;page-break-inside:avoid}
+  .gp-offer p{margin:0;flex:1 1 22rem;color:var(--ink-soft)}
+  .gp-offer p b{color:var(--ink)}
+  a.gp-btn{display:inline-block;font-family:var(--ui);font-weight:600;font-size:.92rem;color:#fff;background:var(--brand);
+    text-decoration:none;border-radius:999px;padding:.6rem 1.3rem;white-space:nowrap}
+  a.gp-btn:hover,a.gp-btn:focus{background:#1a3a5a}
+  .vid{margin:1.8rem 0 2rem}
+  .vid-frame{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;
+    aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden;text-decoration:none;color:#fff;
+    background:radial-gradient(120% 90% at 30% 20%,#23476a 0%,#142433 70%)}
+  .vid-play{width:4.2rem;height:4.2rem;border-radius:50%;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.8);
+    position:relative;margin-bottom:.6rem;transition:background .15s}
+  .vid-play::after{content:"";position:absolute;left:52%;top:50%;transform:translate(-40%,-50%);
+    border-style:solid;border-width:.75rem 0 .75rem 1.2rem;border-color:transparent transparent transparent #fff}
+  .vid-frame:hover .vid-play,.vid-frame:focus .vid-play{background:rgba(255,255,255,.3)}
+  .vid-t{font-family:var(--display);font-size:1.45rem;line-height:1.2;text-align:center;padding:0 1rem}
+  .vid-m{font-family:var(--ui);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+  .vid iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+  .vid-cap{font-family:var(--ui);font-size:.85rem;color:var(--ink-soft);text-align:center;margin:.55rem 0 0}
+  .vid-cap span{color:var(--ink-faint)}
+  .vid-print{display:none;font-family:var(--ui);font-size:.95rem;color:var(--ink-soft);margin:.4rem 0 1rem}
+  @media (max-width:560px){ .gp-offer{padding:1rem} a.gp-btn{white-space:normal} }
+
+  /* ---------- Sections ---------- */
+  section{padding:4.4rem 0}
+  .section-label{
+    font-family:var(--ui);font-weight:700;font-size:.92rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--brand);margin:0 0 1rem
+  }
+  /* Sending You Off + Take It Further carry extra weight */
+  #sendoff .section-label{font-size:1.12rem;letter-spacing:.17em;margin-bottom:1.3rem}
+  #practice .section-label{font-size:1.06rem;letter-spacing:.16em}
+  h2.section-title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:0 0 1.4rem}
+  .intro-note{font-size:1.32rem;line-height:1.5;color:var(--ink)}
+  /* Unheaded preamble: frames what tapping protocols are before the first
+     named section, so it should read as framing rather than as a section. */
+  .opening-frame{color:var(--ink);margin:0 0 2.3rem}
+  .runin{font-family:var(--display);font-weight:600;color:var(--navy)}
+  section:not(#practice) .wrap > p:not(.section-label):not(.guide-mark):not(.pull):not(.midlink):not(.closer):not(.about-link),
+  .rw-list li, .domain-lede, .errlede{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+  .mast-text .lede{text-align:justify;text-align-last:left;-webkit-hyphens:auto;hyphens:auto}
+  .guide-mark{font-family:var(--display);font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:500;letter-spacing:-0.01em;color:var(--navy);text-align:center;margin:0 0 1.9rem}
+  .midlink{
+    margin:2.6rem auto 0;max-width:40rem;text-align:center;
+    padding-top:1.5rem;border-top:1px solid var(--line);
+    font-family:var(--display);font-style:italic;font-size:1.06rem;line-height:1.55;color:var(--ink-soft)
+  }
+  .midlink a{color:var(--brand);text-decoration:none;border-bottom:1px solid rgba(23,108,155,.35)}
+  .midlink a:hover{border-bottom-color:var(--brand)}
+  .muted{color:var(--ink-soft)}
+  .rule{height:1px;background:var(--line);border:0;margin:0}
+
+  .pull{
+    font-family:var(--display);font-style:italic;font-weight:400;font-size:1.5rem;line-height:1.4;
+    color:var(--navy);border-left:3px solid var(--line);padding-left:1.3rem;margin:2rem 0
+  }
+
+  /* shared-qualities band */
+  .qualities{background:var(--attune-tint);border:1px solid #D7E6F1;border-radius:14px;padding:2rem 2rem 1.4rem}
+  .qualities h3{font-size:1.3rem;margin:0 0 1rem}
+  .qualities ul{margin:0;padding:0;list-style:none;display:grid;gap:.85rem}
+  .qualities li{padding-left:1.4rem;position:relative;font-size:1.05rem;line-height:1.5}
+  .qualities li::before{content:"";position:absolute;left:0;top:.62em;width:.5rem;height:.5rem;border-radius:50%;background:var(--attune)}
+
+  /* ---------- Compass triad cards ---------- */
+  .triad{display:grid;grid-template-columns:1fr;gap:1.1rem;margin-top:2rem}
+  .dcard{background:var(--c-soft);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:1.5rem 1.4rem}
+  .dcard .dname{font-family:var(--ui);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem;color:var(--c);margin:0 0 .55rem}
+  .dcard p{font-size:1rem;line-height:1.5;margin:0;color:var(--ink-soft)}
+  .dcard .dverb{font-family:var(--display);font-style:italic;color:var(--ink);font-size:1.18rem;display:block;margin:0 0 .5rem}
+
+  /* ---------- Domain function sections ---------- */
+  .domain{scroll-margin-top:4rem;background:var(--c-tint)}
+  .domain-head{border-top:3px solid var(--c);padding-top:1.6rem}
+  .domain-tag{
+    display:inline-flex;align-items:baseline;gap:.6rem;font-family:var(--ui);font-weight:700;
+    letter-spacing:.13em;text-transform:uppercase;font-size:.8rem;color:var(--c);margin:0 0 .7rem
+  }
+  .domain-tag .n{font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em}
+  .domain h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:0 0 1rem;color:var(--c)}
+  .domain-lede{font-size:1.18rem;color:var(--ink);max-width:var(--measure)}
+
+  .cards{display:grid;grid-template-columns:1fr;gap:1.1rem;margin-top:2.2rem}
+  .fn{
+    background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:1.5rem 1.5rem 1.6rem;
+    display:flex;flex-direction:column;
+  }
+  .fn-num{
+    font-family:var(--ui);font-weight:700;font-size:.78rem;color:var(--c);background:var(--c-soft);
+    width:1.9rem;height:1.9rem;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;
+    margin:0 0 .9rem
+  }
+  .fn h3{font-size:1.32rem;margin:0 0 .6rem;letter-spacing:-0.01em;color:var(--c)}
+  .fn-n{font-weight:600}
+  .fn .guide{font-size:1.01rem;line-height:1.5;color:var(--ink-soft);margin:0 0 1.1rem}
+  .ex-lead{font-weight:700;color:var(--c)}
+  .fn ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+  .fn li{
+    font-family:var(--display);font-style:italic;font-weight:400;font-size:1.08rem;line-height:1.42;color:var(--ink);
+    padding-left:1rem;border-left:2px solid var(--c);
+  }
+  .fn li .from{font-style:normal;font-family:var(--ui);font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--ink-faint);text-transform:uppercase;display:inline;margin-right:.4rem}
+.from + .swap{margin-right:.45rem}
+  .fn li .swap{font-style:normal;color:var(--ink-soft);font-family:var(--body)}
+  .fn li .cue{font-style:normal;font-family:var(--ui);font-size:.82rem;color:var(--ink-faint);display:block;margin-top:.2rem}
+  .fn li .echo{font-style:normal;font-weight:500;color:var(--c)}
+
+  .caution{
+    margin-top:2rem;background:var(--c-soft);border:1px solid var(--line);border-left:4px solid var(--c);
+    border-radius:10px;padding:1.3rem 1.5rem
+  }
+  .caution h4{font-family:var(--ui);font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin:0 0 .5rem}
+  .caution p{font-size:1.02rem;line-height:1.5;margin:0;color:var(--ink)}
+  .caution p + p{margin-top:.9rem}
+  .caution-list{margin:.7rem 0 0;padding-left:1.5rem;display:grid;gap:.6rem}
+  .caution-list li{font-size:1.02rem;line-height:1.5;color:var(--ink);padding-left:.2rem}
+
+  /* ---------- Session illustration ---------- */
+  .session{background:var(--surface)}
+  .case-meta{font-family:var(--ui);font-size:.95rem;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;margin:1.6rem 0 2rem}
+  .case-meta b{color:var(--ink);font-weight:600}
+  .sud{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--ui);font-weight:700;font-size:.8rem;letter-spacing:.04em;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem;vertical-align:middle}
+  .phase{margin:1.5rem 0;background:var(--c-soft);border:1px solid var(--line);border-radius:13px;padding:1.5rem 1.6rem}
+  .phase-h{display:flex;align-items:center;gap:.7rem;margin:0 0 1rem}
+  .phase-h .dot{width:.7rem;height:.7rem;border-radius:50%;background:var(--c)}
+  .phase-h h3{font-family:var(--ui);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.86rem;color:var(--c);margin:0}
+  .lines{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+  .lines li{font-family:var(--display);font-style:italic;font-size:1.12rem;line-height:1.42;padding-left:1.1rem;border-left:2px solid var(--c)}
+  .lines li .tag{display:block;font-style:normal;font-family:var(--ui);font-size:.74rem;font-weight:600;letter-spacing:.03em;color:var(--ink-faint);margin-top:.25rem}
+  .phase .setup.phase-intro{margin:0 0 1rem}
+  .setup{font-family:var(--body);font-style:normal;color:var(--ink-soft);font-size:1.02rem;border-left:0;padding:0;margin:.4rem 0 .2rem}
+
+  /* ---------- Generic prose blocks & lists ---------- */
+  .prose h3{font-size:1.45rem;margin:2.2rem 0 .8rem}
+  .prose h3:first-child{margin-top:0}
+  .sources{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.8rem 0 0}
+  .source{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:1.25rem 1.35rem}
+  .source h4{font-size:1.12rem;margin:0 0 .4rem;color:var(--brand)}
+  .source p{font-size:.98rem;line-height:1.48;color:var(--ink-soft);margin:0}
+
+  .errors{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:1.8rem 1.9rem;margin:1.8rem 0}
+  .errors h3{margin:0 0 1.1rem;font-size:1.35rem}
+  .errors ol{margin:0;padding:0;counter-reset:e;list-style:none;display:grid;gap:.9rem}
+  .errors li{position:relative;padding-left:2.3rem;font-size:1.04rem;line-height:1.5;color:var(--ink)}
+  .errors li::before{
+    counter-increment:e;content:counter(e);position:absolute;left:0;top:.05em;
+    font-family:var(--ui);font-weight:700;font-size:.78rem;color:#A23B3B;background:#F6E7E5;
+    width:1.7rem;height:1.7rem;border-radius:6px;display:flex;align-items:center;justify-content:center
+  }
+
+  /* The errors are grouped by direction. A group label is a list item that
+     takes no number and no indent. */
+  .errors .errlede{font-size:.97rem;line-height:1.55;color:var(--ink-soft);
+    margin:0 0 1.1rem;max-width:44rem}
+  .errors li.errgrp{padding-left:0;margin-top:.5rem;font-family:var(--ui);font-weight:700;
+    font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .errors li.errgrp:first-child{margin-top:0}
+  .errors li.errgrp::before{content:none;counter-increment:none;display:none}
+  .selftap{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.6rem 0 0}
+  .selftap div{border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.2rem;background:var(--surface)}
+  .selftap div:has(.a){background:var(--attune-tint);border-color:#D7E6F1}
+  .selftap div:has(.e){background:var(--explore-tint);border-color:#EAD9BC}
+  .selftap div:has(.l){background:var(--lead-tint);border-color:#CFE6D8}
+  .selftap .k{font-family:var(--ui);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;margin:0 0 .35rem}
+  .selftap .a{color:var(--attune)} .selftap .e{color:var(--explore)} .selftap .l{color:var(--lead)}
+  .selftap p{font-size:.96rem;line-height:1.45;color:var(--ink-soft);margin:0}
+
+  /* ---------- Beyond Words ---------- */
+  .beyond{background:var(--navy-deep);color:#E7EEF3;background-image:radial-gradient(110% 82% at 14% 0%, #135a7e 0%, #123A57 42%, var(--navy-deep) 74%)}
+  .beyond .section-label{color:#82AAC2}
+  .beyond h2.section-title{color:#fff}
+  .beyond p{color:#CBD9E2}
+  .beyond .pull{color:#BFE0EC;border-left-color:#2E5170}
+  /* Sending You Off: the .beyond glow is sized for a tall section; in this
+     short one it compresses into a bright corner. Even vertical fade instead. */
+  /* Closing section: returns to the light, set off by a rule rather than a panel */
+  #sendoff{background:var(--surface);border-top:1px solid var(--line)}
+  /* Sending You Off: two type levels, not three */
+  #sendoff .pull{font-style:normal;font-size:1.16rem;line-height:1.6;font-family:var(--body);color:var(--ink);border-left:none;padding-left:0}
+  .beyond strong{color:#EAF2F6}
+  .closer{
+    font-family:var(--body);font-size:clamp(1.32rem,2.5vw,1.72rem);line-height:1.45;color:var(--ink);
+    margin:2.4rem 0 0;font-weight:500
+  }
+  .closer .a{color:var(--attune)} .closer .e{color:var(--explore)} .closer .l{color:var(--lead)}
+
+  .print-only-block{display:none}
+  /* ---------- About / limitations ---------- */
+  .about{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:1.8rem 1.9rem}
+  .about h3{font-size:1.25rem;margin:0 0 .7rem}
+  .about p{font-size:1.02rem;line-height:1.55;color:var(--ink-soft);margin:0 0 .8rem}
+  .about p:last-child{margin:0}
+
+  /* ---------- Quiet "About this framework" link ---------- */
+  .about-link{margin:2.6rem 0 0;font-family:var(--ui);font-size:1rem;font-weight:600}
+  .about-link a{color:#82AAC2;text-decoration:none;border-bottom:1px solid rgba(130,170,194,.4)}
+  #sendoff .about-link a{color:var(--brand);border-bottom-color:rgba(21,102,148,.35)}
+  .about-link a:hover{border-bottom-color:#82AAC2}
+
+  /* ---------- Trainer CTA ---------- */
+  .cta{background:var(--attune-tint);border:1px solid var(--attune-line);border-radius:16px;padding:2.6rem 2.2rem;text-align:center}
+  .cta h2{font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--brand);margin:.2rem 0 .8rem}
+  .cta h2.cta-h-tight{font-size:clamp(.98rem,1.72vw,1.27rem);font-weight:700;line-height:1.4;letter-spacing:-.005em;text-wrap:balance}
+  .cta h2.cta-h-tight .l2{display:block;margin-top:.6em}
+  .cta p{max-width:40rem;margin:0 auto 1.7rem;color:var(--ink-soft)}
+  .cta .cta-sub{max-width:none;margin:.9rem 0 0;font-size:.85rem;font-style:italic;color:var(--ink-faint)}
+  .cta .prog-kicker{max-width:none;margin:-.1rem 0 1.1rem;font-family:var(--ui);font-weight:700;font-size:clamp(.76rem,1.45vw,.98rem);letter-spacing:.05em;text-transform:uppercase;color:var(--brand);white-space:normal;text-wrap:balance}
+  .cta-btn{display:inline-block;font-family:var(--ui);font-weight:600;font-size:1.02rem;background:var(--brand);color:#fff;text-decoration:none;border-radius:9px;padding:.9rem 1.6rem;transition:background .15s}
+  .cta-btn:hover{background:#125883;color:#fff}
+  .cta-btn-secondary{background:transparent;color:var(--brand);border:2px solid var(--brand);padding:.78rem 1.5rem;margin-top:1.5rem}
+  .cta-btn-secondary:hover{background:var(--brand);color:#fff}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep);color:#A9C4D4;padding:3.2rem 0 3.6rem;font-family:var(--ui)}
+  footer .wrap{max-width:var(--wide)}
+  footer h4{font-family:var(--ui);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;color:#7FA6BC;margin:0 0 .8rem}
+  footer .full-cite{font-family:var(--body);font-size:1.02rem;line-height:1.55;color:#D7E6EE;max-width:44rem;margin:0 0 1.4rem}
+  footer .full-cite .doi{color:#82AAC2;font-style:italic}
+  footer a{color:#BFE0EC}
+  footer .meta{font-size:.86rem;color:#7FA6BC;line-height:1.6;margin-top:1.6rem;border-top:1px solid #21415C;padding-top:1.4rem;text-align:center}
+
+  /* ---------- reveal (progressive) ---------- */
+  .js .reveal{opacity:0;transform:translateY(14px)}
+  .js .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:880px){
+    .masthead .wrap-wide{grid-template-columns:1fr;gap:2.4rem;padding-top:3rem;padding-bottom:3rem}
+    .compass-art{max-width:280px;order:-1}
+    .triad{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .sources{grid-template-columns:1fr}
+    .selftap{grid-template-columns:1fr}
+  }
+  /* The one-line subtitle is deliberate, but it cannot wrap, so on a narrow
+     screen it was setting the width of the whole document and pushing the page
+     sideways. Below this width it is allowed to break. */
+  @media (max-width:520px){
+    .fg-body{font-size:1.1rem}
+    .wrap,.wrap-wide{padding:0 1.15rem}
+    section{padding:3.2rem 0}
+  }
+  .rw-intro{color:var(--ink-soft);max-width:62ch}
+  .rw-list{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:1.05rem;max-width:70ch}
+  .rw-list li{break-inside:avoid;page-break-inside:avoid;position:relative;padding-left:1.5rem;color:var(--ink-soft);line-height:1.55}
+  .rw-list li::before{content:"";position:absolute;left:0;top:.58em;width:8px;height:8px;border-radius:50%;background:#B7975A}
+  .rw-list li b{color:var(--ink);font-weight:600}
+  /* "How the Words Arrive" poses two numbered questions. Same list styling,
+     but a numeral in place of the dot. */
+  ol.rw-numbered{counter-reset:q}
+  ol.rw-numbered li{counter-increment:q}
+  ol.rw-numbered li::before{
+    content:counter(q) ".";background:none;border-radius:0;
+    width:auto;height:auto;top:0;left:0;
+    font-family:var(--ui);font-weight:700;font-size:.95rem;color:#B7975A}
+  .rw-list.qualities{margin-bottom:1.6rem}
+  .cta .rw-standalone{max-width:46rem;margin:.1rem auto 1.4rem;font-size:.98rem;color:var(--ink-soft)}
+  .cta .prog-body{text-align:left}
+  .cta .prog-lead{max-width:none;margin:0 0 .9rem;font-family:var(--body);font-weight:500;font-size:1.22rem;line-height:1.4;color:var(--navy)}
+  .cta .prog-quote{max-width:34rem;margin:1.6rem auto 1.5rem;padding:0;font-family:var(--body);font-style:italic;font-size:1.12rem;line-height:1.5;color:var(--navy);text-align:center}
+  .cta .cta-sub, .cta .prog-quote, .cta .prog-lead{text-wrap:balance}
+  .cta .prog-quote .pq-attr{display:table;margin:.7rem 0 0 auto;padding-right:1.5rem;text-align:left;font-family:var(--ui);font-style:normal;font-size:.84rem;line-height:1.45;color:var(--ink-faint)}
+  .cta .prog-quote .pq-attr span{display:block}
+  .cta .prog-quote .pq-attr b{color:var(--ink);font-weight:600}
+  /* Take It Further: one live choice point, so the reader feels the gap between
+     knowing the framework and choosing under time. It is the same scenario that
+     opens on the other side of the button, so the click closes the loop. */
+  .cta .scene-lead{max-width:44rem;margin:.2rem auto 1.1rem;font-size:1rem;line-height:1.55;color:var(--ink);text-align:left}
+  .cta .scene-lead b{color:var(--brand)}
+  .cta .choices{list-style:none;max-width:44rem;margin:0 auto 1.1rem;padding:0;display:grid;gap:.5rem;text-align:left}
+  /* Take It Further: the four options reveal their reasoning in place.
+     Screen only - the print version keeps the options bare and points at the URL. */
+  .choices li[role="button"]{cursor:pointer;transition:border-left-color .15s}
+  .choices li[role="button"]:hover{border-left-color:var(--brand)}
+  .choices li[role="button"]:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+  .choices .why{display:none}
+  .choices.revealed li{cursor:default}
+  .choices.revealed .why{display:block;font-family:var(--body);font-style:normal;
+    font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin-top:.35rem}
+  .choices.revealed li.correct{border-left-color:#3C7A55;border-left-width:3px}
+  .choices.revealed li.picked{border-left-color:#B0553F}
+  .choices.revealed li.correct.picked{border-left-color:#3C7A55}
+  .choices .best-tag{display:none}
+  .choices.revealed .best-tag{display:inline-block;margin-left:.55rem;font-family:var(--ui);font-style:normal;font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#3C7A55;border-radius:4px;padding:.12rem .45rem;vertical-align:middle}
+  .print-only-inline{display:none}
+  .fg-takeaway{display:none}
+  .fg-takeaway .tk-label{display:block;font-family:var(--ui);font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-deep);margin-bottom:.3rem}
+  /* Take It Further prints its own answer key; see the note in the markup. */
+  .why-print{display:none}
+  /* once the answer is showing, the tease that led to it has done its job */
+  .choices.revealed ~ .choice-note{display:none}
+  .choices.revealed ~ .fg-takeaway{display:block;max-width:44rem;margin:0 auto 1.1rem;
+    font-size:.92rem;line-height:1.5;color:var(--ink);text-align:left;
+    border-left:3px solid var(--brass-deep);padding-left:.85rem}
+  .choices li{font-family:var(--display);font-style:italic;font-size:1rem;line-height:1.35;
+    color:var(--ink);padding:.12rem 0 .12rem .85rem;border-left:2px solid #B9C6D1}
+  .cta .choice-note{max-width:44rem;margin:0 auto 1.5rem;font-size:.95rem;line-height:1.55;color:var(--ink-soft);text-align:left}
+  .cta .cta-btn-quiet{font-size:.9rem;padding:.6rem 1.1rem;border-width:1px;margin-top:1.3rem;opacity:.85}
+  .cta-btn-lg{font-size:1.16rem;padding:1.05rem 2.1rem;margin:.2rem 0 0}
+  .fit-link{display:inline-block;margin:0 0 1.5rem;font-family:var(--ui);font-weight:600;font-size:.95rem;color:var(--brand);text-decoration:none;border-bottom:1px solid rgba(21,102,148,.4)}
+  .fit-link:hover{border-bottom-color:var(--brand)}
+  /* the primary button now answers the choice point directly, so it needs air
+     above it and a clear gap before the programme description that follows */
+  .cta .choice-note + .cta-btn{margin:.4rem 0 1.4rem}
+  .about .lineage{margin-top:1rem;font-style:italic;color:var(--ink-soft)}
+  @media print {
+    * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    /* keep headings with the text they introduce */
+    .section-label, h2.section-title, .guide-mark, .fn h3, .source h4 { break-after:avoid-page; page-break-after:avoid; }
+    .keep-whole { break-inside:avoid-page; page-break-inside:avoid; }
+    .fg-takeaway { break-inside:avoid-page; page-break-inside:avoid; }
+    .domain-head h2, .domain-head .domain-tag { break-after:avoid-page; page-break-after:avoid; }
+    .domain-lede { orphans:4; widows:3; }
+    section p, .rw-list li { widows:2; orphans:2; }
+    .wrap > p:last-child, #intro .wrap > p { widows:3; }
+    .kwn { break-after:avoid-page; page-break-after:avoid; }
+    .keep-group { break-inside:avoid-page; page-break-inside:avoid; }
+    /* a group label in the errors list must not be the last thing on a page */
+    .errors li.errgrp { break-after:avoid-page; page-break-after:avoid; }
+    /* Nor may the box's own heading, or the lede under it. The general
+       break-after rule above covers section labels and card headings but not
+       this h3, and after this round the heading was stranding at the foot of
+       p27 with the list overleaf. */
+    .errors h3, .errors .errlede { break-after:avoid-page; page-break-after:avoid; }
+    /* The three qualities are a tinted band, and a tinted band split across a
+       page turn reads as a rendering fault rather than as continued text --
+       the same reason Take It Further is handled so carefully below. Three
+       short items, so holding them together costs little. */
+    .rw-list.qualities { break-inside:avoid-page; page-break-inside:avoid; }
+    /* and it stays with the sentence that introduces it, so no page ends on
+       the colon that announces three qualities listed overleaf */
+    .rw-list.qualities { break-before:avoid-page; page-break-before:avoid; }
+    /* don't split individual cards or list items across pages */
+    .source, .fn li, .errors li, .qualities li, .rw-list li { break-inside:avoid-page; page-break-inside:avoid; }
+  /* a function card must not split: its Guideline and its three examples
+     belong together, and the added framing section pushed one onto a page
+     boundary */
+  .fn { break-inside:avoid-page; page-break-inside:avoid; }
+  .caution { break-inside:avoid-page; page-break-inside:avoid; }
+    .masthead .wrap-wide { padding-top:1rem !important; padding-bottom:.9rem !important; gap:1.2rem !important; }
+
+    .compass-art { max-width:215px !important; }
+    .masthead .lede { font-size:1.12rem !important; }
+    .masthead h1 { margin-bottom:.5rem !important; }
+    .eyebrow { margin-bottom:.5rem !important; }
+    .lede { margin-bottom:.85rem !important; }
+    .cite-chip { margin-top:.9rem !important; padding:.7rem .95rem !important; }
+    .cn-top { margin-top:.4rem !important; }
+    .cn-top span { white-space:nowrap !important; }
+    .compass-name { margin-bottom:.5rem !important; }
+    .reveal { opacity:1 !important; transform:none !important; }
+    .pdf-row { display:block !important; text-align:center !important; background:transparent !important; border-bottom:none !important; padding:.35rem 1rem .2rem !important; }
+    .pdf-row > * { margin-left:auto !important; margin-right:auto !important; }
+    .pdf-row a.pdf-btn:not(.screen-only) { display:inline-block !important; margin-bottom:.55rem !important; }
+    .cover-cta { display:block !important; text-align:center !important; }
+    .pdf-row a.pdf-btn { break-inside:avoid; page-break-inside:avoid; }
+    .screen-only { display:none !important; }
+    .print-only { display:inline-block !important; }
+    .print-only-block { display:block !important; }
+    .print-only-inline { display:inline !important; }
+    .choices .best-tag { display:none !important; }
+    .gp-offer { display:none !important; }  /* print has the offer at the top and the end; this one would reflow the tuned page breaks */
+    a.pdf-btn { color:#fff !important; background:#176C9B !important; }
+    .cta .cta-btn { color:#fff !important; background:#176C9B !important; }
+    /* the mailing-list button stays clearly secondary on paper too */
+    .cta .cta-btn-secondary { color:#176C9B !important; background:transparent !important;
+      border:1px solid #176C9B !important; }
+    /* page numbers: bottom-centre, skipping the cover */
+    @page { margin: 0.5in 0 0.62in 0; }
+    @page :first { margin-bottom: 0.5in; }
+    .fg-body{ counter-reset: pg; }
+    /* keep the closing CTA card whole on a single page */
+    footer { padding-top:2.2rem !important; padding-bottom:2.2rem !important; }
+    /* Take It Further spans the page boundary by design (see the note further
+       down). After this round the break falls after the hook, which left the
+       card open at the top of p31 with ~2in of empty tint below it. This drops
+       the card far enough down p31 that the head block roughly fills what is
+       left. MEASURED BUDGET: .5rem-8rem all give 32 pages; at 10rem the head
+       itself no longer fits on p31 and the document goes to 33. 6rem keeps a
+       margin either side of that cliff. Re-measure if the text above moves. */
+    /* Oct 31 re-measure (32 pages, Program invitation now held together as
+       .prog-unit): 8rem drops the Take It Further head far enough down p30
+       that little empty tint is left below it. 6rem splits the vignette;
+       9rem is the last value that still fits. */
+    /* Nov 9 re-measure (40 pages after the Setup/Reminder split and the new
+       principles box): at 8rem the head split from its second line at the
+       foot of p38; 1.5rem keeps the head and the opening lines together. */
+    #practice { padding-top:1.5rem !important; padding-bottom:0 !important; }
+    /* The card now carries its own answer key, so it no longer fits on
+       one page and must be allowed to span the boundary. */
+    .cta { padding:1.35rem 2rem !important; }
+    /* Take It Further carries more in print now; tighten its internal spacing
+       so the card and the colophon still share one page. Screen is untouched. */
+    .cta { padding:1rem 2rem !important; }
+    .cta .choice-note { margin-bottom:.95rem !important; }
+    .cta .scene-lead { margin-bottom:.8rem !important; }
+    .cta .choices { margin-bottom:.8rem !important; }
+    .cta .fit-link { margin-bottom:1rem !important; }
+    .cta .prog-kicker { margin-bottom:.8rem !important; }
+    .cta .cta-btn-quiet { margin-top:.85rem !important; }
+    /* Oct 31: back to 32 pages without touching the text or type size --
+       slightly tighter section padding, card gaps and card padding on paper
+       only. Measured: any one of these alone still gives 33; together (with section padding at 3rem, once the list-intro rule below was added) they give 32. */
+    section { padding:3rem 0 !important; }
+    .cards { gap:.8rem !important; margin-top:1.6rem !important; }
+    .fn { padding:1.2rem 1.3rem 1.3rem !important; }
+    /* the Program invitation reads as one unit: kicker, its two-line
+       description, and no split mid-sentence across the page turn */
+    .cta .prog-kicker { break-after:avoid-page; page-break-after:avoid; }
+    .cta .prog-body { break-inside:avoid-page; page-break-inside:avoid; }
+    /* the paragraph that ends "Eleven qualities mark that difference:" must
+       not be the last thing on a page, with the list overleaf */
+    .rw-intro { break-after:avoid-page; page-break-after:avoid; }
+    /* the Program invitation -- kicker, description, quote and both buttons --
+       stays together on one page */
+    .cta .prog-unit { break-inside:avoid-page; page-break-inside:avoid; }
+    /* the sentence that ends "Among the natural sources for your next statement:"
+       must not end a page with the seven sources overleaf */
+    .src-intro { break-after:avoid-page; page-break-after:avoid; break-inside:avoid-page; page-break-inside:avoid; }
+    .wrap:has(> .src-intro) { break-after:avoid-page; page-break-after:avoid; }
+    .colophon .meta { padding-top:.7rem !important; }
+    /* No clicking on paper. The inline reveal stays hidden and the answer
+       key below the options carries it instead; the takeaway, which the
+       click used to earn, is simply shown. The tease and the "which one
+       fits" link are redundant once the reasoning is on the page -- the
+       program is still named twice below. Arrows off, addresses printed. */
+    .choices .why { display:none !important; }
+    .why-print { display:block !important; }
+    .fg-takeaway { display:block !important; max-width:44rem; margin:0 auto 1.1rem;
+      font-size:.92rem; line-height:1.5; color:var(--ink); text-align:left;
+      border-left:3px solid var(--brass-deep); padding-left:.85rem; }
+    .cta .choices ~ .choice-note, .cta .fit-link { display:none !important; }
+    /* the options take numbers so the key can be keyed to them */
+    .cta .choices { counter-reset:ch }
+    .cta .choices li { counter-increment:ch }
+    .cta .choices li::before { content:counter(ch) ". "; font-family:var(--ui);
+      font-weight:700; font-style:normal; color:var(--ink-faint) }
+    .why-print { max-width:44rem; margin:0 auto 1rem; text-align:left }
+    .why-print .wp-lead { font-size:.95rem; line-height:1.55; color:var(--ink-soft);
+      margin:0 0 .55rem; break-after:avoid-page; page-break-after:avoid }
+    .why-print ol { display:block; list-style:none; margin:0; padding:0;
+      counter-reset:wp }
+    .why-print li { counter-increment:wp; position:relative; padding-left:1.7rem;
+      margin-bottom:.4rem; font-size:.88rem; line-height:1.5; color:var(--ink-soft);
+      break-inside:avoid-page; page-break-inside:avoid }
+    .why-print li::before { content:"#" counter(wp) "."; position:absolute; left:0;
+      font-family:var(--ui); font-weight:700; color:var(--ink-faint) }
+    .why-print li b { color:var(--ink) }
+    /* a split card must not leave its head or scenario stranded */
+    .cta .cta-h-tight, .cta .scene-lead, .cta .choices {
+      break-after:avoid-page; page-break-after:avoid }
+    .cta .scene-lead { break-inside:avoid-page; page-break-inside:avoid }
+    .phase-h { break-after:avoid-page; page-break-after:avoid }
+    /* The four options are one choice point: the scenario and all four have to
+       be in view together, or the reader is choosing between two of them and
+       turning the page for the others. The answer key below may start a new
+       page -- that costs nothing, since it is read after the choosing. */
+    .cta .choices { break-inside:avoid-page; page-break-inside:avoid }
+    .cta .arw { display:none; }
+    .cta .cta-btn-lg::after { content:"  energytapping.com/infopage/"; font-size:.8rem;
+      font-weight:400; opacity:.85; }
+    .cta .cta-btn-quiet::after { content:"  energytapping.com/guideonapage"; font-size:.78rem;
+      font-weight:400; opacity:.85; }
+    /* "Using the Guide" is apparatus, not a chapter: in print it takes a
+       lighter head and tighter padding so the relocated paragraphs cost
+       the page budget only what their own text costs. */
+    /* Chrome moves a grid container whole rather than fragmenting it, which
+       stranded all three cards on the next page. Plain blocks break singly. */
+    .triad { display:block !important; }
+    /* Same Chrome grid-fragmentation issue as .triad: the bullet list is a grid,
+       and Chrome pushes a whole row to the next page rather than fragmenting,
+       stranding ~2.5in of white. Plain blocks break one item at a time. */
+    /* Same Chrome grid-fragmentation issue as .triad and .rw-list: the errors
+       list is a grid, so break-after:avoid on a group label is ignored and a
+       label can strand at the foot of a page. Plain blocks honour it. */
+    .errors ol { display:block !important; }
+    .errors li { margin-bottom:.9rem !important; }
+    .errors li:last-child { margin-bottom:0 !important; }
+    .rw-list { display:block !important; }
+    .rw-list li { margin-bottom:0.85rem !important; }
+    .rw-list li:last-child { margin-bottom:0 !important; }
+    .dcard { break-inside:avoid; page-break-inside:avoid; margin-bottom:1.1rem !important; }
+    .cta h2 { margin-bottom:.6rem !important; }
+    .cta h2.cta-h-tight { font-size:18.5px !important; }
+    .cta .rw-standalone { margin-bottom:1rem !important; }
+    .cta p { margin-bottom:1.25rem !important; }
+    .cta .cta-sub { margin-top:.7rem !important; margin-bottom:0 !important; }
+    /* closing colophon: the three copyright lines, centred under Take It Further */
+    .colophon{ margin-top:.75rem !important; }
+    .colophon .meta{ font-family:var(--ui) !important; font-size:.8rem !important;
+      line-height:1.65 !important; color:var(--ink-faint) !important; text-align:center !important;
+      border-top:1px solid #D6E1EA !important; padding-top:.6rem !important; margin:0 !important; }
+    .colophon .meta a{ color:var(--ink-faint) !important; text-decoration:none !important; }
+
+    /* ---------------- PRINT INK ----------------
+       On screen the cover, the Beyond Words essay and the citation footer are
+       navy panels. On paper a flood of dark ink bands on consumer printers and
+       reversed serif body text fills in. In print they become light panels that
+       keep the navy as an accent: a heavy rule, the headings, the links.
+       Rules are drawn with inset box-shadow so nothing gains height and the
+       pagination is unchanged. */
+
+    /* Cover */
+    .masthead{ background:#FFFFFF !important; background-image:none !important;
+      color:var(--ink) !important;
+      box-shadow: inset 0 9px 0 var(--navy), inset 0 -1px 0 #D6E1EA !important; }
+    .masthead .eyebrow{ color:var(--brand) !important; }
+    .masthead h1, .masthead .mast-title-main{ color:var(--navy) !important; }
+    .masthead h1 em{ color:var(--brand) !important; }
+    .masthead .mast-title-sub{ color:var(--navy) !important; }
+    .masthead .lede{ color:var(--ink-soft) !important; }
+    .masthead .mast-author{ color:var(--navy) !important; }
+    .masthead .cn-line{ color:#8A6D2A !important; }
+    .masthead .cn-top span{ color:#7A6026 !important; }
+    .cite-chip{ background:#F2F6F9 !important; color:var(--ink-soft) !important;
+      box-shadow: inset 0 0 0 1px #D6E1EA !important; }
+    .cite-chip a{ color:var(--brand) !important; }
+    .cite-chip b{ color:var(--navy) !important; }
+    .cite-chip .doi{ color:var(--ink-faint) !important; }
+
+    /* Beyond Words */
+    .beyond{ background:#F2F6F9 !important; background-image:none !important;
+      color:var(--ink) !important;
+      box-shadow: inset 0 4px 0 var(--navy), inset 0 -4px 0 var(--navy) !important; }
+    .beyond .section-label{ color:var(--brand) !important; }
+    .beyond h2.section-title{ color:var(--navy) !important; }
+    .beyond p{ color:var(--ink) !important; }
+    .beyond strong{ color:var(--navy) !important; }
+    .beyond .pull{ color:var(--navy) !important; border-left-color:var(--brand) !important; }
+    .beyond a{ color:var(--brand) !important; }
+
+    /* Citation footer */
+    footer{ background:#F2F6F9 !important; color:var(--ink-soft) !important;
+      box-shadow: inset 0 4px 0 var(--navy) !important; }
+    footer h4{ color:var(--brand) !important; }
+    footer .full-cite{ color:var(--ink) !important; }
+    footer .full-cite .doi{ color:var(--ink-faint) !important; }
+    footer a{ color:var(--brand) !important; }
+    footer .meta{ color:var(--ink-faint) !important; border-top-color:#D6E1EA !important; }
+  }
+
+  /* Two headings are set not to wrap, which is right on a wide screen but on a
+     phone made them the widest things in the document and pushed the whole page
+     sideways. Below this width they are allowed to break. Placed last so the
+     earlier declarations do not override it. */
+  @media (max-width:560px){
+    .mast-title-sub{white-space:normal;text-wrap:balance}
+    .cta .prog-kicker{white-space:normal;text-wrap:balance}
+  }
+
+
+  /* In print, keep the send-off whole: it is the last thing the reader meets
+     and it should not break across a page turn. */
+  @media print {
+    /* Start Common Errors on a fresh page, as it fell before the Nov 10
+       trims; otherwise its heading strands at the foot of the page before. */
+    #errors { break-before:page; page-break-before:always; }
+    /* Nov 14: the longer "closing the door" item pushed item 9 overleaf.
+       Chrome keeps the last item together with the section's bottom padding,
+       so that padding counts against the page. Errors already opens a fresh
+       page, so its top padding is spare too; the list gaps are trimmed a
+       little to cover the rest. Re-measure if the errors text changes. */
+    #errors { padding-top:.6rem !important; padding-bottom:0 !important; }
+    #errors .errors { margin:1.2rem 0 0 !important; padding:1.4rem 1.8rem !important; }
+    .errors li { margin-bottom:.6rem !important; }
+    /* The benediction was held whole, which after this round pushed it off
+       page 30 and left that page half empty. Allowing the break puts the
+       whole benediction back on page 30 and moves only the closing link,
+       so nothing splits that should not. Still 32 pages. */
+    #sendoff { }
+    /* the caps kicker: fixed size in print, free of the viewport-relative clamp */
+    .cta .prog-kicker{ font-size:1.0rem !important; letter-spacing:.06em !important; }
+    /* It is a heading for the paragraph below it, and it was stranding as
+       the last line of page 31 with that paragraph overleaf. */
+    .cta .prog-kicker{ break-after:avoid-page; page-break-after:avoid; }
+    /* On screen the section itself carries this; on paper only the link does. */
+    #about { display:none !important; }
+    .about-link { display:block !important; margin-top:.5rem !important; }
+    #sendoff .closer { margin-bottom:0 !important; }
+    #sendoff { padding-top:1.4rem !important; padding-bottom:1rem !important; }
+    #beyond { padding-bottom:1.6rem !important; }
+    #sendoff .pull { margin-bottom:1rem !important; }
+    
+    /* On paper the arrow is useless without the address. */
+    .about-link .arw{ display:none; }
+    .about-link a::after{ content:": energytapping.com/framework"; }
+    .midlink a{ border-bottom:none; }
+    .about-link a{ border-bottom:none; }
+  }

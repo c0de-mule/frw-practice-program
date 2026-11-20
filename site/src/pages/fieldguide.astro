@@ -1,5 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import fgCss from '../fragments/fieldguide.css?raw';
+import fgBody from '../fragments/fieldguide.body.html?raw';
+import fgJs1 from '../fragments/fieldguide.js1.js?raw';
+import fgJs2 from '../fragments/fieldguide.js2.js?raw';
 ---
 <Base title="Field Guide — Finding the Right Words" description="A printable field guide for acupoint tapping practitioners.">
   <div class="wrap">
@@ -89,14 +93,18 @@ import Base from '../layouts/Base.astro';
     </section>
 
     <section class="below">
-      <p class="lede">A moment-by-moment compass for choosing your direction, with a map of the wording that carries you there — a printable guide you can keep beside you and return to.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://energytapping.com/fieldguide/fieldguide.pdf">Download as a PDF for printing</a>
-        <a class="btn ghost" href="https://energytapping.com/guideonapage/">Get the Guide on a Page</a>
-      </div>
       <p class="cite"><b>Source:</b> Feinstein, D., &amp; Rajah, S. (2026). Finding the right words: A process-informed framework for therapist language in acupoint tapping psychotherapy. <i>Frontiers in Psychology, 17</i>:1800386.</p>
     </section>
   </div>
+
+  <style is:global set:html={fgCss}></style>
+  <div class="fg-body">
+    <Fragment set:html={fgBody} />
+  </div>
+
+  <script is:inline>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <script is:inline set:html={fgJs1}></script>
+  <script is:inline set:html={fgJs2}></script>
 
   <style>
     .wrap{max-width:760px;margin:0 auto;padding:0 1.25rem}
