@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import css from '../fragments/announcements.css?raw';
+import body from '../fragments/announcements.body.html?raw';
+import js from '../fragments/announcements.js?raw';
+---
+<Base title="Sample Announcement — Finding the Right Words" description="Ready-to-copy announcements for colleagues sharing the free Finding the Right Words Field Guide.">
+  <style is:global set:html={css}></style>
+  <Fragment set:html={body} />
+  <script is:inline set:html={js}></script>
+</Base>

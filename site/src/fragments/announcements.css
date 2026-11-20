@@ -1,0 +1,163 @@
+  :root{
+    color-scheme:light;
+    --ink:#19222F;
+    --ink-soft:#54616F;
+    --ink-faint:#7C8794;
+    --paper:#F4F6F8;
+    --surface:#FFFFFF;
+    --line:#E3E8ED;
+    --navy:#14304A;
+    --brand:#176C9B;
+    --attune-tint:#EAF3F9;
+    --rule:#D6E1EA;
+
+    --display:"Fraunces",Georgia,serif;
+    --body:"Newsreader",Georgia,serif;
+    --ui:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-size:1.05rem; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:46rem; margin:0 auto; padding:0 1rem}
+
+  /* ---------- masthead ---------- */
+  header.top{background:var(--surface); border-bottom:1px solid var(--line); padding:3rem 0 2.2rem}
+  .eyebrow{
+    font-family:var(--ui); font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+    font-size:.78rem; color:var(--brand); margin:0 0 .7rem;
+  }
+  h1{
+    font-family:var(--display); font-weight:500; letter-spacing:-.01em;
+    font-size:clamp(1.9rem,4.4vw,2.6rem); line-height:1.15; color:var(--navy); margin:0 0 .7rem;
+  }
+  .lede{margin:0; color:var(--ink-soft); font-size:1.08rem; max-width:34rem}
+  .howto{
+    margin:1.6rem 0 0; padding:.9rem 1.1rem; background:var(--attune-tint);
+    border-left:3px solid var(--brand); border-radius:0 8px 8px 0;
+    font-family:var(--ui); font-size:.93rem; line-height:1.55; color:var(--ink-soft);
+  }
+  .howto b{color:var(--navy)}
+
+  /* ---------- sections ---------- */
+  main{padding:2.6rem 0 4rem}
+  h2.sec{
+    font-family:var(--display); font-weight:500; font-size:clamp(1.35rem,2.8vw,1.7rem);
+    color:var(--navy); margin:2.8rem 0 .3rem; padding-top:1.6rem; border-top:2px solid var(--navy);
+  }
+  main > .wrap > h2.sec:first-child{margin-top:0; padding-top:0; border-top:none}
+  .sec-note{margin:.15rem 0 1.4rem; color:var(--ink-faint); font-size:.95rem; font-style:italic}
+
+  /* ---------- draft cards ---------- */
+  .draft{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:1.4rem 1.5rem 1.5rem; margin:0 0 1.5rem;
+  }
+  .draft-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:1rem; flex-wrap:wrap; margin-bottom:1rem;
+  }
+  .len{
+    font-family:var(--ui); font-weight:700; font-size:.82rem; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--brand); margin:0;
+  }
+  .len span{display:block; text-transform:none; letter-spacing:0; font-weight:400;
+    font-size:.85rem; color:var(--ink-faint); margin-top:.15rem}
+  .copy{
+    font-family:var(--ui); font-weight:600; font-size:.88rem;
+    background:var(--brand); color:#fff; border:none; border-radius:8px;
+    padding:.5rem 1rem; cursor:pointer; white-space:nowrap; flex:none;
+    transition:background .15s;
+  }
+  .copy:hover{background:#125883}
+  .copy:focus-visible{outline:2px solid var(--navy); outline-offset:2px}
+  .copy.done{background:#2C5F4A}
+
+  .body .hl{font-family:var(--ui); font-weight:700; color:var(--navy); margin:0 0 .6rem; font-size:1rem}
+  .body p{margin:0 0 .85rem}
+  .body p:last-child{margin-bottom:0}
+  .body i{font-style:italic}
+  .body .links{font-family:var(--ui); font-size:.95rem; color:var(--ink-soft)}
+  .body .links a{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(23,108,155,.35)}
+  .body .links a:hover{border-bottom-color:var(--brand)}
+
+  .pnote{
+    margin:1.15rem 0 0; padding-top:.95rem; border-top:1px dashed var(--rule);
+    font-size:.99rem; color:var(--ink);
+  }
+  .pnote b{font-family:var(--ui); font-weight:600; font-size:.82rem; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:.32rem}
+  .pnote i{font-style:italic}
+
+  footer{border-top:1px solid var(--line); background:var(--surface); padding:2rem 0; margin-top:1rem}
+  footer p{margin:0; font-family:var(--ui); font-size:.88rem; color:var(--ink-faint); text-align:center}
+  footer a{color:var(--brand); text-decoration:none}
+
+  .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+
+  @media (max-width:520px){
+    .draft{padding:1.2rem 1.1rem 1.3rem}
+    .copy{width:100%}
+  }
+  @page{margin:0.5in}
+  @media print{
+    body{background:#fff; font-size:.87rem; line-height:1.4}
+    .copy, .howto, footer{display:none}
+    .pnote{font-size:.9rem; margin-top:.9rem; padding-top:.75rem}
+    .body .hl{font-size:.95rem}
+    .draft{break-inside:avoid; page-break-inside:avoid; border-color:#ccc;
+      padding:.85rem 1rem 1rem; margin-bottom:.85rem}
+    .draft-head{margin-bottom:.55rem}
+    .body p{margin-bottom:.55rem}
+    header.top{padding:0 0 .55rem}
+    header.top h1{font-size:1.55rem; margin-bottom:.3rem}
+    header.top .eyebrow{font-size:.7rem; margin-bottom:.3rem}
+    header.top .lede{font-size:.95rem}
+    main{padding:.7rem 0 0}
+    h2.sec{margin:1.1rem 0 .2rem; padding-top:.65rem; break-after:avoid; page-break-after:avoid}
+    .sec-note{margin:.1rem 0 .55rem; break-after:avoid; page-break-after:avoid}
+  }
+
+  .copyrow{display:flex;gap:.6rem;flex-wrap:wrap;margin:0 0 1.4rem}
+  .copy.alt{background:transparent;color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--brand)}
+  .copy.alt:hover{background:var(--attune-tint)}
+  .copy.alt.done{background:#2C5F4A;color:#fff;box-shadow:none}
+  .subj{font-family:var(--ui);font-weight:700;color:var(--navy);margin:0 0 .9rem;font-size:1rem}
+  .yournote{display:inline-block;background:#FFF4C2;padding:.1rem .45rem;border-radius:4px;font-style:italic;color:#5A4A12}
+  .body p.jl{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+  .fglink{font-family:var(--ui);font-weight:600}
+  .gems{margin:-.3rem 0 1rem;padding-left:1.3rem}
+  .gems li{margin:0 0 .5rem;padding-left:.2rem}
+  .gems li::marker{color:var(--brand)}
+  .fglink a{color:var(--brand)}
+  .qlead{font-family:var(--ui);font-size:.95rem;color:var(--ink-soft);margin:1.3rem 0 .7rem !important}
+  .q{margin:0 0 .9rem 1.1rem !important;padding-left:.9rem;border-left:2px solid var(--rule)}
+  .q i{font-style:italic}
+  .q .who{display:block;font-family:var(--ui);font-size:.86rem;color:var(--ink-faint);font-style:normal;margin-top:.2rem}
+  .q .who b{color:var(--ink);font-weight:600}
+  .part-label{font-family:var(--ui);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin:1.8rem 0 .8rem;padding-top:1.2rem;border-top:1px dashed var(--rule)}
+  .part-label span{text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-faint)}
+  .more-row{margin:.4rem 0 0;text-align:center}
+  .more-btn{font-family:var(--ui);font-size:1rem;font-weight:600;color:var(--navy);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.7rem 1.3rem;cursor:pointer;display:inline-flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;justify-content:center;max-width:100%}
+  .more-btn:hover{border-color:var(--brand)}
+  .more-btn:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+  .more-act{color:var(--brand)}
+  .more-arrow{color:var(--brand);display:inline-block;transition:transform .15s}
+  .more-btn[aria-expanded="true"] .more-arrow{transform:rotate(90deg)}
+  #fuller{margin-top:1.6rem}
+  @media (prefers-reduced-motion:reduce){.more-arrow{transition:none}}
+  @media print{ #fuller[hidden]{display:block!important} .more-row{display:none} }
+  @media print{
+    .copyrow{display:none}
+    /* The single announcement is longer than a page, so it has to be allowed
+       to flow across pages; the old rule kept each draft whole, which pushed
+       this one past page 1 and left that page blank under the heading.
+       Quotes, bullets and the subject line still stay whole. */
+    .draft{break-inside:auto !important; page-break-inside:auto !important}
+    .q, .gems li, .subj{break-inside:avoid; page-break-inside:avoid}
+    .qlead, .part-label{break-after:avoid; page-break-after:avoid}
+    .part-label span{display:none}
+  }
