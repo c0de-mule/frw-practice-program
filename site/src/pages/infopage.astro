@@ -37,13 +37,13 @@ import js4 from '../fragments/info.js4.js?raw';
   <script is:inline set:html={js4}></script>
 
   <style>
-    .section-nav{position:sticky;top:63px;z-index:19;background:#132C44;border-bottom:1px solid rgba(0,0,0,.25)}
-    .section-nav .inner{max-width:1040px;margin:0 auto;display:flex;gap:1.4rem;align-items:center;height:46px;padding:0 1.3rem;overflow-x:auto;scrollbar-width:none}
+    .section-nav{position:sticky;top:63px;z-index:19;background:#fff;border-bottom:1px solid var(--line)}
+    .section-nav .inner{max-width:1040px;margin:0 auto;display:flex;gap:1.5rem;align-items:center;height:48px;padding:0 1.3rem;overflow-x:auto;scrollbar-width:none}
     .section-nav .inner::-webkit-scrollbar{display:none}
-    .section-nav a{color:#CBD6DF;text-decoration:none;font-weight:600;font-size:.86rem;white-space:nowrap}
-    .section-nav a:hover{color:#fff}
-    .section-nav a.cta{margin-left:auto;background:#2C6A93;color:#fff;padding:.42rem .95rem;border-radius:6px}
-    .section-nav a.cta:hover{background:#357aa7;color:#fff}
+    .section-nav a{color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:.86rem;white-space:nowrap}
+    .section-nav a:hover{color:var(--navy)}
+    .section-nav a.cta{margin-left:auto;background:var(--navy);color:#fff;padding:.42rem 1rem;border-radius:6px}
+    .section-nav a.cta:hover{background:#17304a;color:#fff}
     @media(max-width:600px){ .section-nav a.cta{margin-left:0} }
   </style>
 </Base>
