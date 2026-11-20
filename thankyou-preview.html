@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thank You — Finding the Right Words Practice Program</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Your Finding the Right Words Practice Program is on its way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5F1; --card:#FFFFFF; --ink:#1E2A36; --navy:#0F2337;
+    --ink-soft:#465360; --ink-faint:#7C8894; --line:#E4DFD7;
+    --gold:#B7975A; --gold-lt:#D8C58C; --blue:#176C9B; --warm:rgba(151,143,131,.13);
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --ui:'Public Sans','Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+
+  /* preview-only banner */
+  .mockbar{background:#241a10;color:#f3e7cf;font-size:.74rem;letter-spacing:.04em;text-align:center;padding:.45rem 1rem}
+  .mockbar b{color:#fff}
+
+  a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+  a:hover{color:#0f567c}
+
+  /* header bar — matched to the enroll page */
+  .nav{background:rgba(15,35,55,.97);position:sticky;top:0;z-index:20}
+  .nav-in{max-width:1040px;margin:0 auto;height:63px;display:flex;align-items:center;justify-content:space-between;padding:0 1.3rem;gap:1rem}
+  .brand{font-family:var(--serif);font-size:1.28rem;letter-spacing:.01em;white-space:nowrap}
+  .brand a{text-decoration:none}
+  .brand .l{color:#CBB37A;font-weight:500}
+  .brand .r{color:#E6CE8F;font-weight:700}
+  .navlinks{display:flex;gap:1.5rem;font-size:.95rem}
+  .navlinks a{color:#DCE2E8;text-decoration:none;font-weight:500}
+  .navlinks a:hover{color:#fff}
+  @media(max-width:560px){ .navlinks{gap:1rem;font-size:.86rem} .brand{font-size:1.1rem} .navlinks .hide-sm{display:none} }
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 1.25rem}
+
+  /* hero */
+  .hero{text-align:center;padding:3.4rem 0 .4rem}
+  .eyebrow{font-family:var(--ui);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.76rem;color:var(--gold);margin:0 0 .9rem}
+  .hero h1{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:2.55rem;line-height:1.14;margin:0 auto .9rem;max-width:12ch}
+  .hero .sub{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink-soft);font-size:1.3rem;line-height:1.45;margin:0 auto;max-width:34ch}
+  @media(max-width:560px){ .hero{padding:2.4rem 0 .2rem} .hero h1{font-size:1.95rem;max-width:none} .hero .sub{font-size:1.1rem} }
+
+  /* primary action — check your email */
+  .mail{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(15,35,55,.06);padding:1.6rem 1.6rem;margin:2.2rem 0 .4rem;display:flex;gap:1.15rem;align-items:flex-start}
+  .mail .badge{flex:0 0 52px;height:52px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center}
+  .mail .badge svg{width:26px;height:26px;display:block}
+  .mail h2{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.4rem;margin:.1rem 0 .4rem;line-height:1.2}
+  .mail p{margin:0;color:var(--ink-soft);font-size:1rem}
+  @media(max-width:560px){ .mail{padding:1.3rem;gap:.9rem} .mail .badge{flex-basis:44px;height:44px} .mail .badge svg{width:22px;height:22px} .mail h2{font-size:1.22rem} }
+
+  /* generic section */
+  .sec{padding:2.4rem 0 .2rem}
+  .sec > h3{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:1.55rem;text-align:center;margin:0 0 1.1rem;line-height:1.2}
+  .prose{color:var(--ink-soft);font-size:1.03rem}
+  .prose strong,.prose b{color:var(--ink);font-weight:600}
+
+  /* included list */
+  .included{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;gap:.55rem}
+  .included li{position:relative;padding-left:1.9rem;color:var(--ink);font-size:1rem}
+  .included li::before{content:"";position:absolute;left:0;top:.08em;width:1.2rem;height:1.2rem;border-radius:50%;background:var(--warm);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23B7975A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+    background-size:.8rem;background-repeat:no-repeat;background-position:center}
+
+  /* numbered helper steps */
+  .steps{display:grid;gap:1.1rem;margin:.4rem 0 0}
+  .step{display:flex;gap:1rem;align-items:flex-start}
+  .step .n{flex:0 0 38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--ui);font-weight:600;font-size:1rem;display:flex;align-items:center;justify-content:center}
+  .step p{margin:0;color:var(--ink-soft);font-size:1.02rem}
+  .step p strong{color:var(--ink);font-weight:700}
+
+  /* divider */
+  .rule{height:1px;background:var(--line);border:0;max-width:720px;margin:2.6rem auto 0}
+
+  /* sign-off */
+  .signoff{text-align:center;padding:2.6rem 0 .4rem}
+  .signoff p{color:var(--ink-soft);font-size:1.08rem;max-width:40ch;margin:0 auto 1.3rem}
+  .signoff .warm{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1.1rem;margin:0}
+  .signoff .name{font-family:var(--serif);color:var(--navy);font-size:1.25rem;font-weight:500;margin:.1rem 0 0}
+
+  /* footer */
+  footer{text-align:center;padding:2.8rem 1.25rem 3.4rem;color:var(--ink-faint);font-size:.92rem}
+  footer .back{display:inline-block;margin-top:.7rem}
+</style>
+</head>
+<body>
+<div class="mockbar">PREVIEW — not live. Thank-you page draft, type &amp; palette matched to the <b>enroll</b> page. Support email filled from the sales page.</div>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="brand"><a href="https://energytapping.com/infopage/"><span class="l">Finding the </span><span class="r">Right Words</span></a></div>
+    <nav class="navlinks">
+      <a class="hide-sm" href="https://energytapping.com/infopage/">About the program</a>
+      <a href="https://energytapping.com/fieldguide/">Field Guide</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <header class="hero">
+      <p class="eyebrow">You're in</p>
+      <h1>Thank You — Your Practice Program Is On Its Way</h1>
+      <p class="sub">Your access details for <em>Finding the Right Words</em> are headed to your inbox right now.</p>
+    </header>
+
+    <section class="mail" aria-label="Your next step">
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D8C58C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/>
+        </svg>
+      </div>
+      <div>
+        <h2>Your next step: check your email</h2>
+        <p>Your access link will arrive within a few minutes. If you don't see it, check your spam or promotions folder, or write to us at <a href="mailto:support@edenmethod.com">support@edenmethod.com</a>.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h3>What you've just unlocked</h3>
+      <p class="prose">You now have <strong>lifetime access</strong> to the practice program built around the question every tapping practitioner faces: <em>the client is distressed, you know where to tap — what do you say?</em> Inside, you'll work through <strong>144 clinical choice points</strong> across three tiers — Sensing the Direction, Shaping the Phrase, and Sophisticated Discernment — with an explanation behind every one of the <strong>528 answer options</strong>.</p>
+      <ul class="included">
+        <li>Your Practice Profile — how your choices land, and your own tendencies</li>
+        <li>Reflection questions and a printable Practice Record</li>
+        <li>The Field Guide and the Guide on a Page</li>
+        <li>Free updates to the program, yours at no extra cost</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h3>A few things that will help as you begin</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <p><strong>It runs right in your browser.</strong> There's nothing to download or install. Just open your link and begin.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <p><strong>Your progress is saved on the device you use.</strong> The program remembers where you left off on the same computer and browser, so it's easiest to stick with one setup as you work through it.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="signoff">
+      <p>Thank you for investing in your skill with the words that guide a tapping session. We think you'll find yourself reaching for the right phrase more naturally with each round of practice.</p>
+      <p class="warm">Warmly,</p>
+      <p class="name">David Feinstein, PhD</p>
+    </section>
+
+  </div>
+
+  <footer>
+    Questions? Email <a href="mailto:support@edenmethod.com">support@edenmethod.com</a>.
+    <br><a class="back" href="https://energytapping.com/infopage/">← Back to the program details</a>
+  </footer>
+</main>
+</body>
+</html>
