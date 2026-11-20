@@ -36,18 +36,17 @@ import Base from '../layouts/Base.astro';
         </div>
       </div>
 
-      <!-- Payment placeholder — replace with the payment integration before launch -->
-      <div class="placeholder">
-        <p class="ph-label">Placeholder</p>
-        <h3>Payment Integration Coming Soon</h3>
-        <p class="ph-desc">Card entry fields will appear in this area.</p>
-        <div class="ph-fields">
-          <div></div>
-          <div class="row"><div></div><div></div></div>
-          <div></div>
-        </div>
-        <label class="optin"><input type="checkbox"> <span>Also keep me in touch with David’s work. He sends email sparingly — new resources, classes, or papers. Unsubscribe any time.</span></label>
-        <div class="ph-pay">Pay $129</div>
+      <!-- CHECKOUT SLOT — Ashley wires the GHL order form here.
+           (A) Embed:   paste the GHL order-form embed INSIDE #checkout (replace the block below).
+           (B) Redirect: add a button whose href is the GHL checkout URL.
+           In the order-form settings, set the post-purchase redirect to:
+               https://finding-the-right-words.vercel.app/thankyou/
+           Keep the "David's work" opt-in inside the order form, unticked by default.
+           Access is granted by the Zapier -> Supabase step — see CHECKOUT-WIRING.md. -->
+      <div class="checkout" id="checkout">
+        <p class="co-eyebrow">Enroll &middot; $129 one time</p>
+        <h3 class="co-h">Checkout opening soon</h3>
+        <p class="co-sub">Secure checkout &middot; instant access &middot; lifetime access &middot; 14-day guarantee</p>
       </div>
       <p class="secure">Secure checkout · Instant access</p>
 
@@ -118,6 +117,10 @@ import Base from '../layouts/Base.astro';
     .placeholder .optin{display:flex;gap:.6rem;align-items:flex-start;text-align:left;max-width:22rem;margin:1.1rem auto 0;font-size:.88rem;line-height:1.45;color:var(--ink-soft);cursor:pointer}
     .placeholder .optin input{margin-top:.2rem;flex:0 0 auto;width:1rem;height:1rem;accent-color:var(--brand)}
     .placeholder .ph-pay{max-width:22rem;margin:1rem auto 0;height:2.6rem;border-radius:8px;background:rgba(23,108,155,.18);color:var(--ink-faint);font-weight:600;font-size:.92rem;display:flex;align-items:center;justify-content:center}
+    .checkout{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.2rem 1.5rem;text-align:center;margin-bottom:1rem}
+    .checkout .co-eyebrow{font-family:var(--ui);font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-deep);margin:0 0 .6rem}
+    .checkout .co-h{font-size:1.3rem;color:var(--navy);margin:0 0 .5rem}
+    .checkout .co-sub{font-size:.92rem;color:var(--ink-faint);margin:0}
     .secure{text-align:center;font-size:.86rem;color:var(--ink-faint);margin:0 0 2.6rem}
 
     .next h2{font-size:1.45rem;margin-bottom:1rem;text-align:center}
