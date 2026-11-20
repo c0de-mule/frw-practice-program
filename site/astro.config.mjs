@@ -8,5 +8,8 @@ export default defineConfig({
   redirects: {
     '/': '/infopage/',
     '/video-intro/': '/infopage/',
+    '/programoverview/': '/infopage/',
+    '/practicepreviews/': '/infopage/',
+    '/framework/': '/fieldguide/',
   },
 });

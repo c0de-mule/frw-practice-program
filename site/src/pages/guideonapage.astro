@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import css from '../fragments/guideonapage.css?raw';
+import body from '../fragments/guideonapage.body.html?raw';
+---
+<Base title="The Guide on a Page — Finding the Right Words" description="The whole Finding the Right Words framework on one page.">
+  <style is:global set:html={css}></style>
+  <Fragment set:html={body} />
+</Base>
