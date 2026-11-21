@@ -10,7 +10,7 @@ import js4 from '../fragments/info.js4.js?raw';
 <Base title="Finding the Right Words — An Interactive Program for Tapping Practitioners" description="An interactive practice program developed by clinical psychologist David Feinstein, PhD.">
   <style is:global set:html={css}></style>
   <style is:global>
-    html{scroll-padding-top:112px}
+    html{scroll-padding-top:80px}
     .watch{padding:3.2rem 0 2.6rem;text-align:center}
     .watch-eyebrow{font-family:var(--ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.74rem;color:var(--brass-deep);margin:0 0 .5rem}
     .watch-h{font-family:var(--serif);font-weight:500;color:var(--navy);font-size:clamp(1.5rem,3.5vw,2rem);margin:0 0 1.4rem;line-height:1.15}
@@ -18,32 +18,10 @@ import js4 from '../fragments/info.js4.js?raw';
     .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   </style>
 
-  <nav class="section-nav" aria-label="On this page">
-    <div class="inner">
-      <a href="#watch">Watch</a>
-      <a href="#try">Try a scenario</a>
-      <a href="#how">How it works</a>
-      <a href="#tiers">The program</a>
-      <a href="#faq">Questions</a>
-      <a class="cta" href="#enroll">Enroll</a>
-    </div>
-  </nav>
-
   <Fragment set:html={body} />
 
   <script is:inline set:html={js1}></script>
   <script is:inline set:html={js2}></script>
   <script is:inline set:html={js3}></script>
   <script is:inline set:html={js4}></script>
-
-  <style>
-    .section-nav{position:sticky;top:63px;z-index:19;background:#fff;border-bottom:1px solid var(--line)}
-    .section-nav .inner{max-width:1040px;margin:0 auto;display:flex;gap:1.5rem;align-items:center;height:48px;padding:0 1.3rem;overflow-x:auto;scrollbar-width:none}
-    .section-nav .inner::-webkit-scrollbar{display:none}
-    .section-nav a{color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:.86rem;white-space:nowrap}
-    .section-nav a:hover{color:var(--navy)}
-    .section-nav a.cta{margin-left:auto;background:var(--navy);color:#fff;padding:.42rem 1rem;border-radius:6px}
-    .section-nav a.cta:hover{background:#17304a;color:#fff}
-    @media(max-width:600px){ .section-nav a.cta{margin-left:0} }
-  </style>
 </Base>
