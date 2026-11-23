@@ -1,5 +1,5 @@
 ---
-const { title = 'Finding the Right Words', description = '' } = Astro.props;
+const { title = 'Finding the Right Words', description = '', navItems } = Astro.props;
 const base = import.meta.env.BASE_URL; // '/app/' in this preview build
 ---
 <!doctype html>
@@ -49,9 +49,15 @@ const base = import.meta.env.BASE_URL; // '/app/' in this preview build
     <div class="nav-in">
       <div class="brand"><a href={base}><span class="l">Finding the </span><span class="r">Right Words</span></a></div>
       <nav class="navlinks">
-        <a class="hide-sm" href="/">About the program</a>
-        <a href="/receive-field-guide/">Field Guide</a>
-        <a class="enroll" href="/enroll/">Enroll</a>
+        {navItems ? navItems.map((it) => (
+          <a href={it.href} class:list={[{ enroll: it.cta, 'hide-sm': it.hideSm }]}>{it.label}</a>
+        )) : (
+          <Fragment>
+            <a class="hide-sm" href="/">About the program</a>
+            <a href="/receive-field-guide/">Field Guide</a>
+            <a class="enroll" href="/enroll/">Enroll</a>
+          </Fragment>
+        )}
       </nav>
     </div>
   </div>
