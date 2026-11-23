@@ -5460,11 +5460,8 @@ function renderHome(){
   // The three tiers are one progression, not four peer choices. The heading
   // names the whole; the only clickable things are the tiers, in order.
   const head=document.createElement('div'); head.className='modhead';
-  head.innerHTML='<h2>The Three Tiers</h2><p>The vignettes come in three tiers, each subtler than the last and building on the one before. At the end of each tier, you\u2019ll see your score, the Takeaways from the items you missed, a chance to try those items again, and a question to reflect on. Your Practice Profile shows where your choices tended to land, and when all three tiers are done, you\u2019ll see your overall score and your full profile. Your progress is saved in this browser, so you can stop at any point and pick up where you left off. To keep a lasting copy, save your Practice Record as a PDF after each tier. If you are earning CE credit through ACEP, your Practice Record also shows what the credit requires and what remains.</p>';
+  head.innerHTML='<h2>The Three Tiers</h2><p>The vignettes come in three tiers, each subtler than the last and building on the one before. At the end of each tier, you\u2019ll see your score, the Takeaways from the items you missed, a chance to try those items again, and a question to reflect on. Your Practice Profile shows where your choices tended to land, and when all three tiers are done, you\u2019ll see your overall score and your full profile. Your progress is saved, so you can stop at any point and pick up where you left off. To keep a lasting copy, save your Practice Record as a PDF after each tier. If you are earning CE credit through ACEP, your Practice Record also shows what the credit requires and what remains.</p>';
   el.appendChild(head);
-  const dv=document.createElement('div'); dv.className='devbox';
-  dv.innerHTML='<h4>Please stay on one device and one browser</h4><p>The Program saves your progress in the browser you\u2019re using now, on this device. It won\u2019t follow you to another computer, phone, tablet or browser, and it won\u2019t last in a private window. Clearing your browser\u2019s history can also erase it.</p>';
-  el.appendChild(dv);
   const ow=document.createElement('label'); ow.className='ownset';
   ow.innerHTML='<input type="checkbox" id="own-first"'+(ownFirst()?' checked':'')+'><span><b>Try your own phrase first.</b> Before the options appear, write what you would say. Your phrase isn\u2019t scored. After you answer, you compare it with the best answer, and the phrases you write are kept in your Practice Record. It adds about a minute an item, so use it for as much or as little as you like.<br><br><i>A good way to use this:</i> go through the tiers the first time with the options showing. Then, a few weeks or a month later, save your Practice Record, choose Start fresh at the bottom of this page, and go through again with this box checked. The second time, you\u2019ll be formulating the phrases yourself. The language patterns you absorbed the first time through will guide you, as they are already doing in your sessions with clients.</span>';
   ow.querySelector('input').addEventListener('change',e=>{ try{ localStorage.setItem(OWN_KEY,e.target.checked?'1':'0'); }catch(err){} });
@@ -5778,7 +5775,7 @@ function showRecord(quiet){
   let h='<div class="rec-head"><p class="eyebrow">Finding the Right Words · Practice Program</p><h1>Your Practice Record</h1>'
     +'<div class="rec-name"><span class="rec-name-label">Name</span><input id="rec-name" type="text" maxlength="80" placeholder="Your name (optional)" value="'+esc(name).replace(/"/g,'&quot;')+'"><span class="rec-name-print">'+esc(name)+'</span></div>'
     +'<p class="rec-date">'+fmtDate(new Date().toISOString())+'</p></div>'
-    +'<p class="rec-keep noprint">Your progress is saved only in this browser, on this device. Print this record or save it as a PDF to keep a copy.</p>'
+    +'<p class="rec-keep noprint">Print this record or save it as a PDF to keep a copy.</p>'
     +'<p class="rec-top-print noprint"><button class="btn ghost" type="button" onclick="window.print()">Print or save as PDF</button></p>';
   // the scores
   h+='<table class="rec-table"><thead><tr><th>Tier</th><th>First pass</th><th>Second pass<span class="th-sub">(on missed items)</span></th><th>Completed</th></tr></thead><tbody>';
@@ -6133,6 +6130,13 @@ window.addEventListener('popstate',function(e){
   let currentEmail = '';
   try { currentEmail = (localStorage.getItem(EMAIL_KEY)||'').trim().toLowerCase(); } catch(e){}
 
+  /* Optional one-click link: ?email=you@example.com pre-fills the gate (no auto-submit). */
+  let urlEmail = '';
+  try {
+    const qp = new URLSearchParams(location.search).get('email');
+    if(qp){ const e = qp.trim().toLowerCase(); if(e.indexOf('@') > 0) urlEmail = e; }
+  } catch(e){}
+
   /* ---------- backend A: local mock (default, no setup) ---------- */
   const Mock = {
     _read(){ try { return JSON.parse(localStorage.getItem(MOCK_KEY)) || null; } catch(e){ return null; } },
@@ -6449,7 +6453,7 @@ window.addEventListener('popstate',function(e){
       if(ok){ await enterAs(currentEmail); return; }
       try { localStorage.removeItem(EMAIL_KEY); } catch(e){} currentEmail='';
     }
-    showGate('');
+    showGate(urlEmail);
   };
 })();
 bootGated();

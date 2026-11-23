@@ -32,15 +32,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacin
 .topbar .btn{padding:.55rem 1.2rem;font-size:.86rem}
 
 /* hero */
-.hero{background:linear-gradient(160deg,#173250 0%,var(--navy) 62%);color:#EAF0F5;padding:5.5rem 0 5rem;position:relative;overflow:hidden;text-align:center}
+.hero{background:linear-gradient(160deg,#173250 0%,var(--navy) 62%);color:#EAF0F5;min-height:calc(100svh - 63px);display:flex;align-items:center;padding:3rem 0;position:relative;overflow:hidden;text-align:center}
+.hero > .wrap{width:100%;position:relative;z-index:1}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,rgba(216,197,140,.10),transparent 70%);pointer-events:none}
 .hero .eyebrow{color:var(--brass)}
 .hero h1{color:#fff;font-size:clamp(3rem,8vw,5.2rem);margin:1rem 0 2.2rem;letter-spacing:-.02em}
 .hero .sub-title a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(216,197,140,.45)}
 .hero .sub-title{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--brass);margin-bottom:2rem}
-.hero .hook{font-family:var(--serif);font-size:clamp(1.35rem,3.4vw,2rem);color:#F2F5F8;margin:0 auto 1.5rem;line-height:1.25;max-width:44rem;padding:1.6rem 2.1rem 1.75rem;border:1px solid rgba(216,197,140,.32);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0))}
+.hero .hook{font-family:var(--serif);font-size:clamp(1.5rem,3.8vw,2.2rem);color:#F2F5F8;margin:0 auto 2.4rem;line-height:1.32;max-width:38rem}
 .hero .hook p{margin:0 0 .55em;text-wrap:balance}
-.hero .hook p:last-child{margin:.35em 0 0;color:var(--brass);font-weight:600}
+.hero .hook p:last-child{margin:1em 0 0;color:var(--brass);font-weight:600}
 /* The promise. First thing under the hook, and the only paragraph in the
    hero that states an outcome rather than a description. */
 .hero .promise{font-family:var(--serif);font-size:1.16rem;line-height:1.55;color:#E8EFF4;max-width:46rem;margin:0 auto 1.35rem}
@@ -437,7 +438,7 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 .hero .gains{list-style:none;padding:0;margin:0 auto 2rem;max-width:34rem;text-align:left}
 .hero .gains li{position:relative;padding-left:1.5rem;margin:0 0 .55rem;color:#E8EFF4;font-size:1.05rem;line-height:1.5}
 .hero .gains li::before{content:"";position:absolute;left:.2rem;top:.62em;width:.5rem;height:.5rem;border-radius:50%;background:var(--brass)}
-.try .try-reassure{text-align:center;font-style:italic;color:var(--ink-soft);font-size:.98rem;margin:-1.8rem auto 2rem;max-width:40rem}
+.try .try-reassure{text-align:center;font-style:italic;color:var(--ink-soft);font-size:.98rem;margin:-1.8rem auto 2rem;max-width:40rem;text-wrap:balance}
 .inline-cta{margin:2.2rem 0 0;text-align:center;font-family:var(--ui);font-size:1rem}
 .inline-cta a{color:var(--brand);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(23,108,155,.35)}
 .inline-cta a:hover{border-bottom-color:var(--brand)}
