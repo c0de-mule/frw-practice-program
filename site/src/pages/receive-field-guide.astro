@@ -98,14 +98,12 @@ import Base from '../layouts/Base.astro';
 
         <!--
           ========================= ActiveCampaign integration =========================
-          This form currently redirects to the thank-you page (which shows the Guide and
-          download). It does NOT yet capture the email. To make capture + delivery live,
-          Amber provides the AC form and we swap in:
-            • the form `action` (AC proc.php URL) + method="post"
-            • AC's field names (firstname / email / the marketing checkbox field or tag)
-            • AC's post-submit redirect → /receive-field-guide/thank-you/
-          Then delete the inline submit-redirect script below. The marketing checkbox must
-          map to a tag so marketing emails go ONLY to people who tick it. No API key here.
+          On submit, this posts to our own serverless function /api/subscribe (see
+          /api/subscribe.js at the repo root), which syncs the contact to ActiveCampaign
+          and applies the "OPT IN Field Guide (Tapping)" tag server-side. The AC key never
+          touches the browser. Capture goes live once AC_API_URL + AC_API_KEY are set as
+          Vercel environment variables. Either way the reader is taken to the thank-you
+          page (which shows the Guide), so a hiccup never blocks the download.
           ============================================================================= -->
         <form id="rfg-form" novalidate>
           <div class="field">
@@ -132,16 +130,29 @@ import Base from '../layouts/Base.astro';
     </section>
   </div>
 
-  <!-- Placeholder behavior until the ActiveCampaign form is connected: go to the
-       thank-you page (which shows the Guide). No data is sent; email is never put in a URL. -->
+  <!-- Post the sign-up to our serverless function (which tags the contact in
+       ActiveCampaign), then take the reader to the thank-you page either way so the
+       Guide is never blocked. The email is sent in the request body, never in a URL. -->
   <script is:inline>
     (function(){
       var f=document.getElementById('rfg-form');
       if(!f) return;
+      var done=false;
       f.addEventListener('submit', function(e){
         e.preventDefault();
+        if(done) return;
         if(!f.checkValidity()){ f.reportValidity(); return; }
-        window.location.href='/receive-field-guide/thank-you/';
+        done=true;
+        var btn=f.querySelector('button[type=submit]');
+        if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+        var payload={
+          first_name:(document.getElementById('firstname')||{}).value||'',
+          email:(document.getElementById('email')||{}).value||'',
+          optin:!!(f.querySelector('input[name=marketing]')||{}).checked
+        };
+        var go=function(){ window.location.href='/receive-field-guide/thank-you/'; };
+        fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+          .then(go).catch(go);
       });
     })();
   </script>

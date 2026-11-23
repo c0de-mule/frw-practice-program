@@ -31,20 +31,30 @@ Someone wants the Field Guide
 The on-page form currently sends people to the thank-you page (so they get the Guide), but
 **it does not capture the email yet** — that waits on the ActiveCampaign setup below.
 
-## What Amber needs to do (ActiveCampaign) — turns capture on
+## Capture wiring — how it works now
 
-1. Create an AC form for the free Field Guide with three fields: **First name**, **Email**,
-   and the optional marketing checkbox.
-2. Give us the form's connection details so we can wire our own styled form to it:
-   either the form's **action URL + field names**, or an **API key + the list/tag IDs**.
-   (No API key goes in the browser; if it's the API route we'll proxy it server-side.)
-3. Build the **delivery automation**: everyone who submits gets an email with the Field
-   Guide link (`go.energytapping.com/fieldguide/` and/or the PDF).
-4. The **checkbox maps to a tag** (e.g. "FRW Marketing OK"). The marketing emails — clinical
-   examples, research updates, news from David — go **only to people who tick the box.**
-   *(This replaces the Field Guide's old "a few short emails to help you put it into
-   practice" offer, which has been removed from the Guide.)*
-5. Set the form's post-submit redirect to `…/receive-field-guide/thank-you/`.
+The sign-up form posts to our own serverless function **`/api/subscribe.js`** (repo root),
+which runs server-side on Vercel, syncs the contact to ActiveCampaign, and applies the tag
+**`OPT IN Field Guide (Tapping)`**. The AC key never touches the browser. The reader is sent
+to the thank-you page either way, so a hiccup never blocks the Guide.
+
+**To turn capture on — add two Vercel environment variables** (Vercel → the project →
+Settings → Environment Variables, Production):
+
+| Name | Value |
+|---|---|
+| `AC_API_URL` | the account's API URL, e.g. `https://edenmethod.api-us1.com` |
+| `AC_API_KEY` | the API key |
+
+Both come from **ActiveCampaign → Settings → Developer** (the "API Access" box shows the URL
+and the Key). Optional: `AC_MARKETING_TAG` — a tag name applied only to people who tick the
+follow-up checkbox (set it if you want the marketing opt-ins split out). Redeploy after adding.
+
+**Still Amber's (in ActiveCampaign):** build the **automation that emails the Guide** when
+the `OPT IN Field Guide (Tapping)` tag lands — link to `go.energytapping.com/fieldguide/`
+and/or the PDF. And if marketing emails (clinical examples, research, news) should go only to
+checkbox-tickers, that's the optional `AC_MARKETING_TAG` above triggering a separate
+automation. *(This replaces the Field Guide's old "a few short emails" offer, now removed.)*
 
 ## What IT / Karen needs to do (main energytapping.com domain)
 
