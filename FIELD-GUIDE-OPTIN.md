@@ -57,12 +57,22 @@ These are redirects on the main WordPress site, pointing at the sign-up page:
 - **Keep** `energytapping.com/practiceprogram/guideonapage.pdf` as-is — the Practice
   Program links to it.
 
-## The downloadable PDF — needs David's source file
+## The downloadable PDF — done
 
-The `fieldguide.pdf` download is a 40-page print of David's standalone **Field_Guide.html**,
-not of our web page (our web Field Guide is interactive and prints to ~8 pages, so it can't
-reproduce the PDF). To take the removed "Guide on a Page" offers out of the PDF, the same
-three deletions David listed (Field_Guide.html lines ~879, ~1011, ~1490, plus the print rule
-~635) need to be applied to that standalone file and the PDF reprinted. Either send us
-Field_Guide.html and we'll do it, or David reprints it on his end. Until then the downloadable
-PDF still shows the old offers.
+The `fieldguide.pdf` download is a 40-page print of David's standalone **Field_Guide.html**
+(not of our interactive web page). The same three deletions were applied to that file and
+the PDF was reprinted and verified: still 40 pages, cover unchanged, the two "Get the Guide
+on a Page" buttons removed from page 2 and the final CTA page, page breaks intact.
+
+The edited source is kept at `pdf-source/Field_Guide.html` (outside the served site). To
+regenerate after a future edit:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --no-pdf-header-footer \
+  --print-to-pdf="site/public/fieldguide/fieldguide.pdf" \
+  "file://$PWD/pdf-source/Field_Guide.html"
+```
+
+If David sends a newer Field_Guide.html, replace `pdf-source/Field_Guide.html` with it
+(re-applying the three deletions if they aren't already in his copy) and rerun the command.
