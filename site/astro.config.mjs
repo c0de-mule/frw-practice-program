@@ -12,5 +12,8 @@ export default defineConfig({
     '/programoverview/': '/',
     '/practicepreviews/': '/',
     '/framework/': '/fieldguide/',
+    // The Guide on a Page now lives only inside the Practice Program; its old
+    // public page is retired and folds into the Field Guide sign-up.
+    '/guideonapage/': '/receive-field-guide/',
   },
 });

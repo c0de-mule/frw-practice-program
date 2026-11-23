@@ -620,8 +620,6 @@
     .cta .arw { display:none; }
     .cta .cta-btn-lg::after { content:"  energytapping.com/infopage/"; font-size:.8rem;
       font-weight:400; opacity:.85; }
-    .cta .cta-btn-quiet::after { content:"  energytapping.com/guideonapage"; font-size:.78rem;
-      font-weight:400; opacity:.85; }
     /* "Using the Guide" is apparatus, not a chapter: in print it takes a
        lighter head and tighter padding so the relocated paragraphs cost
        the page budget only what their own text costs. */

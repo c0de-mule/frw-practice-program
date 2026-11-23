@@ -5730,7 +5730,7 @@ const NAME_KEY='frw_record_name';
 function fmtDate(iso){ try{ return new Date(iso).toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'}); }catch(e){ return ''; } }
 function reflHTML(id,onResults){
   const r=(store[id]&&store[id].refl)||[];
-  let h='<div class="reflbox"><h4>Reflection</h4><p class="refl-note">'
+  let h='<div class="reflbox"><h4>Personal Reflection</h4><p class="refl-note">'
     +(onResults?'Optional. A few sentences in your own words help the distinctions stay with you. Saved on this device and included in your Practice Record.'
                :'Saved on this device as you type.')
     +'<span class="refl-saved">Saved</span></p>';
