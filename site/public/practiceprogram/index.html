@@ -5492,7 +5492,7 @@ function renderHome(){
   el.appendChild(fg);
 
   const rc=document.createElement('a'); rc.className='mod rc-card';
-  rc.href='https://energytapping.com/practiceprogram/guideonapage.pdf';
+  rc.href='/practiceprogram/guideonapage.pdf';
   rc.setAttribute('download','');
   rc.innerHTML=`<div class="num">☷</div><div><h3>The Guide on a Page</h3><p>The whole framework on one page, for review or for warming up before a challenging session. Not for consulting during one.</p></div>`;
   el.appendChild(rc);
@@ -6052,7 +6052,7 @@ function finish(){
         return '<div class="cell"><b style="color:'+TIER_COLOR[k]+'">'+sc+'/'+n+'</b><span style="font-size:.75rem;color:var(--ink-faint)">'+TIER_LABEL[k]+'</span></div>';
       });
       cells.push('<div class="cell overall"><b>'+got+'/'+tot+'</b><span style="font-size:.75rem;color:var(--ink-faint)">All three tiers</span></div>');
-      cells.push('<p class="rc-done">All three tiers complete. <a href="https://energytapping.com/practiceprogram/guideonapage.pdf" download>Download the Guide on a Page \u2192</a></p>');
+      cells.push('<p class="rc-done">All three tiers complete. <a href="/practiceprogram/guideonapage.pdf" download>Download the Guide on a Page \u2192</a></p>');
       bd.innerHTML=cells.join('');
       } else {
       bd.style.display='block'; bd.classList.remove('bd4');
