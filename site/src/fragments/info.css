@@ -107,7 +107,7 @@ section{padding:4.5rem 0}
 .contrib .attrib{margin-top:1.6rem;font-size:.95rem;color:var(--ink-faint)}
 
 /* included */
-.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto;align-items:start}
 .feat .f{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.4rem}
 .feat .f h4{font-family:var(--ui);font-size:1.02rem;color:var(--navy);margin-bottom:.25rem}
 .feat .f p{font-size:.94rem;color:var(--ink-soft)}
@@ -230,7 +230,7 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 @media(max-width:820px){ .ce-grid{grid-template-columns:1fr} .ce-card.wide{grid-column:auto} .voices .vcard.wide{grid-column:auto} }
 
 /* faq */
-.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;margin:0 auto;align-items:start}
 .faq-grid .q-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.4rem}
 .faq-grid .q-item.wide{grid-column:1/-1}
 .faq-grid h4{font-family:var(--ui);font-size:1rem;color:var(--navy);margin-bottom:.3rem}
@@ -455,8 +455,8 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 .problem .gains li{position:relative;padding-left:1.5rem;margin:0 0 .6rem;font-size:1.05rem;line-height:1.55}
 .problem .gains li::before{content:"";position:absolute;left:.2rem;top:.62em;width:.5rem;height:.5rem;border-radius:50%;background:var(--brass,#b8924a)}
 .problem p.open-cta{text-align:center;margin:0 auto}
-.problem p.gains-h{text-align:center}
-.problem .gains{max-width:60ch;margin-left:auto;margin-right:auto}
+.problem p.gains-h{text-align:left}
+.problem .gains{max-width:60ch;margin-left:0;margin-right:auto}
 .hero .hero-assure a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .hero .hero-quote{margin-top:2.2rem}
 #folded-preview .fp-done .fp-offer{font-family:var(--ui);font-size:.98rem;color:var(--ink);margin:0 auto 1.4rem;max-width:34rem;text-align:center}
