@@ -461,3 +461,44 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 .hero .hero-assure a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .hero .hero-quote{margin-top:2.2rem}
 #folded-preview .fp-done .fp-offer{font-family:var(--ui);font-size:.98rem;color:var(--ink);margin:0 auto 1.4rem;max-width:34rem;text-align:center}
+
+/* ===== Product-card hero (asymmetric: copy left, scenario card right) ===== */
+.hero{text-align:left}
+.hero .hero-grid{display:grid;grid-template-columns:1.02fr 1.1fr;gap:3.4rem;align-items:center}
+.hero .hero-copy{text-align:left}
+.hero .hero-eyebrow{font-family:var(--ui);font-weight:700;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin:0 0 1.3rem;line-height:1.4}
+.hero .hero-eyebrow span{color:#8FA1B1}
+.hero .hook-h{color:#F4F7FA;font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.015em;font-size:clamp(2.2rem,3.6vw,3.4rem);margin:0 0 1.4rem;max-width:16ch}
+.hero .hook-h em{font-style:italic;color:var(--brass);font-weight:500}
+.hero .hook-sub{font-family:var(--serif);font-size:1.12rem;line-height:1.5;color:#B9C6D2;max-width:30rem;margin:0 0 2rem}
+.hero .hero-copy .cta-row{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:flex-start;margin:0 0 1.2rem}
+.hero .hero-copy .hero-assure{text-align:left;margin:0;color:#8FA1B1}
+.hero .hero-copy .hero-assure b{color:#C9D5DF}
+
+.hero .hero-viz{position:relative;display:flex;flex-direction:column;align-items:center}
+.hero .hero-card-stack{position:relative;width:100%;max-width:440px}
+.hero .hcard-layer{position:absolute;inset:0;background:#fffefc;border-radius:18px;border:1px solid rgba(0,0,0,.05)}
+.hero .hcard-layer.l2{transform:translate(18px,16px) rotate(2.2deg);opacity:.42;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.hero .hcard-layer.l1{transform:translate(9px,8px) rotate(1deg);opacity:.72;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.hero .hcard{position:relative;background:#fff;border-radius:18px;padding:1.5rem 1.5rem 1.35rem;box-shadow:0 34px 70px rgba(5,14,24,.5);color:var(--ink);border:1px solid rgba(255,255,255,.6);text-align:left}
+.hero .hcard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.hero .hcard-pill{font-family:var(--ui);font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-deep);background:rgba(183,151,90,.12);border:1px solid rgba(183,151,90,.3);padding:.28rem .6rem;border-radius:999px}
+.hero .hcard-sud{font-family:var(--ui);font-size:.72rem;font-weight:600;color:var(--ink-soft)}
+.hero .hcard-sud b{color:var(--brand)}
+.hero .hcard-scene{font-family:var(--serif);font-size:1.02rem;line-height:1.5;color:#2a3744;margin:0 0 1.05rem}
+.hero .hcard-prompt{font-family:var(--ui);font-weight:700;font-size:.82rem;color:var(--ink);margin:0 0 .7rem}
+.hero .hcard-opt{display:flex;gap:.6rem;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:.6rem .7rem;margin:0 0 .5rem;font-size:.82rem;line-height:1.35;color:#3a4652;background:#fff}
+.hero .hcard-opt .k{flex:0 0 1.35rem;height:1.35rem;border-radius:6px;background:#EDE8DF;color:var(--ink-soft);font-family:var(--ui);font-weight:700;font-size:.74rem;display:flex;align-items:center;justify-content:center}
+.hero .hcard-opt.correct{border-color:#2E8B6F;background:rgba(46,139,111,.07)}
+.hero .hcard-opt.correct .k{background:#2E8B6F;color:#fff}
+.hero .hcard-why{margin:.15rem 0 0;border-left:3px solid #2E8B6F;background:rgba(46,139,111,.06);border-radius:0 8px 8px 0;padding:.55rem .75rem;font-size:.78rem;line-height:1.45;color:#2d4a40}
+.hero .hcard-why b{color:#2E8B6F}
+.hero .hero-viz-cap{margin:1.5rem 0 0;font-size:.82rem;color:#8798a7;letter-spacing:.02em;text-align:center}
+
+@media(max-width:860px){
+  .hero .hero-grid{grid-template-columns:1fr;gap:2.4rem}
+  .hero .hook-h{max-width:none;font-size:clamp(2rem,7.5vw,2.7rem)}
+  .hero .hero-card-stack{max-width:400px;margin:0 auto}
+  .hero .hero-copy .cta-row{flex-direction:column;align-items:stretch}
+  .hero .hero-copy .cta-row .btn{text-align:center}
+}
