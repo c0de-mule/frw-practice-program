@@ -43,6 +43,8 @@ const { title = 'Finding the Right Words', description = '', navItems, brandLabe
     .site-footer{flex-shrink:0;text-align:center;padding:2.8rem 1.25rem 3.2rem;color:var(--ink-faint);font-size:.9rem;border-top:1px solid var(--line);margin-top:2rem}
     .site-footer a{color:var(--ink-faint)}
     .site-footer .fine{margin:.5rem 0 0;font-size:.82rem}
+    /* Site chrome never belongs in a printed page / PDF export */
+    @media print{ .nav, .site-footer{display:none !important} }
   </style>
 </head>
 <body>
