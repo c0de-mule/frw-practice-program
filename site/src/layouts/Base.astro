@@ -1,6 +1,6 @@
 ---
-const { title = 'Finding the Right Words', description = '', navItems } = Astro.props;
 const base = import.meta.env.BASE_URL; // '/app/' in this preview build
+const { title = 'Finding the Right Words', description = '', navItems, brandLabel, brandHref = base } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -9,6 +9,7 @@ const base = import.meta.env.BASE_URL; // '/app/' in this preview build
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{title}</title>
   {description && <meta name="description" content={description} />}
+  <link rel="icon" href="https://energytapping.com/wp-content/uploads/2019/11/cropped-blue-spiral-square-270x270.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
@@ -47,10 +48,14 @@ const base = import.meta.env.BASE_URL; // '/app/' in this preview build
 <body>
   <div class="nav">
     <div class="nav-in">
-      <div class="brand"><a href={base}><span class="l">Finding the </span><span class="r">Right Words</span></a></div>
+      <div class="brand">
+        {brandHref
+          ? <a href={brandHref}>{brandLabel ? <span class="r">{brandLabel}</span> : <Fragment><span class="l">Finding the </span><span class="r">Right Words</span></Fragment>}</a>
+          : (brandLabel ? <span class="r">{brandLabel}</span> : <Fragment><span class="l">Finding the </span><span class="r">Right Words</span></Fragment>)}
+      </div>
       <nav class="navlinks">
         {navItems ? navItems.map((it) => (
-          <a href={it.href} class:list={[{ enroll: it.cta, 'hide-sm': it.hideSm }]}>{it.label}</a>
+          <a href={it.href} target={it.newTab ? '_blank' : undefined} rel={it.newTab ? 'noopener' : undefined} class:list={[{ enroll: it.cta, 'hide-sm': it.hideSm }]}>{it.label}</a>
         )) : (
           <Fragment>
             <a class="hide-sm" href="/">About the program</a>

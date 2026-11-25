@@ -288,7 +288,7 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 
 
     .hero .hero-sub{font-family:var(--serif);color:var(--brass);text-align:center;font-style:italic;font-size:1.55rem;margin:1rem 0 2rem;letter-spacing:.01em;line-height:1.3}
-    body.preview-mode .topbar,body.preview-mode .hero,body.preview-mode #creed,body.preview-mode .problem,body.preview-mode #how,body.preview-mode #try,body.preview-mode #tiers,body.preview-mode .contrib,body.preview-mode #enroll,body.preview-mode footer,body.preview-mode section:not(#folded-preview){display:none !important}
+    body.preview-mode .topbar,body.preview-mode .nav,body.preview-mode .hero,body.preview-mode #creed,body.preview-mode .problem,body.preview-mode #how,body.preview-mode #try,body.preview-mode #tiers,body.preview-mode .contrib,body.preview-mode #enroll,body.preview-mode footer,body.preview-mode section:not(#folded-preview){display:none !important}
     #folded-preview{display:none;background:var(--paper);min-height:100vh;padding:0 0 5rem}
     body.preview-mode #folded-preview{display:block}
     #folded-preview .fp-topbar{background:var(--navy);padding:.85rem 0;margin-bottom:3rem}
