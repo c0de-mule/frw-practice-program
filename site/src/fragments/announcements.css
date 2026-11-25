@@ -127,7 +127,7 @@
   .copy.alt.done{background:#2C5F4A;color:#fff;box-shadow:none}
   .subj{font-family:var(--ui);font-weight:700;color:var(--navy);margin:0 0 .9rem;font-size:1rem}
   .yournote{display:inline-block;background:#FFF4C2;padding:.1rem .45rem;border-radius:4px;font-style:italic;color:#5A4A12}
-  .body p.jl{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+  .body p.jl{text-align:left;-webkit-hyphens:manual;hyphens:manual}
   .fglink{font-family:var(--ui);font-weight:600}
   .gems{margin:-.3rem 0 1rem;padding-left:1.3rem}
   .gems li{margin:0 0 .5rem;padding-left:.2rem}

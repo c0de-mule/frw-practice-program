@@ -197,8 +197,8 @@
   .opening-frame{color:var(--ink);margin:0 0 2.3rem}
   .runin{font-family:var(--display);font-weight:600;color:var(--navy)}
   section:not(#practice) .wrap > p:not(.section-label):not(.guide-mark):not(.pull):not(.midlink):not(.closer):not(.about-link),
-  .rw-list li, .domain-lede, .errlede{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
-  .mast-text .lede{text-align:justify;text-align-last:left;-webkit-hyphens:auto;hyphens:auto}
+  .rw-list li, .domain-lede, .errlede{text-align:left;-webkit-hyphens:manual;hyphens:manual}
+  .mast-text .lede{text-align:left;-webkit-hyphens:manual;hyphens:manual}
   .guide-mark{font-family:var(--display);font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:500;letter-spacing:-0.01em;color:var(--navy);text-align:center;margin:0 0 1.9rem}
   .midlink{
     margin:2.6rem auto 0;max-width:40rem;text-align:center;
