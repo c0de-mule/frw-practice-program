@@ -343,6 +343,30 @@ a{color:var(--attune)}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true"><defs>
+  <linearGradient id="clWood" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#8A5E36"/><stop offset=".45" stop-color="#5E3D22"/><stop offset="1" stop-color="#331F10"/></linearGradient>
+  <linearGradient id="clBrass" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#F3E1A8"/><stop offset=".5" stop-color="#B8903F"/><stop offset="1" stop-color="#6E5122"/></linearGradient>
+  <linearGradient id="clInlay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9B569"/><stop offset="1" stop-color="#9C7231"/></linearGradient>
+  <radialGradient id="clFace" cx=".42" cy=".38" r=".74"><stop offset="0" stop-color="#123049"/><stop offset="1" stop-color="#091C2D"/></radialGradient>
+  <g id="clCard"><path d="M130 6 L141 18 L130 30 L119 18 Z" fill="url(#clInlay)" stroke="#2A1B0E" stroke-width="0.6" opacity=".95"/><path d="M130 11 L136 18 L130 25 L124 18 Z" fill="#5C3B22" opacity=".8"/><path d="M142 15 q12 -5 17 4 q3 6 -3 8 q-5 1 -5 -4" fill="url(#clInlay)" opacity=".9"/><path d="M118 15 q-12 -5 -17 4 q-3 6 3 8 q5 1 5 -4" fill="url(#clInlay)" opacity=".9"/><circle cx="163" cy="26" r="1.5" fill="url(#clInlay)"/><circle cx="97" cy="26" r="1.5" fill="url(#clInlay)"/></g>
+  <g id="clDsm"><path d="M130 9 L136 18 L130 27 L124 18 Z" fill="url(#clInlay)" stroke="#2A1B0E" stroke-width="0.5" opacity=".9"/></g>
+  <symbol id="clCompass" viewBox="0 0 260 260">
+    <circle cx="130" cy="130" r="126" fill="url(#clWood)"/>
+    <circle cx="130" cy="130" r="120" fill="none" stroke="#2C1B0D" stroke-width="1" opacity=".2"/>
+    <circle cx="130" cy="130" r="112" fill="none" stroke="#2C1B0D" stroke-width="1" opacity=".18"/>
+    <circle cx="130" cy="130" r="126" fill="none" stroke="#231508" stroke-width="2"/>
+    <use href="#clCard"/><use href="#clCard" transform="rotate(90 130 130)"/><use href="#clCard" transform="rotate(180 130 130)"/><use href="#clCard" transform="rotate(270 130 130)"/>
+    <use href="#clDsm" transform="rotate(45 130 130)"/><use href="#clDsm" transform="rotate(135 130 130)"/><use href="#clDsm" transform="rotate(225 130 130)"/><use href="#clDsm" transform="rotate(315 130 130)"/>
+    <circle cx="130" cy="130" r="97" fill="url(#clFace)"/>
+    <circle cx="130" cy="130" r="97.3" fill="none" stroke="#231508" stroke-width="1.6" opacity=".65"/>
+    <g fill="none" stroke-width="11" stroke-linecap="round"><path d="M130 38.5 A91.5 91.5 0 0 1 209.2 175.8" stroke="#2E86B5"/><path d="M209.2 175.8 A91.5 91.5 0 0 1 50.8 175.8" stroke="#CB8642"/><path d="M50.8 175.8 A91.5 91.5 0 0 1 130 38.5" stroke="#4E9A6E"/></g>
+    <g stroke="#DCCBA2" stroke-width="1.2" opacity=".5"><line x1="130" y1="130" x2="130" y2="38.5"/><line x1="130" y1="130" x2="209.2" y2="175.8"/><line x1="130" y1="130" x2="50.8" y2="175.8"/></g>
+    <g><path d="M130 65 L134.5 130 L125.5 130 Z" fill="#B5403A"/><path d="M130 195 L134.5 130 L125.5 130 Z" fill="#33383F"/><circle cx="130" cy="130" r="8" fill="url(#clBrass)" stroke="#6E521F" stroke-width="1"/><circle cx="130" cy="130" r="3" fill="#3A2414"/></g>
+    <text x="177" y="103" fill="#9FD0DE" font-family="Avenir Next,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" transform="rotate(60 177 103)">ATTUNE</text>
+    <text x="130" y="184" fill="#E7C08A" font-family="Avenir Next,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle">EXPLORE</text>
+    <text x="83" y="103" fill="#9AD3B2" font-family="Avenir Next,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" transform="rotate(-60 83 103)">LEAD</text>
+  </symbol>
+</defs></svg>
 <div class="brand">
   <span class="brand-l">The Right Words</span>
   <span class="brand-r">Practice Program</span>
@@ -351,6 +375,11 @@ a{color:var(--attune)}
 <div id="home">
   <div class="wrap">
     <div class="hero">
+      <div class="prog-compass">
+        <p class="cname">Compass and Map</p>
+        <svg class="compass-art" viewBox="0 0 260 260" role="img" aria-label="Compass and Map"><use href="#clCompass"/></svg>
+        <p class="cneedle"><span>The Needle Moves</span><span>with Moment-by-Moment Shifts</span><span>in the Session</span></p>
+      </div>
       <p class="prog-mark">Practice Program</p>
       <h1>Finding the Right Words</h1>
       <p class="companion">A Companion to the <i>Finding the Right Words</i> Field Guide</p>
@@ -6141,7 +6170,7 @@ window.addEventListener('popstate',function(e){
   const Mock = {
     _read(){ try { return JSON.parse(localStorage.getItem(MOCK_KEY)) || null; } catch(e){ return null; } },
     _write(d){ try { localStorage.setItem(MOCK_KEY, JSON.stringify(d)); } catch(e){} },
-    _seed(){ let d=this._read(); if(!d){ d={ entitlements:['test@example.com','buyer@example.com'], progress:{} }; this._write(d); } return d; },
+    _seed(){ let d=this._read(); if(!d){ d={ entitlements:['demo@local.test'], progress:{} }; this._write(d); } return d; },
     async checkEntitlement(email){ return this._seed().entitlements.includes(email); },
     async getProgress(email){ return this._seed().progress[email] || null; },
     async saveProgress(email, payload){ const d=this._seed(); d.progress[email]=payload; this._write(d); }
@@ -6210,6 +6239,11 @@ window.addEventListener('popstate',function(e){
     s.textContent = `
     #frw-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
       background:var(--paper,#F7F5F1);padding:24px}
+    .prog-compass{width:100%;max-width:200px;margin:0 auto 1.3rem}
+    .prog-compass .cname{font-family:var(--ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:#9A7B3A;margin:0 0 .5rem;text-align:center}
+    .prog-compass .compass-art{display:block;width:100%;max-width:150px;height:auto;margin:0 auto}
+    .prog-compass .cneedle{text-align:center;margin:.45rem 0 0;font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:.9rem;line-height:1.3}
+    .prog-compass .cneedle span{display:block}
     #frw-gate .gcard{max-width:440px;width:100%;text-align:center;font-family:var(--ui)}
     #frw-gate .geyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;color:var(--ink-faint);margin:0 0 .55rem}
     #frw-gate h1{font-family:var(--serif);font-size:2rem;margin:0 0 .5rem;color:var(--navy)}
@@ -6271,9 +6305,13 @@ window.addEventListener('popstate',function(e){
   function showGate(prefill){
     const old=document.getElementById('frw-gate'); if(old) old.remove();
     const g=document.createElement('div'); g.id='frw-gate';
-    const demo = useSupabase ? '' :
-      `<p class="ghint"><b>Prototype — local demo mode.</b> No account set up yet, so try <code>test@example.com</code> or <code>buyer@example.com</code>. Any other address is treated as “not a purchaser.”</p>`;
+    const demo = '';
     g.innerHTML = `<div class="gcard">
+      <div class="prog-compass">
+        <p class="cname">Compass and Map</p>
+        <svg class="compass-art" viewBox="0 0 260 260" role="img" aria-label="Compass and Map"><use href="#clCompass"/></svg>
+        <p class="cneedle"><span>The Needle Moves</span><span>with Moment-by-Moment Shifts</span><span>in the Session</span></p>
+      </div>
       <p class="geyebrow">Finding the Right Words</p>
       <h1>The Practice Program</h1>
       <p class="lead">Enter the email you used to purchase the program. Your materials open here, and your progress follows you to any device.</p>
