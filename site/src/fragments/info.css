@@ -523,10 +523,24 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 .source-cite-p a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
 .source-cite-p a:hover{color:var(--brand)}
 
-/* Compass/map logo at the top of the landing hero (David: our program logo) */
-.hero .hero-grid .hero-viz{align-self:center;justify-content:center;text-align:center}
-.hero-logo-name{font-family:var(--ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;color:var(--brass);margin:0 0 1.1rem}
-.hero-compass{width:min(300px,80%);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 22px 44px rgba(5,14,24,.5))}
-.hero-logo-needle{font-family:var(--serif);font-style:italic;color:#C6D4DF;font-size:1rem;line-height:1.42;margin:1.2rem auto 0;max-width:23rem}
-.hero-logo-needle span{display:block}
-@media(max-width:860px){ .hero-compass{width:min(240px,62%)} .hero .hero-grid .hero-viz{margin-top:.4rem} }
+/* ===== Centered brand masthead (David's direction: compass on top, one column) ===== */
+.hero .hero-centered{max-width:720px;margin:0 auto;text-align:center}
+.hero .hero-centered .hero-eyebrow{margin:0 0 1.1rem}
+.hero .hero-centered .hook-h{max-width:none;margin:0 0 .6rem}
+.hero .hero-centered .hero-hook{max-width:28ch;margin:0 auto .2rem;text-align:center}
+.hero-brand{margin:1.7rem auto 1.6rem}
+.hero-brand .hero-logo-name{font-family:var(--ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.76rem;color:var(--brass);margin:0 0 .9rem}
+.hero-brand .hero-compass{width:min(200px,56%);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 18px 38px rgba(5,14,24,.5))}
+.hero-brand .hero-logo-needle{font-family:var(--serif);font-style:italic;color:#C6D4DF;font-size:.98rem;line-height:1.4;margin:.95rem auto 0;max-width:34rem}
+.hero-brand .hero-logo-needle span{display:block}
+.hero .hero-centered .hook-sub{max-width:34rem;margin:0 auto 1rem;text-align:center}
+.hero .hero-centered .hero-promise{max-width:54ch;margin:0 auto 1.5rem;text-align:center}
+.hero .hero-centered .cta-row{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin:0 0 1.2rem}
+.hero .hero-centered .cta-row .btn{font-size:1rem;padding:.92rem 1.6rem;white-space:nowrap}
+.hero .hero-centered .hero-assure{text-align:center;margin:0;color:#8FA1B1}
+.hero .hero-centered .hero-assure b{color:#C9D5DF}
+.hero .hero-centered .hero-frontiers{text-align:center;margin:1rem 0 0;font-size:.82rem;color:#8FA1B1}
+.hero .hero-centered .hero-frontiers a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.hero .hero-centered .hero-frontiers b{color:var(--brass);font-weight:600}
+.hero .hero-centered .hero-quote{max-width:46rem;margin:2.4rem auto 0}
+@media(max-width:860px){ .hero-brand .hero-compass{width:min(188px,52%)} .hero .hero-centered .hero-hook,.hero .hero-centered .hero-promise{max-width:none} }
