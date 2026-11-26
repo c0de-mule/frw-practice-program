@@ -522,3 +522,11 @@ footer .fbar{display:flex;flex-direction:column;align-items:center;gap:.4rem;tex
 .source-cite-p{max-width:60ch;margin:0 auto;font-size:.9rem;line-height:1.55;color:var(--ink-soft)}
 .source-cite-p a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
 .source-cite-p a:hover{color:var(--brand)}
+
+/* Compass/map logo at the top of the landing hero (David: our program logo) */
+.hero .hero-grid .hero-viz{align-self:center;justify-content:center;text-align:center}
+.hero-logo-name{font-family:var(--ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;color:var(--brass);margin:0 0 1.1rem}
+.hero-compass{width:min(300px,80%);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 22px 44px rgba(5,14,24,.5))}
+.hero-logo-needle{font-family:var(--serif);font-style:italic;color:#C6D4DF;font-size:1rem;line-height:1.42;margin:1.2rem auto 0;max-width:23rem}
+.hero-logo-needle span{display:block}
+@media(max-width:860px){ .hero-compass{width:min(240px,62%)} .hero .hero-grid .hero-viz{margin-top:.4rem} }
