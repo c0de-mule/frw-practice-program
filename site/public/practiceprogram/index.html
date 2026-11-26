@@ -6193,13 +6193,13 @@ window.addEventListener('popstate',function(e){
     },
     async getProgress(email){
       const c=await sbClient();
-      const { data, error } = await c.from('frw_progress').select('payload').eq('email', email).maybeSingle();
+      const { data, error } = await c.rpc('frw_get_progress', { p_email: email });
       if(error){ console.warn('getProgress failed', error); return null; }
-      return data ? data.payload : null;
+      return data || null;
     },
     async saveProgress(email, payload){
       const c=await sbClient();
-      const { error } = await c.from('frw_progress').upsert({ email: email, payload: payload, updated_at: new Date().toISOString() }, { onConflict: 'email' });
+      const { error } = await c.rpc('frw_save_progress', { p_email: email, p_payload: payload });
       if(error) console.warn('saveProgress failed', error);
     }
   };
